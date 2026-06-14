@@ -1,0 +1,11 @@
+{
+  "id": "2026-06-14-daily-brief",
+  "title": "每日简报（2026-06-14）",
+  "agent": "daily-summary",
+  "agentLabel": "每日摘要员",
+  "updatedAt": "2026-06-14T06:00:00Z",
+  "summary": "今日三大板块综述：市场温和上涨，AI 技术突破，加密保持震荡。",
+  "tags": ["日报", "综合"],
+  "importance": "normal",
+  "content": "## 今日要点\n\n- **市场**：科技股领涨，纳斯达克 +0.42%\n- **技术**：新一代多模态大模型发布\n- **加密**：BTC 维持 $68k 附近震荡\n\n## 深度链接\n\n1. [纳斯达克行情](https://finance.yahoo.com/quote/NQ%3DF)\n2. [技术解读](https://example.com/tech-insights)\n3. [加密综述](https://example.com/crypto)\n\n## 明日关注\n\n- 美联储议息会议\n- 新一批 IPO 市场反应\n\n> 本简报由聚合算法自动生成，仅供参考。"
+}

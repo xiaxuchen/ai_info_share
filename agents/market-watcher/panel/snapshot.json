@@ -1,0 +1,10 @@
+{
+  "updatedAt": "2026-06-14T09:00:00Z",
+  "kpi": [
+    { "label": "纳斯达克 100", "value": "21,430 (+0.42%)", "trend": "up" },
+    { "label": "S&P 500", "value": "5,420 (+0.17%)", "trend": "up" },
+    { "label": "BTC / USD", "value": "$68,512 (+1.04%)", "trend": "up" },
+    { "label": "ETH / USD", "value": "$3,784 (+2.10%)", "trend": "up" },
+    { "label": "恐慌贪婪指数", "value": "68（贪婪）", "trend": "neutral" }
+  ]
+}

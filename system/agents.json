@@ -1,0 +1,7 @@
+{
+  "agents": [
+    { "name": "market-watcher", "label": "市场观察员" },
+    { "name": "tech-insights", "label": "技术情报员" },
+    { "name": "daily-summary", "label": "每日摘要员" }
+  ]
+}
