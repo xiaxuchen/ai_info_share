@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识图谱编辑器 - 中欣氟材</title>
+<script src="https://cdn.jsdelivr.net/npm/n3/browser/n3.min.js"></script>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: #f0f2f5; color: #1e293b; min-height: 100vh;
+}
+/* Header */
+.header {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%);
+    color: #fff; padding: 16px 32px; display: flex; align-items: center; gap: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15); position: relative; z-index: 10;
+}
+.header h1 { font-size: 20px; font-weight: 600; flex: 1; }
+.header h1 small { font-size: 13px; font-weight: 400; opacity: .7; margin-left: 8px; }
+.header-actions { display: flex; gap: 8px; align-items: center; }
+.header .stats { font-size: 13px; opacity: .85; white-space: nowrap; }
+/* Buttons */
+.btn {
+    display: inline-flex; align-items: center; gap: 4px; padding: 8px 16px;
+    border: none; border-radius: 6px; font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: all .2s; text-decoration: none; white-space: nowrap;
+}
+.btn-primary { background: #fff; color: #2563eb; }
+.btn-primary:hover { background: #e2e8f0; }
+.btn-outline { background: transparent; border: 1px solid rgba(255,255,255,.5); color: #fff; }
+.btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+.btn-sm { padding: 4px 10px; font-size: 12px; }
+.btn-danger { background: #ef4444; color: #fff; }
+.btn-danger:hover { background: #dc2626; }
+.btn-success { background: #10b981; color: #fff; }
+.btn-success:hover { background: #059669; }
+/* Tabs */
+.tabs {
+    display: flex; gap: 0; background: #fff; border-bottom: 1px solid #e2e8f0;
+    padding: 0 32px; position: sticky; top: 0; z-index: 9;
+}
+.tab-btn {
+    padding: 12px 24px; border: none; background: none; font-size: 14px; font-weight: 500;
+    color: #64748b; cursor: pointer; border-bottom: 2px solid transparent; transition: all .2s;
+}
+.tab-btn:hover { color: #2563eb; }
+.tab-btn.active { color: #2563eb; border-bottom-color: #2563eb; }
+/* Content */
+.content { max-width: 1400px; margin: 0 auto; padding: 20px 32px; }
+.panel { display: none; }
+.panel.active { display: block; }
+/* Statistics bar */
+.stat-bar {
+    display: flex; gap: 24px; padding: 12px 20px; background: #fff; border-radius: 8px;
+    margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+}
+.stat-item { display: flex; flex-direction: column; align-items: center; }
+.stat-item .num { font-size: 22px; font-weight: 700; color: #2563eb; }
+.stat-item .label { font-size: 12px; color: #64748b; margin-top: 2px; }
+/* Graph view */
+.graph-container {
+    background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    overflow: hidden; position: relative; height: 600px;
+}
+.graph-container canvas { display: block; width: 100%; height: 100%; }
+.graph-loading {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    color: #94a3b8; font-size: 14px;
+}
+.graph-tooltip {
+    position: absolute; display: none; background: #1e293b; color: #fff;
+    padding: 8px 12px; border-radius: 6px; font-size: 12px; pointer-events: none;
+    max-width: 200px; z-index: 20; line-height: 1.5;
+}
+.graph-tooltip .tt-name { font-weight: 600; }
+.graph-tooltip .tt-type { opacity: .7; font-size: 11px; }
+.graph-tooltip .tt-rels { margin-top: 4px; font-size: 11px; opacity: .8; }
+.graph-legend {
+    position: absolute; bottom: 12px; left: 12px; background: rgba(255,255,255,.95);
+    padding: 10px 14px; border-radius: 6px; font-size: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.15);
+    display: flex; flex-wrap: wrap; gap: 6px 14px;
+}
+.graph-legend .legend-item { display: flex; align-items: center; gap: 6px; }
+.graph-legend .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+/* Table view */
+.table-container {
+    background: #fff; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,.08); overflow: hidden;
+}
+.table-toolbar {
+    display: flex; gap: 12px; padding: 12px 16px; align-items: center;
+    border-bottom: 1px solid #e2e8f0; flex-wrap: wrap;
+}
+.table-toolbar .search-input {
+    padding: 6px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px;
+    flex: 1; min-width: 200px; outline: none; transition: border .2s;
+}
+.table-toolbar .search-input:focus { border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,.2); }
+table { width: 100%; border-collapse: collapse; }
+thead { background: #f8fafc; position: sticky; top: 0; }
+th {
+    padding: 10px 16px; text-align: left; font-size: 12px; font-weight: 600;
+    color: #64748b; text-transform: uppercase; letter-spacing: .05em;
+    border-bottom: 1px solid #e2e8f0; cursor: pointer; user-select: none;
+}
+th:hover { color: #2563eb; }
+th .sort-icon { margin-left: 4px; opacity: .4; }
+th .sort-icon.active { opacity: 1; color: #2563eb; }
+td {
+    padding: 10px 16px; font-size: 13px; border-bottom: 1px solid #f1f5f9; vertical-align: middle;
+}
+tr:hover td { background: #f8fafc; }
+td .entity-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px;
+    font-weight: 500; color: #fff;
+}
+td .pred-tag {
+    display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px;
+    background: #eef2ff; color: #4338ca;
+}
+td .actions { display: flex; gap: 4px; }
+/* Add form */
+.add-form {
+    padding: 16px; background: #f8fafc; border-top: 1px solid #e2e8f0;
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: flex-end;
+}
+.add-form .form-group { display: flex; flex-direction: column; gap: 4px; }
+.add-form .form-group label { font-size: 11px; color: #64748b; font-weight: 500; }
+.add-form input, .add-form select {
+    padding: 7px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px;
+    outline: none; transition: border .2s; min-width: 130px;
+}
+.add-form input:focus, .add-form select:focus { border-color: #2563eb; box-shadow: 0 0 0 2px rgba(37,99,235,.2); }
+/* Modal */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,.4);
+    display: none; align-items: center; justify-content: center; z-index: 100;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+    background: #fff; border-radius: 12px; padding: 24px; width: 480px; max-width: 90vw;
+    box-shadow: 0 20px 60px rgba(0,0,0,.3);
+}
+.modal h3 { font-size: 16px; margin-bottom: 16px; }
+.modal .form-group { margin-bottom: 12px; }
+.modal .form-group label { display: block; font-size: 12px; color: #64748b; font-weight: 500; margin-bottom: 4px; }
+.modal .form-group input, .modal .form-group select {
+    width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 13px; outline: none;
+}
+.modal .form-group input:focus, .modal .form-group select:focus { border-color: #2563eb; }
+.modal .modal-actions { display: flex; gap: 8px; justify-content: flex-end; margin-top: 20px; }
+/* Toast */
+.toast {
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+    padding: 10px 20px; border-radius: 8px; color: #fff; font-size: 13px;
+    z-index: 200; opacity: 0; transition: all .3s; pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,.2);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.toast.success { background: #10b981; }
+.toast.error { background: #ef4444; }
+.toast.info { background: #3b82f6; }
+/* Responsive */
+@media (max-width: 768px) {
+    .header { padding: 12px 16px; flex-wrap: wrap; }
+    .header h1 { font-size: 16px; }
+    .tabs { padding: 0 16px; }
+    .content { padding: 12px 16px; }
+    .graph-container { height: 400px; }
+    .add-form { flex-direction: column; }
+    .add-form input, .add-form select { min-width: 100%; }
+}
+/* Empty state */
+.empty-state { text-align: center; padding: 60px 20px; color: #94a3b8; }
+.empty-state .icon { font-size: 48px; margin-bottom: 12px; }
+.empty-state p { font-size: 14px; }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+    <h1>🔬 知识图谱编辑器 <small>中欣氟材</small></h1>
+    <div class="header-actions">
+        <span class="stats" id="statsBar">三元组: 0 | 实体: 0</span>
+        <span style="font-size:12px;opacity:.7;max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" id="filePathLabel">knowledge-graph.ttl</span>
+        <button class="btn btn-outline" onclick="document.getElementById('fileInput').click()">📂 打开</button>
+        <button class="btn btn-primary" onclick="exportTTL()">💾 保存</button>
+        <button class="btn btn-outline" onclick="copyTTL()" style="font-size:12px;">📋 复制</button>
+        <button class="btn btn-outline" onclick="resetToDefault()" style="font-size:12px;">↺ 重置</button>
+    </div>
+    <input type="file" id="fileInput" accept=".ttl,.rdf,.nt" style="display:none" onchange="loadFile(event)">
+</div>
+
+<!-- Tabs -->
+<div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('graph')">🔗 图谱视图</button>
+    <button class="tab-btn" onclick="switchTab('table')">📋 表格视图</button>
+</div>
+
+<!-- Content -->
+<div class="content">
+
+    <!-- Graph Panel -->
+    <div class="panel active" id="panel-graph">
+        <div class="stat-bar" id="graphStats"></div>
+        <div class="graph-container" id="graphContainer">
+            <div class="graph-loading" id="graphLoading" style="display:none">正在渲染图谱...</div>
+            <canvas id="graphCanvas"></canvas>
+            <div class="graph-tooltip" id="graphTooltip"></div>
+            <div class="graph-legend" id="graphLegend"></div>
+        </div>
+    </div>
+
+    <!-- Table Panel -->
+    <div class="panel" id="panel-table">
+        <div class="table-container">
+            <div class="table-toolbar">
+                <input class="search-input" id="searchInput" placeholder="🔍 搜索主体、关系、客体..." oninput="renderTable()">
+                <span style="font-size:12px;color:#94a3b8" id="tableCount"></span>
+            </div>
+            <div style="overflow-x:auto;max-height:460px;overflow-y:auto">
+                <table>
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable('subject')">主体 <span class="sort-icon" id="sort-subject">▲</span></th>
+                            <th onclick="sortTable('predicate')">关系 <span class="sort-icon" id="sort-predicate">▲</span></th>
+                            <th onclick="sortTable('object')">客体 <span class="sort-icon" id="sort-object">▲</span></th>
+                            <th style="width:100px">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+            <div class="add-form" id="addForm">
+                <div class="form-group">
+                    <label>主体</label>
+                    <input id="newSubject" list="subjectList" placeholder="例: 中欣氟材">
+                </div>
+                <div class="form-group">
+                    <label>关系</label>
+                    <input id="newPredicate" list="predicateList" placeholder="例: 布局领域">
+                </div>
+                <div class="form-group">
+                    <label>客体</label>
+                    <input id="newObject" list="objectList" placeholder="例: 半导体">
+                </div>
+                <datalist id="subjectList"></datalist>
+                <datalist id="predicateList"></datalist>
+                <datalist id="objectList"></datalist>
+                <button class="btn btn-success" onclick="addTriple()">➕ 添加</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Edit Modal -->
+<div class="modal-overlay" id="editModal">
+    <div class="modal">
+        <h3>✏️ 编辑三元组</h3>
+        <div class="form-group">
+            <label>主体 (Subject)</label>
+            <input id="editSubject" list="subjectList">
+        </div>
+        <div class="form-group">
+            <label>关系 (Predicate)</label>
+            <input id="editPredicate" list="predicateList">
+        </div>
+        <div class="form-group">
+            <label>客体 (Object)</label>
+            <input id="editObject" list="objectList">
+        </div>
+        <div class="modal-actions">
+            <button class="btn btn-outline" style="border-color:#d1d5db;color:#64748b" onclick="closeEdit()">取消</button>
+            <button class="btn btn-danger" onclick="deleteFromEdit()" style="margin-right:auto">🗑️ 删除</button>
+            <button class="btn btn-primary" onclick="saveEdit()" style="background:#2563eb;color:#fff">保存</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ============================================================
+// 状态
+// ============================================================
+const state = {
+    triples: [],        // [{subject, predicate, object}]
+    typeMap: {},        // {entityIri: typeName}
+    sortBy: null,
+    sortAsc: true,
+    editIdx: -1,
+    graphNodes: [],
+    graphEdges: [],
+    graphRunning: false,
+    dirty: false,
+};
+
+const PREFIX = 'http://zss-stock/kg/';
+const RDF_TYPE = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type';
+
+const TYPE_COLORS = {
+    'Company': '#2563eb',
+    'Domain': '#059669',
+    'Product': '#d97706',
+    'Material': '#7c3aed',
+    'Technology': '#0891b2',
+    'Refrigerant': '#dc2626',
+    'Direction': '#ca8a04',
+    'Project': '#65a30d',
+    'Application': '#db2777',
+};
+const DEFAULT_COLOR = '#94a3b8';
+
+const TYPE_LABELS = {
+    'Company': '公司', 'Domain': '领域', 'Product': '产品', 'Material': '材料',
+    'Technology': '技术', 'Refrigerant': '制冷剂', 'Direction': '方向',
+    'Project': '项目', 'Application': '应用',
+};
+
+// ============================================================
+// 工具函数
+// ============================================================
+function shortName(iri) {
+    if (!iri) return '';
+    if (iri.startsWith(PREFIX)) return iri.slice(PREFIX.length);
+    if (iri === RDF_TYPE) return 'a';
+    return iri;
+}
+
+function fullName(name) {
+    if (!name || name.startsWith('http://') || name.startsWith('https://')) return name;
+    return PREFIX + name;
+}
+
+function getEntityType(entityName) {
+    const iri = fullName(entityName);
+    return state.typeMap[iri] || null;
+}
+
+function getEntityColor(entityName) {
+    const type = getEntityType(entityName);
+    return TYPE_COLORS[type] || DEFAULT_COLOR;
+}
+
+function showToast(msg, type = 'success') {
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.className = 'toast ' + type;
+    setTimeout(() => t.classList.add('show'), 10);
+    setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function updateStats() {
+    const entities = new Set();
+    state.triples.forEach(t => { entities.add(t.subject); entities.add(t.object); });
+    document.getElementById('statsBar').textContent =
+        `三元组: ${state.triples.length} | 实体: ${entities.size}${state.dirty ? ' ⚠️ 未保存' : ''}`;
+    // Graph stats
+    document.getElementById('graphStats').innerHTML =
+        `<div class="stat-item"><span class="num">${state.triples.length}</span><span class="label">三元组</span></div>` +
+        `<div class="stat-item"><span class="num">${entities.size}</span><span class="label">实体</span></div>` +
+        `<div class="stat-item"><span class="num">${state.graphEdges.length}</span><span class="label">关系边</span></div>`;
+}
+
+// ============================================================
+// 文件操作
+// ============================================================
+function loadFile(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+        try {
+            parseTTL(e.target.result);
+            document.getElementById('filePathLabel').textContent = file.name;
+            showToast(`已加载 ${file.name} — ${state.triples.length} 个三元组`);
+            state.dirty = false;
+            renderAll();
+        } catch (err) {
+            showToast('解析错误: ' + err.message, 'error');
+        }
+    };
+    reader.readAsText(file, 'UTF-8');
+    event.target.value = '';
+}
+
+function generateTTLContent() {
+    return new Promise((resolve, reject) => {
+        const writer = new N3.Writer({
+            prefixes: {
+                zss: PREFIX,
+                rdf: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
+                rdfs: 'http://www.w3.org/2000/01/rdf-schema#',
+            }
+        });
+        Object.entries(state.typeMap).forEach(([iri, type]) => {
+            writer.addQuad(
+                N3.DataFactory.namedNode(iri),
+                N3.DataFactory.namedNode(RDF_TYPE),
+                N3.DataFactory.namedNode(PREFIX + type)
+            );
+        });
+        state.triples.forEach(t => {
+            writer.addQuad(
+                N3.DataFactory.namedNode(fullName(t.subject)),
+                N3.DataFactory.namedNode(fullName(t.predicate)),
+                N3.DataFactory.namedNode(fullName(t.object))
+            );
+        });
+        writer.end((error, result) => {
+            if (error) reject(error);
+            else resolve(result);
+        });
+    });
+}
+
+function exportTTL() {
+    if (state.triples.length === 0) { showToast('没有数据可导出', 'error'); return; }
+    generateTTLContent().then(result => {
+        const blob = new Blob([result], { type: 'text/turtle;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'knowledge-graph.ttl';
+        a.click(); URL.revokeObjectURL(url);
+        state.dirty = false;
+        updateStats();
+        showToast('✅ 已保存 — 请覆盖 knowledge-graph.ttl 文件');
+    }).catch(err => showToast('导出错误: ' + err.message, 'error'));
+}
+
+function copyTTL() {
+    if (state.triples.length === 0) { showToast('没有数据可复制', 'error'); return; }
+    generateTTLContent().then(result => {
+        navigator.clipboard.writeText(result).then(() => {
+            showToast('📋 已复制到剪贴板');
+        }).catch(() => {
+            // Fallback
+            const ta = document.createElement('textarea');
+            ta.value = result; ta.style.position = 'fixed'; ta.style.opacity = '0';
+            document.body.appendChild(ta); ta.select();
+            document.execCommand('copy'); document.body.removeChild(ta);
+            showToast('📋 已复制到剪贴板');
+        });
+    }).catch(err => showToast('复制错误: ' + err.message, 'error'));
+}
+
+function resetToDefault() {
+    if (state.triples.length > 0 && !confirm('重置将恢复默认数据，当前修改会丢失。确定继续？')) return;
+    try {
+        parseTTL(EMBEDDED_TTL);
+        renderAll();
+        document.getElementById('graphLoading').style.display = 'none';
+        document.getElementById('filePathLabel').textContent = '📄 knowledge-graph.ttl (内嵌数据)';
+        state.dirty = false;
+        showToast('已重置为默认数据');
+    } catch(e) {
+        showToast('重置失败: ' + e.message, 'error');
+    }
+}
+// ============================================================
+// 解析 TTL
+// ============================================================
+function parseTTL(content) {
+    const parser = new N3.Parser();
+    const quads = parser.parse(content);
+
+    state.triples = [];
+    state.typeMap = {};
+
+    quads.forEach(q => {
+        const s = shortName(q.subject.value);
+        const p = shortName(q.predicate.value);
+        const o = shortName(q.object.value);
+
+        if (!s || !p || !o) return;
+
+        // Collect type info
+        if (q.predicate.value === RDF_TYPE) {
+            state.typeMap[q.subject.value] = o;
+            return; // Don't add type triples to relation list
+        }
+
+        state.triples.push({ subject: s, predicate: p, object: o });
+    });
+
+    // Build type map for object entities too
+    state.triples.forEach(t => {
+        [t.subject, t.object].forEach(name => {
+            const iri = fullName(name);
+            if (!state.typeMap[iri]) {
+                state.typeMap[iri] = guessType(name);
+            }
+        });
+    });
+}
+
+function guessType(name) {
+    if (name === '中欣氟材') return 'Company';
+    if (['半导体', '机器人', '新能源', '制冷剂', '农药', '高端医疗', '航空航天'].includes(name)) return 'Domain';
+    if (['电子级氢氟酸', '六氟磷酸钠', '含氟药', '低毒低抗药性含氟农药'].includes(name)) return 'Product';
+    if (['peek材料', 'DFBP'].includes(name)) return 'Material';
+    if (['基础半导体', '钠电池_固态电池', 'AI液冷'].includes(name)) return 'Technology';
+    if (['第三代制冷剂', '第四代制冷剂'].includes(name)) return 'Refrigerant';
+    if (['高端半导体级别氢氟酸'].includes(name)) return 'Direction';
+    if (['optimus量产'].includes(name)) return 'Project';
+    if (['人体骨骼'].includes(name)) return 'Application';
+    return 'Other';
+}
+
+// ============================================================
+// 数据操作
+// ============================================================
+function addTriple() {
+    const s = document.getElementById('newSubject').value.trim();
+    const p = document.getElementById('newPredicate').value.trim();
+    const o = document.getElementById('newObject').value.trim();
+    if (!s || !p || !o) { showToast('请填写主体、关系、客体', 'error'); return; }
+
+    // Ensure entities exist in typeMap
+    [s, o].forEach(name => {
+        const iri = fullName(name);
+        if (!state.typeMap[iri]) state.typeMap[iri] = guessType(name);
+    });
+
+    state.triples.push({ subject: s, predicate: p, object: o });
+    state.dirty = true;
+
+    document.getElementById('newSubject').value = '';
+    document.getElementById('newPredicate').value = '';
+    document.getElementById('newObject').value = '';
+
+    renderAll();
+    showToast('已添加: (' + s + ', ' + p + ', ' + o + ')');
+}
+
+function deleteTriple(idx) {
+    if (idx < 0 || idx >= state.triples.length) return;
+    const t = state.triples[idx];
+    state.triples.splice(idx, 1);
+    state.dirty = true;
+    renderAll();
+    showToast('已删除: (' + t.subject + ', ' + t.predicate + ', ' + t.object + ')');
+}
+
+function openEdit(idx) {
+    state.editIdx = idx;
+    const t = state.triples[idx];
+    document.getElementById('editSubject').value = t.subject;
+    document.getElementById('editPredicate').value = t.predicate;
+    document.getElementById('editObject').value = t.object;
+    document.getElementById('editModal').classList.add('active');
+}
+
+function closeEdit() {
+    document.getElementById('editModal').classList.remove('active');
+    state.editIdx = -1;
+}
+
+function saveEdit() {
+    const idx = state.editIdx;
+    if (idx < 0) return;
+    const s = document.getElementById('editSubject').value.trim();
+    const p = document.getElementById('editPredicate').value.trim();
+    const o = document.getElementById('editObject').value.trim();
+    if (!s || !p || !o) { showToast('请填写完整', 'error'); return; }
+
+    state.triples[idx] = { subject: s, predicate: p, object: o };
+    state.dirty = true;
+    closeEdit();
+    renderAll();
+    showToast('已更新');
+}
+
+function deleteFromEdit() {
+    if (confirm('确定删除此三元组？')) {
+        deleteTriple(state.editIdx);
+        closeEdit();
+    }
+}
+
+// ============================================================
+// 表格排序
+// ============================================================
+function sortTable(field) {
+    if (state.sortBy === field) {
+        state.sortAsc = !state.sortAsc;
+    } else {
+        state.sortBy = field;
+        state.sortAsc = true;
+    }
+    ['subject','predicate','object'].forEach(f => {
+        const el = document.getElementById('sort-' + f);
+        if (el) { el.className = 'sort-icon'; el.textContent = '▲'; }
+    });
+    const activeEl = document.getElementById('sort-' + field);
+    if (activeEl) {
+        activeEl.className = 'sort-icon active';
+        activeEl.textContent = state.sortAsc ? '▲' : '▼';
+    }
+    renderTable();
+}
+
+// ============================================================
+// 渲染
+// ============================================================
+function renderAll() {
+    renderTable();
+    updateStats();
+    buildGraph();
+    updateDatalists();
+}
+
+function renderTable() {
+    const search = (document.getElementById('searchInput').value || '').toLowerCase();
+    let triples = [...state.triples];
+
+    // Filter
+    if (search) {
+        triples = triples.filter(t =>
+            t.subject.includes(search) || t.predicate.includes(search) || t.object.includes(search)
+        );
+    }
+
+    // Sort
+    if (state.sortBy) {
+        triples.sort((a, b) => {
+            const va = a[state.sortBy], vb = b[state.sortBy];
+            return state.sortAsc ? va.localeCompare(vb, 'zh') : vb.localeCompare(va, 'zh');
+        });
+    }
+
+    document.getElementById('tableCount').textContent = `显示 ${triples.length}/${state.triples.length} 条`;
+
+    const tbody = document.getElementById('tableBody');
+    if (triples.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="4"><div class="empty-state"><p>${state.triples.length === 0 ? '暂无数据' : '无匹配结果'}</p></div></td></tr>`;
+        return;
+    }
+
+    tbody.innerHTML = triples.map((t, i) => {
+        const realIdx = state.triples.indexOf(t);
+        const sColor = getEntityColor(t.subject);
+        const oColor = getEntityColor(t.object);
+        return `<tr>
+            <td><span class="entity-tag" style="background:${sColor}">${escHtml(t.subject)}</span></td>
+            <td><span class="pred-tag">${escHtml(t.predicate)}</span></td>
+            <td><span class="entity-tag" style="background:${oColor}">${escHtml(t.object)}</span></td>
+            <td><div class="actions">
+                <button class="btn btn-sm btn-outline" style="border-color:#d1d5db;color:#64748b" onclick="openEdit(${realIdx})">编辑</button>
+                <button class="btn btn-sm btn-danger" onclick="deleteTriple(${realIdx})">删除</button>
+            </div></td>
+        </tr>`;
+    }).join('');
+}
+
+function escHtml(s) { return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]); }
+
+function updateDatalists() {
+    const subjects = new Set(), predicates = new Set(), objects = new Set();
+    state.triples.forEach(t => {
+        subjects.add(t.subject); predicates.add(t.predicate); objects.add(t.object);
+    });
+    document.getElementById('subjectList').innerHTML =
+        [...subjects].map(s => `<option value="${escHtml(s)}">`).join('');
+    document.getElementById('predicateList').innerHTML =
+        [...predicates].map(p => `<option value="${escHtml(p)}">`).join('');
+    document.getElementById('objectList').innerHTML =
+        [...objects].map(o => `<option value="${escHtml(o)}">`).join('');
+}
+
+// ============================================================
+// 标签切换
+// ============================================================
+function switchTab(tab) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    document.querySelector(`.tab-btn[onclick*="${tab}"]`).classList.add('active');
+    document.getElementById('panel-' + tab).classList.add('active');
+    if (tab === 'graph') drawGraph();
+}
+
+// ============================================================
+// 图谱可视化
+// ============================================================
+function buildGraph() {
+    // Build nodes and edges (excluding type triples with 'a' predicate)
+    const nodeMap = new Map();
+    const edges = [];
+    const typeEdges = [];
+
+    state.triples.forEach((t, i) => {
+        if (t.predicate === 'a' || t.predicate === 'rdf:type') return;
+        if (!nodeMap.has(t.subject)) {
+            nodeMap.set(t.subject, { id: t.subject, label: t.subject, connections: 0 });
+        }
+        if (!nodeMap.has(t.object)) {
+            nodeMap.set(t.object, { id: t.object, label: t.object, connections: 0 });
+        }
+        nodeMap.get(t.subject).connections++;
+        nodeMap.get(t.object).connections++;
+        edges.push({ source: t.subject, target: t.object, label: t.predicate });
+    });
+
+    state.graphNodes = [...nodeMap.values()];
+    state.graphEdges = edges;
+}
+
+function drawGraph() {
+    const container = document.getElementById('graphContainer');
+    const canvas = document.getElementById('graphCanvas');
+    const tooltip = document.getElementById('graphTooltip');
+
+    if (state.graphNodes.length === 0) {
+        document.getElementById('graphLoading').style.display = 'block';
+        canvas.style.display = 'none';
+        document.getElementById('graphLegend').innerHTML = '';
+        return;
+    }
+    document.getElementById('graphLoading').style.display = 'none';
+    canvas.style.display = 'block';
+
+    const rect = container.getBoundingClientRect();
+    const W = rect.width || 800;
+    const H = rect.height || 600;
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    canvas.style.width = W + 'px';
+    canvas.style.height = H + 'px';
+    const ctx = canvas.getContext('2d');
+    ctx.scale(dpr, dpr);
+
+    // Build legend
+    const typesInUse = new Set();
+    state.graphNodes.forEach(n => {
+        const t = getEntityType(n.id);
+        if (t) typesInUse.add(t);
+    });
+    const legend = document.getElementById('graphLegend');
+    legend.innerHTML = [...typesInUse].map(t =>
+        `<span class="legend-item"><span class="legend-dot" style="background:${TYPE_COLORS[t]||DEFAULT_COLOR}"></span>${TYPE_LABELS[t]||t}</span>`
+    ).join('');
+    if (state.graphEdges.length === 0) legend.innerHTML += '<span style="color:#94a3b8;font-size:11px">（无关系边）</span>';
+
+    // Layout: simple force-directed
+    const nodes = state.graphNodes.map(n => ({
+        ...n,
+        x: Math.random() * (W - 100) + 50,
+        y: Math.random() * (H - 100) + 50,
+        vx: 0, vy: 0,
+        radius: Math.min(30, 8 + Math.sqrt(n.connections + 1) * 6),
+    }));
+    const nodeMap = new Map(nodes.map(n => [n.id, n]));
+
+    // Edge list with source/target references
+    const edgeList = state.graphEdges.map(e => ({
+        source: nodeMap.get(e.source),
+        target: nodeMap.get(e.target),
+        label: e.label,
+    })).filter(e => e.source && e.target);
+
+    // Force-directed iterations
+    const iterations = 300;
+    const W2 = W / 2, H2 = H / 2;
+    const repulsion = 8000;
+    const attraction = 0.005;
+    const gravity = 0.01;
+    const damping = 0.85;
+    const minDist = 30;
+
+    for (let iter = 0; iter < iterations; iter++) {
+        const temp = Math.max(0.5, 1 - iter / iterations);
+
+        // Repulsion
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                let dx = nodes[j].x - nodes[i].x;
+                let dy = nodes[j].y - nodes[i].y;
+                let dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < 1) dist = 1;
+                const force = repulsion / (dist * dist) * temp;
+                const fx = dx / dist * force;
+                const fy = dy / dist * force;
+                nodes[i].vx -= fx;
+                nodes[i].vy -= fy;
+                nodes[j].vx += fx;
+                nodes[j].vy += fy;
+            }
+        }
+
+        // Attraction along edges
+        edgeList.forEach(e => {
+            const dx = e.target.x - e.source.x;
+            const dy = e.target.y - e.source.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const restLength = e.source.radius + e.target.radius + 80;
+            if (dist < 1) return;
+            const force = (dist - restLength) * attraction * temp;
+            const fx = dx / dist * force;
+            const fy = dy / dist * force;
+            e.source.vx += fx;
+            e.source.vy += fy;
+            e.target.vx -= fx;
+            e.target.vy -= fy;
+        });
+
+        // Center gravity
+        nodes.forEach(n => {
+            n.vx += (W2 - n.x) * gravity * temp;
+            n.vy += (H2 - n.y) * gravity * temp;
+        });
+
+        // Apply velocity with damping
+        nodes.forEach(n => {
+            n.vx *= damping;
+            n.vy *= damping;
+            n.x += n.vx;
+            n.y += n.vy;
+            // Keep in bounds
+            n.x = Math.max(n.radius, Math.min(W - n.radius, n.x));
+            n.y = Math.max(n.radius, Math.min(H - n.radius, n.y));
+        });
+
+        // Avoid overlap
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[j].x - nodes[i].x;
+                const dy = nodes[j].y - nodes[i].y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                const minD = nodes[i].radius + nodes[j].radius + 5;
+                if (dist < minD && dist > 0.1) {
+                    const overlap = (minD - dist) / 2;
+                    const nx = dx / dist * overlap;
+                    const ny = dy / dist * overlap;
+                    nodes[i].x -= nx; nodes[i].y -= ny;
+                    nodes[j].x += nx; nodes[j].y += ny;
+                }
+            }
+        }
+    }
+
+    // Interaction state
+    let dragNode = null;
+    let dragOffsetX = 0, dragOffsetY = 0;
+    let hoverNode = null;
+
+    function getMousePos(e) {
+        const r = canvas.getBoundingClientRect();
+        const scaleX = W / r.width;
+        const scaleY = H / r.height;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+        return {
+            x: (clientX - r.left) * scaleX,
+            y: (clientY - r.top) * scaleY,
+        };
+    }
+
+    function hitTest(pos) {
+        for (let i = nodes.length - 1; i >= 0; i--) {
+            const dx = pos.x - nodes[i].x;
+            const dy = pos.y - nodes[i].y;
+            if (dx * dx + dy * dy <= (nodes[i].radius + 5) * (nodes[i].radius + 5)) {
+                return nodes[i];
+            }
+        }
+        return null;
+    }
+
+    function render() {
+        ctx.clearRect(0, 0, W, H);
+        // Background
+        ctx.fillStyle = '#fafbfc';
+        ctx.fillRect(0, 0, W, H);
+
+        // Draw edges
+        edgeList.forEach(e => {
+            const dx = e.target.x - e.source.x;
+            const dy = e.target.y - e.source.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 1) return;
+
+            const nx = dx / dist, ny = dy / dist;
+            const startR = e.source.radius;
+            const endR = e.target.radius;
+
+            const sx = e.source.x + nx * startR;
+            const sy = e.source.y + ny * startR;
+            const ex = e.target.x - nx * endR;
+            const ey = e.target.y - ny * endR;
+
+            // Edge line
+            ctx.beginPath();
+            ctx.moveTo(sx, sy);
+            ctx.lineTo(ex, ey);
+            ctx.strokeStyle = '#cbd5e1';
+            ctx.lineWidth = 1.5;
+            ctx.stroke();
+
+            // Arrow
+            const arrowSize = 8;
+            const angle = Math.atan2(ny, nx);
+            ctx.beginPath();
+            ctx.moveTo(ex, ey);
+            ctx.lineTo(ex - arrowSize * Math.cos(angle - 0.4), ey - arrowSize * Math.sin(angle - 0.4));
+            ctx.lineTo(ex - arrowSize * Math.cos(angle + 0.4), ey - arrowSize * Math.sin(angle + 0.4));
+            ctx.closePath();
+            ctx.fillStyle = '#94a3b8';
+            ctx.fill();
+
+            // Edge label
+            const mx = (sx + ex) / 2;
+            const my = (sy + ey) / 2;
+            ctx.save();
+            ctx.translate(mx, my);
+            ctx.rotate(angle);
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'bottom';
+            ctx.font = '11px -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif';
+            const labelW = ctx.measureText(e.label).width;
+            const pad = 4;
+            ctx.fillStyle = 'rgba(255,255,255,.92)';
+            ctx.fillRect(-labelW/2 - pad, -12 - pad, labelW + pad*2, 16 + pad*2);
+            ctx.fillStyle = '#64748b';
+            ctx.fillText(e.label, 0, -4);
+            ctx.restore();
+        });
+
+        // Draw nodes
+        nodes.forEach(n => {
+            const color = getEntityColor(n.id);
+            const isHover = hoverNode === n;
+            const r = isHover ? n.radius + 3 : n.radius;
+
+            // Glow for hover
+            if (isHover) {
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, r + 4, 0, Math.PI * 2);
+                ctx.fillStyle = color + '33';
+                ctx.fill();
+            }
+
+            // Circle
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+            const grad = ctx.createRadialGradient(n.x - r*0.3, n.y - r*0.3, 0, n.x, n.y, r);
+            grad.addColorStop(0, lightenColor(color, 30));
+            grad.addColorStop(1, color);
+            ctx.fillStyle = grad;
+            ctx.fill();
+            ctx.strokeStyle = '#fff';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            // Label
+            ctx.fillStyle = '#1e293b';
+            ctx.font = isHover ? 'bold 12px -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif'
+                               : '12px -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'top';
+
+            const displayLabel = n.label.length > 8 ? n.label.slice(0, 7) + '…' : n.label;
+            ctx.fillStyle = 'rgba(255,255,255,.85)';
+            const tw = ctx.measureText(displayLabel).width;
+            ctx.fillRect(n.x - tw/2 - 4, n.y + r + 4, tw + 8, 18);
+            ctx.fillStyle = '#1e293b';
+            ctx.fillText(displayLabel, n.x, n.y + r + 6);
+
+            // Type badge for hover
+            if (isHover) {
+                const type = getEntityType(n.id);
+                if (type && TYPE_LABELS[type]) {
+                    ctx.fillStyle = 'rgba(255,255,255,.9)';
+                    const badgeW = ctx.measureText(TYPE_LABELS[type]).width;
+                    ctx.fillRect(n.x - badgeW/2 - 3, n.y - r - 16, badgeW + 6, 16);
+                    ctx.fillStyle = color;
+                    ctx.font = '10px -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif';
+                    ctx.textBaseline = 'bottom';
+                    ctx.fillText(TYPE_LABELS[type], n.x, n.y - r - 2);
+                    ctx.textBaseline = 'top';
+                }
+            }
+        });
+    }
+
+    function lightenColor(hex, pct) {
+        const num = parseInt(hex.slice(1), 16);
+        const r = Math.min(255, (num >> 16) + pct);
+        const g = Math.min(255, ((num >> 8) & 0x00FF) + pct);
+        const b = Math.min(255, (num & 0x0000FF) + pct);
+        return `rgb(${r},${g},${b})`;
+    }
+
+    // Mouse events
+    canvas.onmousedown = e => {
+        const pos = getMousePos(e);
+        const hit = hitTest(pos);
+        if (hit) {
+            dragNode = hit;
+            dragOffsetX = pos.x - hit.x;
+            dragOffsetY = pos.y - hit.y;
+            canvas.style.cursor = 'grabbing';
+        }
+    };
+
+    canvas.onmousemove = e => {
+        const pos = getMousePos(e);
+        if (dragNode) {
+            dragNode.x = pos.x - dragOffsetX;
+            dragNode.y = pos.y - dragOffsetY;
+            render();
+            return;
+        }
+        const hit = hitTest(pos);
+        canvas.style.cursor = hit ? 'pointer' : 'default';
+        if (hit !== hoverNode) {
+            hoverNode = hit;
+            render();
+            if (hit) {
+                const type = getEntityType(hit.id);
+                const rels = edgeList.filter(e => e.source === hit || e.target === hit);
+                const relStrs = rels.slice(0, 5).map(r =>
+                    r.source === hit ? `→ ${r.label} → ${r.target.label}` : `${r.source.label} → ${r.label} →`
+                );
+                tooltip.innerHTML = `<div class="tt-name">${hit.label}</div>` +
+                    (type && TYPE_LABELS[type] ? `<div class="tt-type">${TYPE_LABELS[type]}</div>` : '') +
+                    (relStrs.length ? `<div class="tt-rels">${relStrs.join('<br>')}</div>` : '');
+                tooltip.style.display = 'block';
+                tooltip.style.left = (pos.x + 15) + 'px';
+                tooltip.style.top = (pos.y - 10) + 'px';
+                // Keep tooltip in bounds
+                const tr = tooltip.getBoundingClientRect();
+                const cr = container.getBoundingClientRect();
+                if (tr.right > cr.right) tooltip.style.left = (pos.x - tr.width - 15) + 'px';
+            } else {
+                tooltip.style.display = 'none';
+            }
+        }
+    };
+
+    canvas.onmouseup = canvas.onmouseleave = () => {
+        dragNode = null;
+        canvas.style.cursor = 'default';
+    };
+
+    // Touch events
+    canvas.ontouchstart = e => {
+        e.preventDefault();
+        const pos = getMousePos(e);
+        const hit = hitTest(pos);
+        if (hit) {
+            dragNode = hit;
+            dragOffsetX = pos.x - hit.x;
+            dragOffsetY = pos.y - hit.y;
+        }
+    };
+    canvas.ontouchmove = e => {
+        e.preventDefault();
+        if (!dragNode) return;
+        const pos = getMousePos(e);
+        dragNode.x = pos.x - dragOffsetX;
+        dragNode.y = pos.y - dragOffsetY;
+        render();
+    };
+    canvas.ontouchend = () => { dragNode = null; };
+
+    render();
+    state.graphRunning = true;
+}
+
+// ============================================================
+// 内嵌 TTL 数据 — 打开即加载
+// ============================================================
+const EMBEDDED_TTL = `@prefix zss: <http://zss-stock/kg/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# 实体定义
+zss:中欣氟材 a zss:Company ; rdfs:label "中欣氟材" .
+zss:半导体 a zss:Domain ; rdfs:label "半导体" .
+zss:机器人 a zss:Domain ; rdfs:label "机器人" .
+zss:新能源 a zss:Domain ; rdfs:label "新能源" .
+zss:制冷剂 a zss:Domain ; rdfs:label "制冷剂" .
+zss:农药 a zss:Domain ; rdfs:label "农药" .
+zss:电子级氢氟酸 a zss:Product ; rdfs:label "电子级氢氟酸" .
+zss:peek材料 a zss:Material ; rdfs:label "PEEK材料" .
+zss:DFBP a zss:Material ; rdfs:label "DFBP" .
+zss:六氟磷酸钠 a zss:Product ; rdfs:label "六氟磷酸钠" .
+zss:第三代制冷剂 a zss:Refrigerant ; rdfs:label "第三代制冷剂" .
+zss:第四代制冷剂 a zss:Refrigerant ; rdfs:label "第四代制冷剂" .
+zss:含氟药 a zss:Product ; rdfs:label "含氟药" .
+zss:低毒低抗药性含氟农药 a zss:Product ; rdfs:label "低毒低抗药性含氟农药" .
+zss:基础半导体 a zss:Technology ; rdfs:label "基础半导体" .
+zss:钠电池_固态电池 a zss:Technology ; rdfs:label "钠电池(固态电池)" .
+zss:AI液冷 a zss:Technology ; rdfs:label "AI液冷" .
+zss:高端医疗 a zss:Domain ; rdfs:label "高端医疗" .
+zss:航空航天 a zss:Domain ; rdfs:label "航空航天" .
+zss:人体骨骼 a zss:Application ; rdfs:label "人体骨骼" .
+zss:optimus量产 a zss:Project ; rdfs:label "Optimus量产" .
+zss:高端半导体级别氢氟酸 a zss:Direction ; rdfs:label "高端半导体级别氢氟酸" .
+
+# 三元组关系
+zss:中欣氟材 zss:布局领域 zss:半导体 .
+zss:中欣氟材 zss:发展方向 zss:高端半导体级别氢氟酸 .
+zss:中欣氟材 zss:拥有产品 zss:电子级氢氟酸 .
+zss:电子级氢氟酸 zss:应用于 zss:基础半导体 .
+zss:中欣氟材 zss:布局领域 zss:机器人 .
+zss:机器人 zss:使用材料 zss:peek材料 .
+zss:peek材料 zss:对应中间材料 zss:DFBP .
+zss:机器人 zss:相关项目 zss:optimus量产 .
+zss:中欣氟材 zss:布局领域 zss:新能源 .
+zss:新能源 zss:使用材料 zss:peek材料 .
+zss:中欣氟材 zss:提供材料 zss:六氟磷酸钠 .
+zss:六氟磷酸钠 zss:应用于 zss:钠电池_固态电池 .
+zss:中欣氟材 zss:布局领域 zss:制冷剂 .
+zss:中欣氟材 zss:拥有制冷剂 zss:第三代制冷剂 .
+zss:中欣氟材 zss:发展方向 zss:第四代制冷剂 .
+zss:制冷剂 zss:应用于 zss:AI液冷 .
+zss:peek材料 zss:应用于 zss:航空航天 .
+zss:peek材料 zss:应用于 zss:高端医疗 .
+zss:peek材料 zss:高端医疗应用方向 zss:人体骨骼 .
+zss:中欣氟材 zss:提供产品 zss:含氟药 .
+zss:含氟药 zss:功效 zss:抗毒_抗菌_抗肿瘤 .
+zss:中欣氟材 zss:布局领域 zss:农药 .
+zss:农药 zss:主要下游 zss:中欣氟材 .
+zss:中欣氟材 zss:提供农药 zss:低毒低抗药性含氟农药 .
+`;
+
+// ============================================================
+// 初始化
+// ============================================================
+window.addEventListener('resize', () => {
+    if (document.getElementById('panel-graph').classList.contains('active') && state.graphNodes.length > 0) {
+        drawGraph();
+    }
+});
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeEdit();
+    if (e.key === 'Enter' && document.getElementById('editModal').classList.contains('active')) saveEdit();
+});
+
+// Auto-load embedded data on page start
+(function autoLoad() {
+    try {
+        parseTTL(EMBEDDED_TTL);
+        renderAll();
+        document.getElementById('graphLoading').style.display = 'none';
+        document.getElementById('filePathLabel').textContent = '📄 knowledge-graph.ttl (内嵌数据)';
+    } catch(e) {
+        console.warn('Auto-load TTL failed:', e);
+        updateStats();
+    }
+})();
+</script>
+</body>
+</html>

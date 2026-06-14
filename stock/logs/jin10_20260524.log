@@ -1,0 +1,224 @@
+[14:24:47] 金十数据订阅服务启动
+[14:24:47] 频道: ['flash']
+[14:24:47] 用户: user_ce6d9238
+[14:24:47] AI分析: 开, 最低重要性: 中
+[14:24:48] 已加载股票数据: 17 只, 4 个板块
+[14:24:48] 正在连接... (第 1 次)
+[14:24:49] 已刷新股票数据 (17 只)
+[14:24:51] 连接成功
+[14:24:51] 已发送订阅: ['flash']
+[14:24:51] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:24:51] 系统消息: subscribed - 
+[14:34:39] 金十数据订阅服务启动
+[14:34:39] 频道: ['flash']
+[14:34:39] 用户: user_ce6d9238
+[14:34:39] AI分析: 开, 最低重要性: 中
+[14:34:40] 已加载股票数据: 17 只, 4 个板块
+[14:34:40] 正在连接... (第 1 次)
+[14:34:41] 已刷新股票数据 (17 只)
+[14:34:43] 连接成功
+[14:34:43] 已发送订阅: ['flash']
+[14:34:46] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:34:46] 系统消息: subscribed - 
+[14:39:01] 金十数据订阅服务启动
+[14:39:01] 频道: ['flash']
+[14:39:01] 用户: user_ce6d9238
+[14:39:01] AI分析: 开, 最低重要性: 中
+[14:39:02] 已加载股票数据: 17 只, 4 个板块
+[14:39:02] 正在连接... (第 1 次)
+[14:39:03] 已刷新股票数据 (17 只)
+[14:39:04] 连接成功
+[14:39:04] 已发送订阅: ['flash']
+[14:39:04] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:39:05] 系统消息: subscribed - 
+[14:39:12] 金十数据订阅服务启动
+[14:39:12] 频道: ['flash']
+[14:39:12] 用户: user_ce6d9238
+[14:39:12] AI分析: 开, 最低重要性: 中
+[14:39:13] 已加载股票数据: 17 只, 4 个板块
+[14:39:13] 正在连接... (第 1 次)
+[14:39:13] 已刷新股票数据 (17 只)
+[14:39:14] 连接成功
+[14:39:14] 已发送订阅: ['flash']
+[14:39:14] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:39:14] 连接关闭: code=None, msg=None
+[14:39:14] 将在 1s 后重连...
+[14:39:15] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:39:15] 系统消息: subscribed - 
+[14:39:15] 正在连接... (第 1 次)
+[14:39:18] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:39:18] 连接关闭: code=None, msg=None
+[14:39:18] 将在 1s 后重连...
+[14:39:18] 连接成功
+[14:39:18] 已发送订阅: ['flash']
+[14:39:19] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:39:19] 系统消息: subscribed - 
+[14:39:19] 正在连接... (第 1 次)
+[14:39:21] 连接成功
+[14:39:21] 已发送订阅: ['flash']
+[14:39:21] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:39:21] 连接关闭: code=None, msg=None
+[14:39:21] 将在 1s 后重连...
+[14:39:22] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:39:22] 系统消息: subscribed - 
+[14:39:22] 正在连接... (第 1 次)
+[14:39:24] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:39:24] 连接关闭: code=None, msg=None
+[14:39:24] 将在 1s 后重连...
+[14:39:24] 连接成功
+[14:39:24] 已发送订阅: ['flash']
+[14:39:25] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:39:25] 系统消息: subscribed - 
+[14:39:25] 正在连接... (第 1 次)
+[14:39:27] 连接成功
+[14:39:27] 已发送订阅: ['flash']
+[14:39:27] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:39:27] 连接关闭: code=None, msg=None
+[14:39:27] 将在 1s 后重连...
+[14:39:27] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:39:27] 系统消息: subscribed - 
+[14:39:30] 金十数据订阅服务启动
+[14:39:30] 频道: ['flash']
+[14:39:30] 用户: user_ce6d9238
+[14:39:30] AI分析: 开, 最低重要性: 中
+[14:39:31] 已加载股票数据: 17 只, 4 个板块
+[14:39:31] 正在连接... (第 1 次)
+[14:39:32] 已刷新股票数据 (17 只)
+[14:39:33] 连接成功
+[14:39:33] 已发送订阅: ['flash']
+[14:39:33] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:39:33] 系统消息: subscribed - 
+[14:40:19] 金十数据订阅服务启动
+[14:40:19] 频道: ['flash']
+[14:40:19] 用户: user_ce6d9238
+[14:40:19] AI分析: 开, 最低重要性: 中
+[14:40:20] 已加载股票数据: 17 只, 4 个板块
+[14:40:20] 正在连接... (第 1 次)
+[14:40:21] 已刷新股票数据 (17 只)
+[14:40:22] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:40:22] 连接关闭: code=None, msg=None
+[14:40:22] 将在 1s 后重连...
+[14:40:23] 连接成功
+[14:40:23] 已发送订阅: ['flash']
+[14:40:23] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:40:23] 正在连接... (第 1 次)
+[14:40:23] 系统消息: subscribed - 
+[14:40:26] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:40:26] 连接关闭: code=None, msg=None
+[14:40:26] 将在 1s 后重连...
+[14:40:26] 连接成功
+[14:40:26] 已发送订阅: ['flash']
+[14:40:26] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:40:26] 系统消息: subscribed - 
+[14:40:27] 正在连接... (第 1 次)
+[14:40:30] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:40:30] 连接关闭: code=None, msg=None
+[14:40:30] 将在 1s 后重连...
+[14:40:30] 连接成功
+[14:40:30] 已发送订阅: ['flash']
+[14:40:30] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:40:30] 系统消息: subscribed - 
+[14:40:31] 正在连接... (第 1 次)
+[14:40:32] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:40:32] 连接关闭: code=None, msg=None
+[14:40:32] 将在 1s 后重连...
+[14:40:32] 连接成功
+[14:40:32] 已发送订阅: ['flash']
+[14:40:33] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:40:33] 系统消息: subscribed - 
+[14:40:33] 正在连接... (第 1 次)
+[14:40:36] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:40:36] 连接关闭: code=None, msg=None
+[14:40:36] 将在 1s 后重连...
+[14:40:36] 连接成功
+[14:40:36] 已发送订阅: ['flash']
+[14:40:36] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:40:37] 正在连接... (第 1 次)
+[14:40:37] 系统消息: subscribed - 
+[14:40:38] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:40:38] 连接关闭: code=None, msg=None
+[14:40:38] 将在 1s 后重连...
+[14:40:39] 连接成功
+[14:40:39] 已发送订阅: ['flash']
+[14:40:39] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:40:39] 系统消息: subscribed - 
+[14:40:40] 正在连接... (第 1 次)
+[14:40:41] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:40:41] 连接关闭: code=None, msg=None
+[14:40:41] 将在 1s 后重连...
+[14:40:41] 连接成功
+[14:40:41] 已发送订阅: ['flash']
+[14:40:42] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:40:42] 系统消息: subscribed - 
+[14:40:42] 正在连接... (第 1 次)
+[14:40:46] 连接成功
+[14:40:46] 已发送订阅: ['flash']
+[14:40:46] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:40:46] 连接关闭: code=None, msg=None
+[14:40:46] 将在 1s 后重连...
+[14:40:46] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:40:46] 系统消息: subscribed - 
+[14:40:47] 正在连接... (第 1 次)
+[14:40:49] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:40:49] 连接关闭: code=None, msg=None
+[14:40:49] 将在 1s 后重连...
+[14:40:49] 连接成功
+[14:40:49] 已发送订阅: ['flash']
+[14:40:50] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:40:50] 正在连接... (第 1 次)
+[14:40:51] 系统消息: subscribed - 
+[14:40:53] 连接成功
+[14:40:53] 已发送订阅: ['flash']
+[14:40:53] WebSocket 错误: fin=1 opcode=8 data=b'\x03\xe8Replaced by a new connection'
+[14:40:53] 连接关闭: code=None, msg=None
+[14:40:53] 将在 1s 后重连...
+[14:40:54] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:40:54] 系统消息: subscribed - 
+[14:40:58] 金十数据订阅服务启动
+[14:40:58] 频道: ['flash']
+[14:40:58] 用户: user_ce6d9238
+[14:40:58] AI分析: 开, 最低重要性: 中
+[14:40:59] 已加载股票数据: 17 只, 4 个板块
+[14:40:59] 正在连接... (第 1 次)
+[14:41:00] 已刷新股票数据 (17 只)
+[14:41:01] 连接成功
+[14:41:01] 已发送订阅: ['flash']
+[14:41:01] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[14:41:01] 系统消息: subscribed - 
+[15:11:01] 已刷新股票数据 (17 只)
+[15:41:02] 已刷新股票数据 (17 只)
+[16:11:01] 已刷新股票数据 (0 只)
+[16:24:41] WebSocket 错误: ping/pong timed out
+[16:24:44] 连接关闭: code=None, msg=None
+[16:24:44] 将在 1s 后重连...
+[16:24:45] 正在连接... (第 1 次)
+[16:24:48] 连接成功
+[16:24:48] 已发送订阅: ['flash']
+[16:24:48] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[16:24:49] 系统消息: subscribed - 
+[16:41:03] 已刷新股票数据 (0 只)
+[16:51:13] WebSocket 错误: Connection to remote host was lost.
+[16:51:13] 连接关闭: code=None, msg=None
+[16:51:13] 将在 1s 后重连...
+[16:51:14] 正在连接... (第 1 次)
+[16:51:14] WebSocket 错误: [Errno 11001] getaddrinfo failed
+[16:51:14] 连接关闭: code=None, msg=None
+[16:51:14] 将在 2s 后重连...
+[16:51:16] 正在连接... (第 2 次)
+[16:51:16] WebSocket 错误: [Errno 11001] getaddrinfo failed
+[16:51:16] 连接关闭: code=None, msg=None
+[16:51:16] 将在 4s 后重连...
+[16:51:20] 正在连接... (第 3 次)
+[16:51:20] WebSocket 错误: [Errno 11001] getaddrinfo failed
+[16:51:20] 连接关闭: code=None, msg=None
+[16:51:20] 将在 8s 后重连...
+[16:51:28] 正在连接... (第 4 次)
+[16:51:28] WebSocket 错误: [Errno 11001] getaddrinfo failed
+[16:51:28] 连接关闭: code=None, msg=None
+[16:51:28] 将在 16s 后重连...
+[16:51:44] 正在连接... (第 5 次)
+[16:51:46] 连接成功
+[16:51:46] 已发送订阅: ['flash']
+[16:51:46] 系统消息: connected - Connected successfully. Only one active connection is allowed per user.
+[16:51:47] 系统消息: subscribed - 
+[17:11:02] 已刷新股票数据 (0 只)

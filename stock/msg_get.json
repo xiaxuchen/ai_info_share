@@ -1,0 +1,21 @@
+{
+  "message": {
+    "message_id": "om_x100b6e13c223f4a4c4ec303e17926a4",
+    "msg_type": "text",
+    "create_time": "1779595471050",
+    "update_time": "1779595471050",
+    "deleted": false,
+    "updated": false,
+    "chat_id": "oc_d2e5ad59044480b579a061140f427fc5",
+    "sender": {
+      "id": "cli_aa9b1f7b98789cd7",
+      "id_type": "app_id",
+      "sender_type": "app",
+      "tenant_key": "130994fe1f8d1758"
+    },
+    "body": {
+      "content": "{\"text\":\"【需要确认】请回复「确认」或「取消」\"}"
+    }
+  },
+  "sender_names": {}
+}

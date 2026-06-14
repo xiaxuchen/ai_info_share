@@ -1,0 +1,4 @@
+# requirements.txt - 项目依赖
+bitable-sdk
+pdfplumber
+pandas

@@ -1,0 +1,16 @@
+{
+  "user_id": "user_ce6d9238",
+  "token": "X-B9-1loWRl2qt7dYCJmVpubhv5rYk6wKQg5fIdNMIo",
+  "ws_url": "wss://jin10.coinstar.top/ws/{user_id}?token={token}",
+  "channels": ["flash"],
+  "reconnect": {
+    "min_delay": 1,
+    "max_delay": 60,
+    "backoff": 2
+  },
+  "feishu_webhook": "https://open.feishu.cn/open-apis/bot/v2/hook/7fc8880c-af27-4242-a098-99df6cc26159",
+  "analysis": {
+    "enabled": true,
+    "min_importance": "中"
+  }
+}

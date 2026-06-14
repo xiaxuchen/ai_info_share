@@ -1,0 +1,155 @@
+<html lang="en"><head><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome"><meta charset="UTF-8"><meta http-equiv="pragma" content="no-cache"><meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate"><meta http-equiv="expires" content="0"><meta content="text/html; charset=UTF-8" http-equiv="Content-Type"><meta name="applicable-device" content="mobile"><meta name="format-detection" content="telephone=no"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" href="//gbfek.dfcfw.com/project/guba2022/img/favicon.ico"><title>身份核实</title><link rel="stylesheet" crossorigin="" href="//gbfek.dfcfw.com/deploy/fd_guba_validate/work/assets/validate.css"><style type="text/css">.em_holder {
+    width: auto;
+    min-width: 280px;
+    background: transparent;
+    overflow: visible;
+    position: relative;
+    font-family: "Microsoft YaHei", Arial, "Hiragino Sans GB", sans-serif, SimSun !important;
+}
+
+.em_holder * {
+    -moz-box-sizing: content-box !important;
+    -webkit-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+}
+
+.em_holder .em_hide {
+    display: none !important;
+}
+
+.em_holder .em_show {
+    opacity: 1;
+    display: block !important;
+}
+
+.em_holder a {
+    text-decoration: none;
+    background-color: transparent !important;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.em_holder input {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.em_holder .em_data {
+    display: none;
+}
+
+.em_icon_point {
+    position: absolute;
+    width: 27px;
+    height: 36px;
+    background-image: url(//cfgpassport2.eastmoney.com/captcha/content/img/icon_light.png);
+    background-repeat: no-repeat;
+}
+
+.em_icon_point.point_1 {
+    background-position: 0 -144px;
+}
+
+.em_icon_point.point_2 {
+    background-position: 0 0;
+}
+
+.em_icon_point.point_3 {
+    background-position: 0 -108px;
+}
+
+.em_icon_point.point_4 {
+    background-position: 0 -72px;
+}
+
+.em_icon_point.point_5 {
+    background-position: 0 -36px;
+}
+
+/*#region init */
+
+.em_holder .em_init {
+    height: 36px;
+    width: auto;
+    min-width: 260px;
+    position: relative;
+    border: 1px solid #f3f3f3;
+    cursor: pointer;
+    overflow: visible;
+    background-color: #fff;
+    background-image: linear-gradient(180deg, #ffffff 0, #f3f3f3 100%);
+    padding-top: 6px;
+}
+
+.em_holder .em_init .em_init_icon {
+    position: relative;
+    left: 10px;
+    top: 5px;
+    /* margin:8px 0 0 10px; */
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    background-image: url(//cfgpassport2.eastmoney.com/captcha/content/img/icon_init.png);
+    background-size: cover;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+    background: none\9;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://cfgpassport.eastmoney.com/captcha/Content/img/icon_init.png', sizingMethod='scale');
+}
+
+.em_holder .em_init .em_init_guide_tip {
+    position: absolute;
+    left: 40px;
+    width: 180px;
+    height: 14px;
+    line-height: 14px !important;
+    font-size: 14px !important;
+    color: #474747;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    padding-top: 3px;
+}
+
+.em_holder .em_init.loading {
+    border: 1px solid #f5f5f5;
+    background-image: none !important;
+    background-color: #ffffff !important;
+    cursor: default;
+}
+
+.em_holder .em_init.loading .em_init_icon {
+    background-image: url(//cfgpassport2.eastmoney.com/captcha/content/img/icon_valid.png) !important;
+    background-size: cover;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+    background: none\9 !important;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://cfgpassport.eastmoney.com/captcha/Content/img/icon_valid.png', sizingMethod='scale') !important;
+}
+
+.em_holder .em_init.loading .em_init_guide_tip {
+    color: #58B1FE !important;
+}
+
+.em_holder .em_init.abuse .em_init_icon {
+    background-image: url(//cfgpassport2.eastmoney.com/captcha/content/img/icon_warning.png) !important;
+    background-size: cover;
+    -moz-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    -webkit-transition: all .2s linear;
+    transition: all .2s linear;
+    background: none\9 !important;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://cfgpassport.eastmoney.com/captcha/Content/img/icon_warning.png', sizingMethod='scale') !important;
+}
+
+.em_holder .em_init.success {
+    border: 1px solid #18A452;
+    background-image: none !important;
+    background-color: #EEFFF5 !important;
+    cursor: default;
+}
+
+.em_holder .em_init.success .em_init_icon {
+    background-image: url(//cfgpassport2.eastmoney.com/captcha/content/img/icon_succe

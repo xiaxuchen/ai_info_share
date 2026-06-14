@@ -1,0 +1,119 @@
+@prefix zss: <http://zss-stock/kg/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# ============================================================
+# 实体定义
+# ============================================================
+
+# 公司
+zss:中欣氟材 a zss:Company ;
+    rdfs:label "中欣氟材" .
+
+# 领域
+zss:半导体 a zss:Domain ;
+    rdfs:label "半导体" .
+
+zss:机器人 a zss:Domain ;
+    rdfs:label "机器人" .
+
+zss:新能源 a zss:Domain ;
+    rdfs:label "新能源" .
+
+zss:制冷剂 a zss:Domain ;
+    rdfs:label "制冷剂" .
+
+zss:农药 a zss:Domain ;
+    rdfs:label "农药" .
+
+# 产品/材料
+zss:电子级氢氟酸 a zss:Product ;
+    rdfs:label "电子级氢氟酸" .
+
+zss:peek材料 a zss:Material ;
+    rdfs:label "PEEK材料" .
+
+zss:DFBP a zss:Material ;
+    rdfs:label "DFBP" .
+
+zss:六氟磷酸钠 a zss:Product ;
+    rdfs:label "六氟磷酸钠" .
+
+zss:第三代制冷剂 a zss:Refrigerant ;
+    rdfs:label "第三代制冷剂" .
+
+zss:第四代制冷剂 a zss:Refrigerant ;
+    rdfs:label "第四代制冷剂" .
+
+zss:含氟药 a zss:Product ;
+    rdfs:label "含氟药" .
+
+zss:低毒低抗药性含氟农药 a zss:Product ;
+    rdfs:label "低毒低抗药性含氟农药" .
+
+# 行业/技术
+zss:基础半导体 a zss:Technology ;
+    rdfs:label "基础半导体" .
+
+zss:钠电池_固态电池 a zss:Technology ;
+    rdfs:label "钠电池(固态电池)" .
+
+zss:AI液冷 a zss:Technology ;
+    rdfs:label "AI液冷" .
+
+zss:高端医疗 a zss:Domain ;
+    rdfs:label "高端医疗" .
+
+zss:航空航天 a zss:Domain ;
+    rdfs:label "航空航天" .
+
+zss:人体骨骼 a zss:Application ;
+    rdfs:label "人体骨骼" .
+
+zss:optimus量产 a zss:Project ;
+    rdfs:label "Optimus量产" .
+
+zss:高端半导体级别氢氟酸 a zss:Direction ;
+    rdfs:label "高端半导体级别氢氟酸" .
+
+# ============================================================
+# 三元组关系
+# ============================================================
+
+# --- 半导体领域 ---
+zss:中欣氟材 zss:布局领域 zss:半导体 .
+zss:中欣氟材 zss:发展方向 zss:高端半导体级别氢氟酸 .
+zss:中欣氟材 zss:拥有产品 zss:电子级氢氟酸 .
+zss:电子级氢氟酸 zss:应用于 zss:基础半导体 .
+
+# --- 机器人领域 ---
+zss:中欣氟材 zss:布局领域 zss:机器人 .
+zss:机器人 zss:使用材料 zss:peek材料 .
+zss:peek材料 zss:对应中间材料 zss:DFBP .
+zss:机器人 zss:相关项目 zss:optimus量产 .
+
+# --- 新能源领域 ---
+zss:中欣氟材 zss:布局领域 zss:新能源 .
+zss:新能源 zss:使用材料 zss:peek材料 .
+zss:中欣氟材 zss:提供材料 zss:六氟磷酸钠 .
+zss:六氟磷酸钠 zss:应用于 zss:钠电池_固态电池 .
+
+# --- 制冷剂领域 ---
+zss:中欣氟材 zss:布局领域 zss:制冷剂 .
+zss:中欣氟材 zss:拥有制冷剂 zss:第三代制冷剂 .
+zss:中欣氟材 zss:发展方向 zss:第四代制冷剂 .
+zss:制冷剂 zss:应用于 zss:AI液冷 .
+
+# --- PEEK材料多领域应用 ---
+zss:peek材料 zss:应用于 zss:航空航天 .
+zss:peek材料 zss:应用于 zss:高端医疗 .
+zss:peek材料 zss:高端医疗应用方向 zss:人体骨骼 .
+
+# --- 医药领域 ---
+zss:中欣氟材 zss:提供产品 zss:含氟药 .
+zss:含氟药 zss:功效 zss:抗毒_抗菌_抗肿瘤 .
+
+# --- 农药领域 ---
+zss:中欣氟材 zss:布局领域 zss:农药 .
+zss:农药 zss:主要下游 zss:中欣氟材 .
+zss:中欣氟材 zss:提供农药 zss:低毒低抗药性含氟农药 .

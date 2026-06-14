@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serenity 每日投研分析 | 2026-06-14</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@400;700&display=swap');
+  :root {
+    --bg: #0a0e17;
+    --bg2: #111827;
+    --card: #1a2234;
+    --card-hover: #1f2b42;
+    --border: #2a3650;
+    --accent: #00d4aa;
+    --accent2: #00b894;
+    --accent-dim: rgba(0,212,170,0.15);
+    --red: #ff6b6b;
+    --red-dim: rgba(255,107,107,0.15);
+    --yellow: #ffd93d;
+    --yellow-dim: rgba(255,217,61,0.15);
+    --blue: #74b9ff;
+    --blue-dim: rgba(116,185,255,0.15);
+    --text: #e2e8f0;
+    --text2: #94a3b8;
+    --text3: #64748b;
+    --radius: 12px;
+    --shadow: 0 4px 24px rgba(0,0,0,0.3);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: 'Noto Sans SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  .header {
+    background: linear-gradient(135deg, #0a0e17 0%, #1a2234 50%, #0d1520 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 40px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -20%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(0,212,170,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .header .badge {
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--accent), #74b9ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .header .subtitle { color: var(--text2); font-size: 14px; }
+  .header .meta {
+    display: flex; gap: 24px;
+    margin-top: 20px; padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .header .meta-item { font-size: 13px; color: var(--text3); }
+  .header .meta-item span { color: var(--text2); font-weight: 500; }
+  .disclaimer {
+    background: var(--red-dim);
+    border: 1px solid rgba(255,107,107,0.3);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    color: var(--red);
+    line-height: 1.8;
+  }
+  .disclaimer strong { display: block; margin-bottom: 6px; font-size: 14px; }
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow);
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px; height: 32px;
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .market-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .market-card .label { font-size: 12px; color: var(--text3); margin-bottom: 6px; }
+  .market-card .value { font-size: 24px; font-weight: 700; }
+  .market-card .value.up { color: var(--accent); }
+  .market-card .value.down { color: var(--red); }
+  .market-card .change { font-size: 13px; color: var(--text2); margin-top: 4px; }
+  .hot-topics { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+  .hot-tag {
+    display: inline-block;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .hot-tag.red { background: var(--red-dim); color: var(--red); border: 1px solid rgba(255,107,107,0.3); }
+  .hot-tag.green { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(0,212,170,0.3); }
+  .hot-tag.blue { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(116,185,255,0.3); }
+  .hot-tag.yellow { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(255,217,61,0.3); }
+  .event-list { list-style: none; }
+  .event-item {
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(42,54,80,0.5);
+    display: flex; gap: 12px;
+    align-items: flex-start;
+  }
+  .event-item:last-child { border-bottom: none; }
+  .event-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 8px;
+    flex-shrink: 0;
+  }
+  .event-text { font-size: 14px; color: var(--text2); }
+  .event-text strong { color: var(--text); }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 14px; }
+  thead th {
+    background: var(--bg2);
+    padding: 12px 14px;
+    text-align: left;
+    font-weight: 500;
+    color: var(--text2);
+    border-bottom: 2px solid var(--border);
+    font-size: 13px;
+  }
+  tbody td {
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(42,54,80,0.4);
+    color: var(--text);
+  }
+  tbody tr:hover { background: var(--card-hover); }
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .score-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .score-card .label { font-size: 13px; color: var(--text3); margin-bottom: 8px; }
+  .score-bar {
+    width: 100%; height: 8px;
+    background: rgba(42,54,80,0.6);
+    border-radius: 4px;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+  .score-bar .fill { height: 100%; border-radius: 4px; }
+  .score-card .value { font-size: 28px; font-weight: 900; }
+  .score-card .desc { font-size: 12px; color: var(--text3); margin-top: 6px; }
+  .stock-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 24px;
+    margin-bottom: 20px;
+  }
+  .stock-card:last-child { margin-bottom: 0; }
+  .stock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .stock-name { font-size: 18px; font-weight: 700; }
+  .stock-code { font-size: 13px; color: var(--text3); margin-left: 8px; }
+  .stock-tag {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .stock-tag.star { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(0,212,170,0.3); }
+  .stock-tag.watch { background: var(--yellow-dim); color: var(--yellow); border: 1px solid rgba(255,217,61,0.3); }
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .strategy-item {
+    background: rgba(10,14,23,0.6);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+  }
+  .strategy-item .label { font-size: 12px; font-weight: 700; margin-bottom: 6px; }
+  .strategy-item .label.buy { color: var(--accent); }
+  .strategy-item .label.add { color: var(--blue); }
+  .strategy-item .label.stop { color: var(--red); }
+  .strategy-item .label.reduce { color: var(--yellow); }
+  .strategy-item .text { font-size: 13px; color: var(--text2); line-height: 1.6; }
+  .review-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .review-card:last-child { margin-bottom: 0; }
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .review-status {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .review-status.hit { background: var(--accent-dim); color: var(--accent); }
+  .review-status.miss { background: var(--red-dim); color: var(--red); }
+  .footer {
+    text-align: center;
+    padding: 32px 0;
+    font-size: 12px;
+    color: var(--text3);
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+  @media (max-width: 768px) {
+    .container { padding: 12px; }
+    .header { padding: 24px; }
+    .header h1 { font-size: 24px; }
+    .section { padding: 20px; }
+    .score-grid { grid-template-columns: 1fr; }
+    .strategy-grid { grid-template-columns: 1fr; }
+    .market-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <div class="badge">SERENITY DAILY RESEARCH</div>
+  <h1>Serenity 紫苏叶理论 每日投研分析</h1>
+  <div class="subtitle">逆向投研框架 | 刚需性 x 稀缺性 x 冷门性 | 2026-06-14（周日）</div>
+  <div class="meta">
+    <div class="meta-item">分析日期：<span>2026年6月14日</span></div>
+    <div class="meta-item">覆盖周期：<span>2026.06.09 - 2026.06.14</span></div>
+    <div class="meta-item">数据来源：<span>公开市场信息 + 研报库</span></div>
+  </div>
+</div>
+
+<div class="disclaimer">
+  <strong>免责声明与风险提示</strong>
+  本报告基于公开市场信息和研报数据编写，仅供学习交流与个人研究参考，不构成任何投资建议。股市有风险，入市需谨慎。报告中的所有分析、预测和策略均为基于历史数据和公开信息的推演，不保证未来收益。投资者应独立判断，自行承担投资风险。本报告作者及生成平台不对任何因使用本报告而产生的直接或间接损失承担责任。
+</div>
+
+<!-- Section 1 -->
+<div class="section">
+  <div class="section-title"><span class="num">1</span>今日市场热点概览</div>
+  <div class="market-grid">
+    <div class="market-card">
+      <div class="label">上证指数（6.13收盘）</div>
+      <div class="value up">4,031.51</div>
+      <div class="change">+1.12% | 站稳4000点</div>
+    </div>
+    <div class="market-card">
+      <div class="label">两市成交额</div>
+      <div class="value up">3.24万亿</div>
+      <div class="change">日增6,600亿 | 天量</div>
+    </div>
+    <div class="market-card">
+      <div class="label">涨跌家数比</div>
+      <div class="value up">3,900+</div>
+      <div class="change">约100股涨停 | 情绪回暖</div>
+    </div>
+    <div class="market-card">
+      <div class="label">深证成指（周涨幅）</div>
+      <div class="value down">-2.29%</div>
+      <div class="change">创业板指 -3.22% | 分化加剧</div>
+    </div>
+  </div>
+  <h3 style="font-size:16px; margin-bottom:14px; color:var(--text);">本周核心热点板块</h3>
+  <div class="hot-topics">
+    <span class="hot-tag red">有色金属（+5%）铜铝钼全线爆发</span>
+    <span class="hot-tag green">"以钼代钨"半导体材料革命</span>
+    <span class="hot-tag blue">存储芯片（长鑫科技IPO获批）</span>
+    <span class="hot-tag yellow">券商/金融 午后护盘发力</span>
+    <span class="hot-tag red">光模块 主力大举撤离</span>
+    <span class="hot-tag green">央行6000亿买断式逆回购</span>
+  </div>
+  <h3 style="font-size:16px; margin-bottom:14px; color:var(--text);">重大事件催化</h3>
+  <ul class="event-list">
+    <li class="event-item">
+      <div class="event-dot"></div>
+      <div class="event-text"><strong>SK海力士官宣"以钼代钨"：</strong>375层3D NAND闪存完成生产验证，首次规模化用钼替代钨制作字线，2026年底量产。直接引爆A股钼板块连续两日涨停潮。</div>
+    </li>
+    <li class="event-item">
+      <div class="event-dot" style="background:var(--blue)"></div>
+      <div class="event-text"><strong>长鑫科技科创板IPO获批：</strong>国产DRAM龙头获证监会注册批文，募资295亿元，为半导体国产替代主线提供强催化。</div>
+    </li>
+    <li class="event-item">
+      <div class="event-dot" style="background:var(--yellow)"></div>
+      <div class="event-text"><strong>央行+证监会双重利好：</strong>央行6月15日开展6000亿元买断式逆回购（6个月期），证监会定调市场长期发展方向，深市四大核心指数大规模调仓换股。</div>
+    </li>
+    <li class="event-item">
+      <div class="event-dot" style="background:var(--red)"></div>
+      <div class="event-text"><strong>光模块资金大逃亡：</strong>近3日主力净流出突破千亿，新易盛两日被卖出81亿，中际旭创流出29亿。资金从AI高位向有色金属低位轮动。</div>
+    </li>
+    <li class="event-item">
+      <div class="event-dot" style="background:var(--accent)"></div>
+      <div class="event-text"><strong>电子特气板块暴跌：</strong>华特气体-17.62%、中巨芯-17.30%、金宏气体-14.89%，多家公司发澄清公告，蹭概念标的大幅杀估值。</div>
+    </li>
+  </ul>
+  <h3 style="font-size:16px; margin:20px 0 14px; color:var(--text);">主力资金流向概览</h3>
+  <table>
+    <thead><tr><th>板块/方向</th><th>资金动向</th><th>规模</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td style="color:var(--accent)">有色金属</td><td>大幅净流入</td><td>144亿元（6.12单日）</td><td>铜、钼、黄金、稀土全线</td></tr>
+      <tr><td style="color:var(--accent)">券商/金融</td><td>净流入</td><td>板块异动拉升</td><td>中银证券、财达证券涨停</td></tr>
+      <tr><td style="color:var(--red)">光模块/通信</td><td>大幅净流出</td><td>110亿+（两日）</td><td>新易盛、中际旭创领跌</td></tr>
+      <tr><td style="color:var(--red)">电子特气</td><td>暴跌出逃</td><td>板块跌超10%</td><td>华特、中巨芯、金宏重挫</td></tr>
+      <tr><td style="color:var(--yellow)">北向资金</td><td>逆势净流入</td><td>-</td><td>深V反转中持续买入</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Section 2 -->
+<div class="section">
+  <div class="section-title"><span class="num">2</span>研报库匹配结果</div>
+  <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">从工作区研报库中匹配到以下与本周热点高度相关的研报：</p>
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">半导体靶材钼 - 卡脖子系列（十一）</span><span class="stock-code">行业深度 | 2026-05-21</span></div>
+    </div>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8;">
+      <strong style="color:var(--accent)">核心发现：</strong>半导体靶材钼是先进制程互连材料领域正在发生的"材料换代"核心载体。传统钨互连在7nm以下电阻率急剧攀升，钼成为下一代互连结构的必选项。Lam Research副总裁在2026年韩国SEMI材料峰会上直言："钼是下一代互连结构的重大转折点，行业正从钨向钼迁移。"
+    </p>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8; margin-top:10px;">
+      <strong style="color:var(--yellow)">市场空间：</strong>2025年全球半导体溅射靶材市场约48.3亿美元，预计2026-2028年复合增速14.2%，2028年突破72亿美元。高纯钼靶材已涨价20%-60%，半导体级溢价30%-60%。
+    </p>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8; margin-top:10px;">
+      <strong style="color:var(--blue)">产业链排序：</strong>金钼股份（全产业链第一）> 江丰电子（靶材龙头）> 隆华科技（面板靶材升级）> 安泰科技（高纯钼坯供应）> 有研新材（平台型补充）> 欧莱新材（新进入者）
+    </p>
+  </div>
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">半导体靶材钼核心企业PK</span><span class="stock-code">金钼 vs 江丰 vs 隆华 | 2026-05-21</span></div>
+    </div>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8;">
+      <strong style="color:var(--accent)">金钼股份：</strong>A股唯一"钼矿->高纯冶炼->半导体靶材"全产业链。5N级钼靶材通过台积电认证（7nm/5nm/3nm），签约中芯国际5年超10亿长单。半导体钼材市占率33.6%，钼价每涨1万元/吨净利增3-4亿。2025年营收138.34亿，归母净利31.55亿。
+    </p>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8; margin-top:10px;">
+      <strong style="color:var(--blue)">江丰电子：</strong>国内半导体溅射靶材绝对龙头，12英寸晶圆厂市占率73%，全球出货量市占率超25%，国内唯一进台积电3nm供应链。2025年营收46.04亿，靶材收入28.50亿。
+    </p>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8; margin-top:10px;">
+      <strong style="color:var(--yellow)">隆华科技：</strong>面板钼靶国内市占率第一（>30%），正在向半导体靶材升级。2025年营收30.74亿，净利率仅6.18%，弹性有限。
+    </p>
+  </div>
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">安泰科技 公司深度</span><span class="stock-code">000969 | 2025-12-13</span></div>
+    </div>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8;">
+      <strong style="color:var(--accent)">定位：</strong>中国钢研旗下新材料平台，高纯钼坯龙头，供应隆华/江丰，送样SK海力士/三星。钼靶材月产能150-200片，已通过中芯国际认证并规模化供货。钨铜热沉进入华为供应链（毛利率35%）。核聚变业务获7000万订单。
+    </p>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8; margin-top:10px;">
+      <strong style="color:var(--yellow)">估值：</strong>当前约257亿市值（6.12涨停后），2025E PE约50-60x。弹性大但估值已部分反映预期。
+    </p>
+  </div>
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">NAND Flash产业链深度分析</span><span class="stock-code">行业深度 | 2026-05-29</span></div>
+    </div>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8;">
+      <strong style="color:var(--accent)">核心观点：</strong>2026年Q1企业级高端NAND环比涨幅55%-90%，全年涨幅可能达200%-250%。三星/SK海力士合计减产6.2%，全品类产能100%售罄。长江存储市占率攀升至13%，三期项目2026年下半年量产。钼靶材是3D NAND超高堆叠的核心耗材。
+    </p>
+  </div>
+</div>
+
+<!-- Section 3 -->
+<div class="section">
+  <div class="section-title"><span class="num">3</span>Serenity 紫苏叶理论筛选</div>
+  <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">按照紫苏叶三要素（刚需性、稀缺性、冷门性）对本周热点相关标的进行系统评估：</p>
+
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">欧莱新材</span><span class="stock-code">688530.SH</span></div>
+      <span class="stock-tag star">Serenity 重点推荐</span>
+    </div>
+    <p style="color:var(--text2); font-size:14px; margin-bottom:16px;">高性能溅射靶材研发生产企业，拥有142项有效授权专利，正加速超高纯金属材料研发。6月12日盘中最高68元触及近一年新高，总市值约90亿。本周因"以钼代钨"概念连续异动。</p>
+    <div class="score-grid">
+      <div class="score-card">
+        <div class="label">刚需性</div>
+        <div class="value" style="color:var(--accent)">9/10</div>
+        <div class="score-bar"><div class="fill" style="width:90%; background:var(--accent)"></div></div>
+        <div class="desc">3D NAND 300+层堆叠必须用钼靶材<br>SK海力士已验证量产，行业拐点确立<br>无替代材料方案</div>
+      </div>
+      <div class="score-card">
+        <div class="label">稀缺性</div>
+        <div class="value" style="color:var(--accent)">8/10</div>
+        <div class="score-bar"><div class="fill" style="width:80%; background:var(--accent)"></div></div>
+        <div class="desc">全球半导体靶材被美日4家垄断80%<br>国内合格供应商极少<br>认证周期1-3年，先发壁垒极高</div>
+      </div>
+      <div class="score-card">
+        <div class="label">冷门性</div>
+        <div class="value" style="color:var(--accent)">9/10</div>
+        <div class="score-bar"><div class="fill" style="width:90%; background:var(--accent)"></div></div>
+        <div class="desc">市值约90亿，远低于100亿门槛<br>机构覆盖极少，非主流标的<br>本周刚被市场挖掘，尚未资金抱团</div>
+      </div>
+    </div>
+    <div style="background:var(--accent-dim); border:1px solid rgba(0,212,170,0.3); border-radius:8px; padding:14px; margin-top:16px;">
+      <strong style="color:var(--accent); font-size:13px;">Serenity 综合评分：8.7/10 | 三要素高度共振</strong>
+      <p style="color:var(--text2); font-size:13px; margin-top:6px;">欧莱新材完美符合紫苏叶三要素：半导体钼靶材是3D NAND堆叠的物理刚需（9分），国内合格供应商稀缺（8分），市值小、机构覆盖少、刚被市场发现（9分）。142项专利构筑技术壁垒，超高纯金属材料研发方向与"以钼代钨"趋势高度吻合。本周股价从48元快速拉升至68元后回落至56元，属于概念炒作初期的典型"发现-拉升-分歧"阶段，回调后有望迎来第二波主升。</p>
+    </div>
+  </div>
+
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">盛龙股份</span><span class="stock-code">001257.SZ</span></div>
+      <span class="stock-tag star">Serenity 重点推荐</span>
+    </div>
+    <p style="color:var(--text2); font-size:14px; margin-bottom:16px;">2026年3月上市的钼业新股，手握南泥湖钼矿（钼金属量71.05万吨），国内最大单体钼矿资源。本周实现2连板，成交额3.97亿，换手率10.44%。</p>
+    <div class="score-grid">
+      <div class="score-card">
+        <div class="label">刚需性</div>
+        <div class="value" style="color:var(--accent)">8/10</div>
+        <div class="score-bar"><div class="fill" style="width:80%; background:var(--accent)"></div></div>
+        <div class="desc">钼是"以钼代钨"趋势的上游资源<br>半导体+不锈钢+特钢多需求驱动<br>2026年预期供需缺口4.4-5万吨</div>
+      </div>
+      <div class="score-card">
+        <div class="label">稀缺性</div>
+        <div class="value" style="color:var(--accent)">9/10</div>
+        <div class="score-bar"><div class="fill" style="width:90%; background:var(--accent)"></div></div>
+        <div class="desc">南泥湖钼矿为国内最大单体钼矿<br>钼矿扩产周期18-24个月+<br>全球钼资源集中度极高</div>
+      </div>
+      <div class="score-card">
+        <div class="label">冷门性</div>
+        <div class="value" style="color:var(--yellow)">7/10</div>
+        <div class="score-bar"><div class="fill" style="width:70%; background:var(--yellow)"></div></div>
+        <div class="desc">次新股，上市仅3个月<br>机构覆盖尚不充分<br>但本周已2连板，冷门性在消退</div>
+      </div>
+    </div>
+    <div style="background:var(--accent-dim); border:1px solid rgba(0,212,170,0.3); border-radius:8px; padding:14px; margin-top:16px;">
+      <strong style="color:var(--accent); font-size:13px;">Serenity 综合评分：8.0/10 | 资源稀缺性突出</strong>
+      <p style="color:var(--text2); font-size:13px; margin-top:6px;">盛龙股份的核心逻辑在于"钼矿资源+以钼代钨"双轮驱动。南泥湖钼矿资源禀赋极佳，钼矿扩产周期长导致供给刚性。作为2026年3月刚上市的次新股，市场认知尚不充分。但需注意本周已2连板，冷门性正在快速消退，追高风险加大。建议等待连板后的分歧回调再介入。</p>
+    </div>
+  </div>
+
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">安泰科技</span><span class="stock-code">000969.SZ</span></div>
+      <span class="stock-tag watch">Serenity 观察标的</span>
+    </div>
+    <p style="color:var(--text2); font-size:14px; margin-bottom:16px;">中国钢研旗下新材料平台，高纯钼坯龙头。6月12日涨停收盘24.46元，总市值约257亿。</p>
+    <div class="score-grid">
+      <div class="score-card">
+        <div class="label">刚需性</div>
+        <div class="value" style="color:var(--blue)">8/10</div>
+        <div class="score-bar"><div class="fill" style="width:80%; background:var(--blue)"></div></div>
+        <div class="desc">高纯钼坯是钼靶材上游关键原料<br>"靶材+热沉"产品协同效应强</div>
+      </div>
+      <div class="score-card">
+        <div class="label">稀缺性</div>
+        <div class="value" style="color:var(--blue)">7/10</div>
+        <div class="score-bar"><div class="fill" style="width:70%; background:var(--blue)"></div></div>
+        <div class="desc">国内高纯钼坯供应商不多<br>但非唯一，月产能150-200片偏小</div>
+      </div>
+      <div class="score-card">
+        <div class="label">冷门性</div>
+        <div class="value" style="color:var(--red)">3/10</div>
+        <div class="score-bar"><div class="fill" style="width:30%; background:var(--red)"></div></div>
+        <div class="desc">市值257亿，远超100亿门槛<br>央企背景，机构覆盖充分<br>本周已涨停，资金关注度高</div>
+      </div>
+    </div>
+    <div style="background:var(--yellow-dim); border:1px solid rgba(255,217,61,0.3); border-radius:8px; padding:14px; margin-top:16px;">
+      <strong style="color:var(--yellow); font-size:13px;">Serenity 综合评分：6.0/10 | 冷门性不达标</strong>
+      <p style="color:var(--text2); font-size:13px; margin-top:6px;">安泰科技在刚需性和稀缺性上得分不错，但冷门性严重不达标——市值257亿远超100亿门槛，央企背景机构覆盖充分。按照Serenity框架，此标的不符合"冷门性"核心条件，属于"好公司但不是好标的"的典型。仅作为观察标的跟踪。</p>
+    </div>
+  </div>
+
+  <h3 style="font-size:16px; margin:24px 0 14px; color:var(--text);">Serenity 筛选汇总</h3>
+  <table>
+    <thead><tr><th>标的</th><th>代码</th><th>刚需性</th><th>稀缺性</th><th>冷门性</th><th>综合分</th><th>评级</th></tr></thead>
+    <tbody>
+      <tr><td><strong>欧莱新材</strong></td><td>688530</td><td style="color:var(--accent)">9/10</td><td style="color:var(--accent)">8/10</td><td style="color:var(--accent)">9/10</td><td><strong style="color:var(--accent)">8.7</strong></td><td><span class="stock-tag star">重点推荐</span></td></tr>
+      <tr><td><strong>盛龙股份</strong></td><td>001257</td><td style="color:var(--accent)">8/10</td><td style="color:var(--accent)">9/10</td><td style="color:var(--yellow)">7/10</td><td><strong style="color:var(--accent)">8.0</strong></td><td><span class="stock-tag star">重点推荐</span></td></tr>
+      <tr><td><strong>安泰科技</strong></td><td>000969</td><td style="color:var(--blue)">8/10</td><td style="color:var(--blue)">7/10</td><td style="color:var(--red)">3/10</td><td><strong style="color:var(--yellow)">6.0</strong></td><td><span class="stock-tag watch">观察</span></td></tr>
+      <tr><td><strong>金钼股份</strong></td><td>601958</td><td style="color:var(--accent)">9/10</td><td style="color:var(--accent)">9/10</td><td style="color:var(--red)">2/10</td><td><strong style="color:var(--yellow)">6.7</strong></td><td><span class="stock-tag watch">观察</span></td></tr>
+      <tr><td><strong>江丰电子</strong></td><td>300666</td><td style="color:var(--accent)">9/10</td><td style="color:var(--accent)">9/10</td><td style="color:var(--red)">2/10</td><td><strong style="color:var(--yellow)">6.7</strong></td><td><span class="stock-tag watch">观察</span></td></tr>
+    </tbody>
+  </table>
+  <p style="color:var(--text3); font-size:12px; margin-top:10px;">注：金钼股份和江丰电子在刚需性和稀缺性上得分极高，但市值远超100亿且机构覆盖充分，冷门性严重不达标。按照Serenity紫苏叶理论，三要素必须同时满足，因此降级为观察标的。</p>
+</div>
+
+<!-- Section 4 -->
+<div class="section">
+  <div class="section-title"><span class="num">4</span>技术面分析</div>
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">欧莱新材 688530</span><span class="stock-code">技术面评估</span></div>
+      <span class="stock-tag star">形态良好</span>
+    </div>
+    <table>
+      <thead><tr><th>指标</th><th>状态</th><th>解读</th></tr></thead>
+      <tbody>
+        <tr><td>趋势</td><td style="color:var(--accent)">上升趋势</td><td>周线从33.5元（4月低点）持续上行至68元（6.12高点），涨幅超100%</td></tr>
+        <tr><td>5日线</td><td style="color:var(--accent)">沿5日线上行</td><td>近两周持续沿5日线上涨，短期均线多头排列</td></tr>
+        <tr><td>成交量</td><td style="color:var(--accent)">放量</td><td>6月12日成交额放大至6亿+，换手率10%+，量价配合良好</td></tr>
+        <tr><td>关键位</td><td style="color:var(--yellow)">分歧回调</td><td>68元->56.68元回调17%，属于概念炒作后的正常分歧</td></tr>
+        <tr><td>支撑位</td><td>48-50元</td><td>前期平台密集成交区，若回踩不破则为健康调整</td></tr>
+        <tr><td>压力位</td><td>68元</td><td>近一年高点，突破需放量确认</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--text2); font-size:13px; margin-top:12px;"><strong style="color:var(--accent)">技术面结论：</strong>欧莱新材处于中期上升趋势中的分歧回调阶段。从33.5元到68元翻倍后回调至56元，回调幅度约17%属于健康范围。若能在48-50元支撑企稳，将形成更好的二次介入机会。当前尚未跌破5周线，中期趋势未破坏。</p>
+  </div>
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">盛龙股份 001257</span><span class="stock-code">技术面评估</span></div>
+      <span class="stock-tag watch">连板后分歧</span>
+    </div>
+    <table>
+      <thead><tr><th>指标</th><th>状态</th><th>解读</th></tr></thead>
+      <tbody>
+        <tr><td>趋势</td><td style="color:var(--accent)">连板主升</td><td>6月11日、12日连续两日涨停，封单坚决</td></tr>
+        <tr><td>成交量</td><td style="color:var(--yellow)">温和放量</td><td>6月12日成交额3.97亿，换手率10.44%，量能可控</td></tr>
+        <tr><td>关键位</td><td style="color:var(--yellow)">连板后观察</td><td>2连板后需观察周一是否继续晋级或开板分歧</td></tr>
+        <tr><td>支撑位</td><td>首板起点附近</td><td>次新股上市后充分调整，首板启动位置构成强支撑</td></tr>
+        <tr><td>风险</td><td style="color:var(--red)">追高风险</td><td>连板股追入风险大，需等待分歧回调确认支撑</td></tr>
+      </tbody>
+    </table>
+    <p style="color:var(--text2); font-size:13px; margin-top:12px;"><strong style="color:var(--yellow)">技术面结论：</strong>盛龙股份处于连板主升浪初期，2连板封单坚决。但作为次新股连板，追高风险极大。建议等待开板后的分歧回调，若能在首板起点附近企稳且缩量，则为理想介入时机。</p>
+  </div>
+</div>
+
+<!-- Section 5 -->
+<div class="section">
+  <div class="section-title"><span class="num">5</span>操作策略</div>
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">欧莱新材 688530</span><span class="stock-code">Serenity 重点推荐</span></div>
+      <span class="stock-tag star">综合评分 8.7</span>
+    </div>
+    <div class="strategy-grid">
+      <div class="strategy-item">
+        <div class="label buy">建仓策略</div>
+        <div class="text">目标价格区间：48-52元<br>首次建仓仓位：10-12%<br>触发条件：回踩48-50元支撑区企稳，缩量（日成交额<3亿），5日线拐头向上</div>
+      </div>
+      <div class="strategy-item">
+        <div class="label add">加仓策略</div>
+        <div class="text">加仓时机1：回踩支撑位不破，企稳2-3日后加仓5%<br>加仓时机2：放量突破68元前高，确认后加仓5%<br>总仓位控制在20%以内</div>
+      </div>
+      <div class="strategy-item">
+        <div class="label stop">止损策略</div>
+        <div class="text">技术止损：跌破44元（前低支撑）无条件止损<br>逻辑止损：若"以钼代钨"被证伪或公司澄清无钼靶材业务<br>时间止损：介入后2周内未反弹至成本价上方，减仓50%</div>
+      </div>
+      <div class="strategy-item">
+        <div class="label reduce">减仓策略</div>
+        <div class="text">目标价1：68元（前高），到达后减仓30%<br>目标价2：80元（翻倍心理关口），到达后再减30%<br>乖离率止损：若5日乖离率>15%且放量滞涨，主动减仓</div>
+      </div>
+    </div>
+  </div>
+  <div class="stock-card">
+    <div class="stock-header">
+      <div><span class="stock-name">盛龙股份 001257</span><span class="stock-code">Serenity 重点推荐</span></div>
+      <span class="stock-tag star">综合评分 8.0</span>
+    </div>
+    <div class="strategy-grid">
+      <div class="strategy-item">
+        <div class="label buy">建仓策略</div>
+        <div class="text">目标价格区间：开板分歧后回踩首板起点附近<br>首次建仓仓位：8-10%<br>触发条件：连板开板后回调缩量企稳，换手率降至5%以下</div>
+      </div>
+      <div class="strategy-item">
+        <div class="label add">加仓策略</div>
+        <div class="text">加仓时机：二波启动确认（放量突破首板高点）<br>加仓比例：5%<br>总仓位控制在15%以内</div>
+      </div>
+      <div class="strategy-item">
+        <div class="label stop">止损策略</div>
+        <div class="text">技术止损：跌破首板起点（开盘价）-5%止损<br>逻辑止损：钼价拐头向下或"以钼代钨"量产不及预期<br>严格执行，不抱幻想</div>
+      </div>
+      <div class="strategy-item">
+        <div class="label reduce">减仓策略</div>
+        <div class="text">3连板及以上：每多一板减仓20%<br>开板日：若冲高回落，尾盘减仓50%<br>逻辑兑现：钼靶材量产消息落地后逢高减仓</div>
+      </div>
+    </div>
+  </div>
+  <div style="background:rgba(116,185,255,0.1); border:1px solid rgba(116,185,255,0.3); border-radius:8px; padding:16px; margin-top:16px;">
+    <strong style="color:var(--blue); font-size:14px;">仓位管理总原则</strong>
+    <ul style="color:var(--text2); font-size:13px; margin-top:10px; padding-left:20px; line-height:2;">
+      <li>单只标的仓位上限：20%</li>
+      <li>组合总仓位上限：60%（保留40%现金应对波动）</li>
+      <li>两只重点推荐标的合计仓位上限：35%</li>
+      <li>严格执行止损纪律，单笔亏损不超过总资金的2%</li>
+      <li>周一（6.15）为关键观察日，央行逆回购+深市指数调整，市场波动可能加大</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Section 6 -->
+<div class="section">
+  <div class="section-title"><span class="num">6</span>前日复盘</div>
+  <p style="color:var(--text2); font-size:14px; margin-bottom:20px;">由于本报告为首次生成（2026-06-14），暂无前日推荐标的的历史记录可供复盘。以下为本周市场主线回顾：</p>
+  <div class="review-card">
+    <div class="review-header">
+      <div><strong style="font-size:15px;">本周主线回顾："以钼代钨" + 有色金属</strong></div>
+      <span class="review-status hit">主线确认</span>
+    </div>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8;">
+      <strong style="color:var(--accent)">催化剂：</strong>6月11日SK海力士官宣375层3D NAND"以钼代钨"技术验证完成。<br>
+      <strong style="color:var(--accent)">市场反应：</strong>6月11-12日钼板块连续两日涨停潮，金钼股份、盛龙股份2连板，洛阳钼业、安泰科技涨停。有色金属板块单日净流入144亿。<br>
+      <strong style="color:var(--accent)">持续性判断：</strong>"以钼代钨"不是概念炒作，而是真实的材料换代拐点。Lam Research 2025年推出全球首台钼ALD设备，2026年三星/铠侠/长江存储/美光进入验证转量产，2027-2028年全面铺开。产业趋势确定，行情有望持续数月。
+    </p>
+  </div>
+  <div class="review-card">
+    <div class="review-header">
+      <div><strong style="font-size:15px;">资金轮动信号：AI高位 -> 资源低位</strong></div>
+      <span class="review-status hit">趋势确认</span>
+    </div>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8;">
+      <strong style="color:var(--red)">光模块撤退：</strong>新易盛两日被主力卖出81亿，中际旭创流出29亿，通信行业单日净流出超90亿。AI高位股资金正在大规模撤离。<br>
+      <strong style="color:var(--accent)">有色金属承接：</strong>有色板块单日净流入144亿，锂电、有色等周期标的获大额资金布局。典型的"高低切换"轮动。<br>
+      <strong style="color:var(--yellow)">启示：</strong>市场风格正在从AI成长向资源周期切换。电子特气板块的暴跌（华特气体-17%）说明蹭概念标的在澄清后会被快速抛弃，选股必须注重"真刚需、真稀缺"。
+    </p>
+  </div>
+  <div class="review-card">
+    <div class="review-header">
+      <div><strong style="font-size:15px;">模拟策略收益回溯</strong></div>
+      <span class="review-status hit">首次运行</span>
+    </div>
+    <p style="color:var(--text2); font-size:14px; line-height:1.8;">本报告为首次运行，尚无历史推荐标的的模拟收益数据。从下周起，每日报告将包含前日推荐标的的实际走势复盘、预测偏差分析和模拟收益统计。</p>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Serenity 紫苏叶理论 逆向投研分析 | 2026-06-14</p>
+  <p style="margin-top:8px;">本报告基于公开信息和研报数据生成，仅供学习交流，不构成投资建议。</p>
+  <p style="margin-top:4px;">数据来源：东方财富、头条财经、格隆汇、研报库等公开渠道</p>
+</div>
+
+</div>
+</body>
+</html>

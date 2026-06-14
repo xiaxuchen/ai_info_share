@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XPX-45 重点标的深度报告（增强版）</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #121c2f;
+      --line: #2a3a57;
+      --text: #e8eef9;
+      --muted: #9fb0cc;
+      --ok: #62d89a;
+      --warn: #ffd27a;
+      --bad: #ff8a8a;
+      --accent: #83b7ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #0b1220 0%, #0f1a2d 100%);
+      color: var(--text);
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 26px 18px 64px; }
+    h1,h2,h3,h4 { margin: 0 0 10px; line-height: 1.28; }
+    h1 { font-size: 30px; }
+    h2 { font-size: 22px; margin-top: 26px; }
+    h3 { font-size: 18px; margin-top: 16px; }
+    h4 { font-size: 15px; color: #cfe0ff; margin-top: 10px; }
+    p { margin: 6px 0; }
+    .sub { font-size: 13px; color: var(--muted); }
+    .card {
+      background: rgba(18,28,47,.92);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 15px 16px;
+      margin-top: 12px;
+      box-shadow: 0 6px 24px rgba(0,0,0,.25);
+    }
+    .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(560px, 1fr)); gap: 12px; }
+    .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 12px; }
+    .chip {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px 9px;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 2px 6px 2px 0;
+    }
+    .score { font-weight: 700; color: #d7e6ff; }
+    .ok { color: var(--ok); font-weight: 700; }
+    .warn { color: var(--warn); font-weight: 700; }
+    .bad { color: var(--bad); font-weight: 700; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 8px; }
+    th,td { border: 1px solid var(--line); padding: 8px 7px; vertical-align: top; }
+    th { background: #17243e; color: #cde1ff; text-align: left; }
+    .small { font-size: 12px; color: var(--muted); }
+    ul { margin: 6px 0 0 18px; padding: 0; }
+    li { margin: 4px 0; }
+    .rank-a { color: #8fe5ff; font-weight: 700; }
+    .rank-b { color: #b7e38b; font-weight: 700; }
+    .rank-c { color: #ffd27a; font-weight: 700; }
+    .rank-d { color: #ff9d9d; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>重点标的深度报告（增强版）</h1>
+    <p class="sub">版本：v2（应“需要更详细”要求补充）｜日期：2026-06-06｜来源：Obsidian Vault 内部公司PK资料整理</p>
+
+    <div class="card">
+      <h2>一、总览结论（先看大局）</h2>
+      <ul>
+        <li><span class="ok">主线排序：</span>AI算力光通信（短中期最强） &gt; 半导体设备国产替代（中期确定性） &gt; 商业航天（高弹性） &gt; 储能系统（轮动防守）。</li>
+        <li><span class="ok">核心配置建议：</span>中际旭创 + 北方华创 + 天孚通信（偏稳健成长组合）。</li>
+        <li><span class="warn">弹性增强建议：</span>中微公司 + 拓荆科技 + 臻镭科技（技术/主题双驱动）。</li>
+        <li><span class="warn">防守轮动建议：</span>阳光电源（海外订单与盈利韧性相对较强）。</li>
+      </ul>
+      <p class="small">注：以下所有评分为框架化研究结论，便于比较，不代表未来收益保证。</p>
+    </div>
+
+    <h2>二、评分框架与打分结果</h2>
+    <div class="card">
+      <p>采用六维打分（每项10分）：<span class="chip">行业景气</span><span class="chip">商业模式</span><span class="chip">成长性</span><span class="chip">盈利质量</span><span class="chip">护城河</span><span class="chip">风险控制</span>，总分60。</p>
+      <table>
+        <thead>
+          <tr>
+            <th>标的</th><th>行业</th><th>模式</th><th>成长</th><th>盈利</th><th>护城河</th><th>风险控制</th><th>总分</th><th>分层</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>中际旭创</td><td>9</td><td>8</td><td>9</td><td>8</td><td>9</td><td>7</td><td class="score">50</td><td class="rank-a">A 核心</td></tr>
+          <tr><td>天孚通信</td><td>9</td><td>9</td><td>8</td><td>9</td><td>8</td><td>7</td><td class="score">50</td><td class="rank-a">A 核心</td></tr>
+          <tr><td>北方华创</td><td>9</td><td>9</td><td>8</td><td>8</td><td>9</td><td>8</td><td class="score">51</td><td class="rank-a">A 核心</td></tr>
+          <tr><td>中微公司</td><td>9</td><td>8</td><td>8</td><td>8</td><td>9</td><td>7</td><td class="score">49</td><td class="rank-b">B 进攻</td></tr>
+          <tr><td>拓荆科技</td><td>9</td><td>8</td><td>9</td><td>7</td><td>8</td><td>6</td><td class="score">47</td><td class="rank-b">B 进攻</td></tr>
+          <tr><td>臻镭科技</td><td>8</td><td>9</td><td>9</td><td>10</td><td>8</td><td>6</td><td class="score">50</td><td class="rank-b">B 高弹性</td></tr>
+          <tr><td>中国卫星</td><td>8</td><td>7</td><td>6</td><td>5</td><td>9</td><td>6</td><td class="score">41</td><td class="rank-c">C 事件驱动</td></tr>
+          <tr><td>阳光电源</td><td>8</td><td>8</td><td>8</td><td>9</td><td>8</td><td>7</td><td class="score">48</td><td class="rank-b">B 轮动防守</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>三、标的逐一深度拆解（重点扩展版）</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>1) 中际旭创（AI光模块龙头）</h3>
+        <h4>核心逻辑</h4>
+        <ul>
+          <li>800G 基础上向 1.6T 过渡，受益于云厂商算力资本开支。</li>
+          <li>规模效应+客户绑定使其在行业波动期仍具韧性。</li>
+        </ul>
+        <h4>优势</h4>
+        <ul>
+          <li><span class="ok">全球份额与订单可见度领先</span>，供应链组织能力强。</li>
+          <li><span class="ok">高端产品迭代节奏明确</span>，有望承接新周期放量。</li>
+        </ul>
+        <h4>劣势/风险</h4>
+        <ul>
+          <li><span class="bad">海外客户集中、地缘变量敏感</span>。</li>
+          <li><span class="bad">高景气后常见库存与价格回摆风险</span>。</li>
+        </ul>
+        <h4>关键观察指标</h4>
+        <p class="small">1.6T收入占比、季度毛利率环比、存货周转、北美云厂商CapEx指引。</p>
+      </div>
+
+      <div class="card">
+        <h3>2) 天孚通信（上游“卖水人”）</h3>
+        <h4>核心逻辑</h4>
+        <ul>
+          <li>以光器件技术壁垒获取高毛利，受终端价格战冲击相对小。</li>
+          <li>兼具当前景气与未来 CPO 技术路线延展。</li>
+        </ul>
+        <h4>优势</h4>
+        <ul>
+          <li><span class="ok">毛利率领先</span>，盈利质量稳定。</li>
+          <li><span class="ok">精密制造平台化能力</span>，对下一代技术适配性较强。</li>
+        </ul>
+        <h4>劣势/风险</h4>
+        <ul>
+          <li><span class="bad">客户集中度较高</span>，下游景气回落会传导。</li>
+          <li><span class="bad">若 CPO 放量低于预期，估值弹性回收</span>。</li>
+        </ul>
+        <h4>关键观察指标</h4>
+        <p class="small">CPO 进展、核心器件份额、毛利率波动区间、海外客户结构。</p>
+      </div>
+
+      <div class="card">
+        <h3>3) 北方华创（设备平台化龙头）</h3>
+        <h4>核心逻辑</h4>
+        <ul>
+          <li>国产替代主线中最具“平台底座”属性，覆盖工艺环节广。</li>
+          <li>客户深度绑定，订单连续性优于单点设备商。</li>
+        </ul>
+        <h4>优势</h4>
+        <ul>
+          <li><span class="ok">产品矩阵最全，抗行业单点波动能力强</span>。</li>
+          <li><span class="ok">受益于大陆晶圆厂资本开支中期扩张</span>。</li>
+        </ul>
+        <h4>劣势/风险</h4>
+        <ul>
+          <li><span class="bad">多线研发+并购整合带来费用端压力</span>。</li>
+          <li><span class="bad">若新产品验证节奏慢，估值会先行承压</span>。</li>
+        </ul>
+        <h4>关键观察指标</h4>
+        <p class="small">新产品验证节点、订单增速、费用率变化、设备国产化率提升速度。</p>
+      </div>
+
+      <div class="card">
+        <h3>4) 中微公司（高端刻蚀技术尖兵）</h3>
+        <h4>核心逻辑</h4>
+        <ul>
+          <li>刻蚀设备是先进制程核心环节，技术突破直接决定估值上限。</li>
+          <li>技术品牌优势有望外溢到更多设备线。</li>
+        </ul>
+        <h4>优势</h4>
+        <ul>
+          <li><span class="ok">高端工艺突破能力强</span>，技术“含金量”高。</li>
+          <li><span class="ok">品牌势能强</span>，利于高端客户导入。</li>
+        </ul>
+        <h4>劣势/风险</h4>
+        <ul>
+          <li><span class="bad">对核心人才与技术迭代依赖大</span>。</li>
+          <li><span class="bad">技术路线切换可能导致阶段性波动</span>。</li>
+        </ul>
+        <h4>关键观察指标</h4>
+        <p class="small">先进制程客户拓展、刻蚀新品性能验证、研发投入效率。</p>
+      </div>
+
+      <div class="card">
+        <h3>5) 拓荆科技（薄膜沉积+先进封装）</h3>
+        <h4>核心逻辑</h4>
+        <ul>
+          <li>受益 HBM 与先进封装趋势，具备“高成长+高波动”特征。</li>
+          <li>订单驱动特征明显，兑现速度决定短中期行情斜率。</li>
+        </ul>
+        <h4>优势</h4>
+        <ul>
+          <li><span class="ok">细分工艺领先</span>，具备高景气赛道卡位优势。</li>
+          <li><span class="ok">在手订单储备较强</span>，有中短期业绩支撑。</li>
+        </ul>
+        <h4>劣势/风险</h4>
+        <ul>
+          <li><span class="bad">新产品验证期利润波动更大</span>。</li>
+          <li><span class="bad">订单兑现若后移，波动会明显放大</span>。</li>
+        </ul>
+        <h4>关键观察指标</h4>
+        <p class="small">HBM相关订单转化率、季度收入环比、毛利率回升节奏。</p>
+      </div>
+
+      <div class="card">
+        <h3>6) 臻镭科技（商业航天芯片高弹性）</h3>
+        <h4>核心逻辑</h4>
+        <ul>
+          <li>处于产业链价值高地，受益卫星组网放量与单星价值提升。</li>
+          <li>增长兼具行业β与公司α，是商业航天弹性核心。</li>
+        </ul>
+        <h4>优势</h4>
+        <ul>
+          <li><span class="ok">高技术壁垒+高毛利率</span>，商业模式质量优。</li>
+          <li><span class="ok">订单与产能利用率提升</span>，成长确定性阶段性较强。</li>
+        </ul>
+        <h4>劣势/风险</h4>
+        <ul>
+          <li><span class="bad">高盈利吸引竞争者进入</span>。</li>
+          <li><span class="bad">估值对业绩增速变化高度敏感</span>。</li>
+        </ul>
+        <h4>关键观察指标</h4>
+        <p class="small">毛利率趋势、订单同比、卫星发射节奏、民用场景拓展。</p>
+      </div>
+
+      <div class="card">
+        <h3>7) 中国卫星（系统总师型资产）</h3>
+        <h4>核心逻辑</h4>
+        <ul>
+          <li>产业地位高、资质壁垒深，是商业航天基建型受益者。</li>
+          <li>但盈利修复慢，短期更偏“事件驱动”而非“业绩驱动”。</li>
+        </ul>
+        <h4>优势</h4>
+        <ul>
+          <li><span class="ok">系统总体能力强，体系协同深</span>。</li>
+          <li><span class="ok">星座建设上行期具备订单承接能力</span>。</li>
+        </ul>
+        <h4>劣势/风险</h4>
+        <ul>
+          <li><span class="bad">低毛利业务占比高，利润释放慢</span>。</li>
+          <li><span class="bad">项目交付与确认周期长</span>，业绩波动可预期。</li>
+        </ul>
+        <h4>关键观察指标</h4>
+        <p class="small">毛利率/净利率环比、高附加值业务占比、星座项目进度。</p>
+      </div>
+
+      <div class="card">
+        <h3>8) 阳光电源（储能轮动防守）</h3>
+        <h4>核心逻辑</h4>
+        <ul>
+          <li>光储协同+全球渠道使其在储能系统集成中具备稳健优势。</li>
+          <li>在科技成长波动期，可作为“景气轮动+现金流稳定”承接方向。</li>
+        </ul>
+        <h4>优势</h4>
+        <ul>
+          <li><span class="ok">全球品牌和渠道能力强</span>，海外高毛利订单支撑明显。</li>
+          <li><span class="ok">系统级解决方案能力</span>，竞争维度不只是价格。</li>
+        </ul>
+        <h4>劣势/风险</h4>
+        <ul>
+          <li><span class="bad">行业价格战与上游垂直一体化挤压</span>。</li>
+          <li><span class="bad">海外政策变化对订单节奏有影响</span>。</li>
+        </ul>
+        <h4>关键观察指标</h4>
+        <p class="small">海外订单兑现、系统毛利率、构网型储能渗透率。</p>
+      </div>
+    </div>
+
+    <h2>四、催化时点地图（30/90/180天）</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>阶段</th><th>重点看点</th><th>对应方向</th><th>潜在市场反应</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>30天</td>
+            <td>订单公告、发射节点、海外云厂商资本开支更新</td>
+            <td>AI光通信、商业航天</td>
+            <td>主题与龙头先行，弹性股波动更大</td>
+          </tr>
+          <tr>
+            <td>90天</td>
+            <td>季度业绩/毛利率验证、环比拐点</td>
+            <td>AI光通信、半导体设备</td>
+            <td>从“讲故事”转向“看兑现”，分化加剧</td>
+          </tr>
+          <tr>
+            <td>180天</td>
+            <td>产品迭代（1.6T、先进工艺设备）与订单兑现深度</td>
+            <td>半导体设备、高端光器件</td>
+            <td>能兑现的公司估值中枢上移，弱兑现回撤</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>五、组合建议（按风险偏好）</h2>
+    <div class="grid3">
+      <div class="card">
+        <h3>稳健型（回撤优先）</h3>
+        <p>北方华创 35% + 中际旭创 30% + 天孚通信 20% + 阳光电源 15%</p>
+        <p class="small">适合重视确定性与盈利质量，降低主题冲击。</p>
+      </div>
+      <div class="card">
+        <h3>均衡型（收益/回撤平衡）</h3>
+        <p>中际旭创 25% + 北方华创 25% + 中微公司 15% + 拓荆科技 15% + 天孚通信 10% + 臻镭科技 10%</p>
+        <p class="small">兼顾主线与弹性，依赖季度验证动态再平衡。</p>
+      </div>
+      <div class="card">
+        <h3>进攻型（弹性优先）</h3>
+        <p>拓荆科技 25% + 臻镭科技 25% + 中微公司 20% + 中际旭创 15% + 中国卫星 15%</p>
+        <p class="small">波动高，需严格执行止盈止损与仓位纪律。</p>
+      </div>
+    </div>
+
+    <h2>六、风险清单与应对预案</h2>
+    <div class="card">
+      <table>
+        <thead><tr><th>风险类型</th><th>预警信号</th><th>优先受影响方向</th><th>应对动作（框架）</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>需求周期下修</td>
+            <td>客户CapEx下调、行业库存上升</td>
+            <td>AI光通信</td>
+            <td>降低高弹性仓位，保留高壁垒龙头</td>
+          </tr>
+          <tr>
+            <td>技术迭代不及预期</td>
+            <td>新品验证延后、出货不及预期</td>
+            <td>半导体设备/光器件</td>
+            <td>从“预期驱动”切换到“业绩驱动”标的</td>
+          </tr>
+          <tr>
+            <td>政策/地缘扰动</td>
+            <td>出口限制、海外贸易摩擦升级</td>
+            <td>外销占比高标的</td>
+            <td>提升内需链和平台型资产占比</td>
+          </tr>
+          <tr>
+            <td>行业价格战</td>
+            <td>ASP持续下滑、毛利率连续下行</td>
+            <td>储能系统集成</td>
+            <td>优先保留品牌与渠道优势公司</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>七、执行清单（每周复盘模板）</h2>
+    <div class="card">
+      <ul>
+        <li>周一：更新行业催化日历（订单、发射、会议、财报）</li>
+        <li>周三：跟踪核心公司高频指标（订单、毛利率、出货进度）</li>
+        <li>周五：按“兑现度”做仓位微调（强者恒强 / 弱者降权）</li>
+        <li>月末：复核评分模型，淘汰低兑现标的，补充新催化标的</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <p class="small">免责声明：本报告仅用于研究交流，不构成任何投资建议。市场有风险，决策需谨慎。</p>
+    </div>
+  </div>
+</body>
+</html>

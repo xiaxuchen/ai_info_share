@@ -1,0 +1,266 @@
+{
+  "main": {
+    "id": "ae494e2ce911949a",
+    "type": "split",
+    "children": [
+      {
+        "id": "aa47e89025158a8d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ebb6b81bca50af2a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "1-细分行业&产业链分析/半导体材料卡脖子系列（七）-电子级氢氟酸.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "半导体材料卡脖子系列（七）-电子级氢氟酸"
+            }
+          },
+          {
+            "id": "914ed66725cee3c7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0-公司深度/宝信软件.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "宝信软件"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "992f5b02f5fb2583",
+    "type": "split",
+    "children": [
+      {
+        "id": "83a64a773bd73a24",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2dbba24f3ccd6f56",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "ee25d142cb98443e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "中欣",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "74aa8b535f2684fa",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "902eaecd803c4b0c",
+    "type": "split",
+    "children": [
+      {
+        "id": "b340c45d7359b0ea",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a32f3abbea276b96",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "概设模板.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "概设模板 的反向链接列表"
+            }
+          },
+          {
+            "id": "18435d33f6463f62",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "概设模板.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "概设模板 的出链列表"
+            }
+          },
+          {
+            "id": "9c484acbb012c234",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "4df5d021617f8407",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "f1847c315a12312b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "0-公司深度/宝信软件.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "宝信软件 的大纲"
+            }
+          },
+          {
+            "id": "30bde93a3bd2ed71",
+            "type": "leaf",
+            "state": {
+              "type": "claudian-view",
+              "state": {},
+              "icon": "bot",
+              "title": "Claudian"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:新建绘图文件": false,
+      "realclaudian:Open Claudian": false
+    }
+  },
+  "active": "2dbba24f3ccd6f56",
+  "lastOpenFiles": [
+    "markdown/test_report.md",
+    "markdown",
+    "analysis/tags.json",
+    "analysis/knowledge_base.md",
+    "analysis/index.md",
+    "analysis",
+    "README.md",
+    "0-公司深度/鹏鼎控股.pdf",
+    "0-公司深度/顺灏股份.pdf",
+    "0-公司深度/银禧科技.pdf",
+    "0-公司深度/金风科技.pdf",
+    "0-公司深度/金证股份.pdf",
+    "0-公司深度/道通科技.pdf",
+    "0-公司深度/道氏技术.pdf",
+    "daily-research/2026-06-14/shenglong-position-plan.md",
+    "CLAUDE.md",
+    "stock/step1_login.png",
+    "stock/kline_charts/黄河旋风_weekly.png",
+    "stock/kline_charts/黄河旋风_kline_enhanced.png",
+    "stock/kline_charts/莲花控股_kline_enhanced.png",
+    "stock/kline_charts/黄河旋风_kline.png",
+    "stock/kline_charts/莲花控股_weekly.png",
+    "stock/kline_charts/美诺华_weekly.png",
+    "stock/kline_charts/美诺华_kline_enhanced.png",
+    "stock/kline_charts/浙江世宝_weekly.png",
+    "stock/kline_charts/浙江世宝_kline_enhanced.png",
+    "stock/docs/superpowers/plans/2026-05-24-announcement-analysis.md",
+    "stock/docs/superpowers/specs/2026-05-24-announcement-analysis-design.md",
+    "stock/EastMoney_Crawler-main/README.md",
+    "stock/README.md",
+    "stock/CLAUDE.md",
+    "研究图谱.md",
+    "未命名 2.canvas",
+    "未命名 1.canvas",
+    "未命名.canvas",
+    "0-公司深度/中欣氟材.md",
+    "1-细分行业&产业链分析/半导体材料卡脖子系列（七）-电子级氢氟酸.md",
+    "0-公司深度/20260217-002915-中欣氟材.md",
+    "0-公司深度/多氟多.md",
+    "3-行业索引/半导体.md",
+    "0-公司深度/万兴科技.md",
+    "0-公司深度/东山精密.md",
+    "3-行业索引/AI与算力.md",
+    "2-公司PK/物理AI核心公司PK_索辰科技vs富瀚微vs中科星图.md",
+    "0-公司深度/铜冠铜箔.md",
+    "0-公司深度/宝明科技.md",
+    "0-公司深度/宝信软件-20260113.md",
+    "0-公司深度/安泰科技.md",
+    "0-公司深度/安集科技.md"
+  ]
+}

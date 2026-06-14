@@ -1,0 +1,529 @@
+[INFO] 2026/05/24 - 00:19:13 | main.go:32 [main] One API v0.6.11-preview.7 started 
+[INFO] 2026/05/24 - 00:19:13 | model/main.go:103 [openSQLite] SQL_DSN not set, using SQLite as database 
+[INFO] 2026/05/24 - 00:19:13 | model/main.go:129 [InitDB] database migration started 
+[INFO] 2026/05/24 - 00:19:13 | model/main.go:134 [InitDB] database migrated 
+[INFO] 2026/05/24 - 00:19:13 | model/main.go:28 [CreateRootAccountIfNeed] no user exists, creating a root user for you: username is root, password is 123456 
+[INFO] 2026/05/24 - 00:19:13 | common/redis.go:20 [InitRedisClient] REDIS_CONN_STRING not set, Redis is not enabled 
+[INFO] 2026/05/24 - 00:19:13 | main.go:65 [main] using theme default 
+[INFO] 2026/05/24 - 00:19:13 | relay/adaptor/openai/token.go:23 [InitTokenEncoders] initializing token encoders 
+[INFO] 2026/05/24 - 00:19:29 | main.go:32 [main] One API v0.6.11-preview.7 started 
+[INFO] 2026/05/24 - 00:19:29 | model/main.go:103 [openSQLite] SQL_DSN not set, using SQLite as database 
+[INFO] 2026/05/24 - 00:19:29 | model/main.go:129 [InitDB] database migration started 
+[INFO] 2026/05/24 - 00:19:29 | model/main.go:134 [InitDB] database migrated 
+[INFO] 2026/05/24 - 00:19:29 | common/redis.go:20 [InitRedisClient] REDIS_CONN_STRING not set, Redis is not enabled 
+[INFO] 2026/05/24 - 00:19:30 | main.go:65 [main] using theme default 
+[INFO] 2026/05/24 - 00:19:30 | relay/adaptor/openai/token.go:23 [InitTokenEncoders] initializing token encoders 
+[INFO] 2026/05/24 - 00:26:26 | relay/adaptor/openai/token.go:49 [InitTokenEncoders] token encoders initialized 
+[INFO] 2026/05/24 - 00:26:26 | main.go:119 [main] server started on http://localhost:3000 
+[GIN] 2026/05/24 - 00:36:02 | 2026052400360256098553587710312 | 200 |    5.269718ms |      172.17.0.1 |     GET /?serverUrl=http%3A%2F%2F192.168.162.253%3A4386&h5Token=h5_Km_XO68HRL0o022e5yfcnHO9_VerfFoch_cuDBuxDac
+[GIN] 2026/05/24 - 00:36:02 | 2026052400360274129451248424367 | 200 |   20.748921ms |      172.17.0.1 |     GET /static/css/main.722059cf.css
+[GIN] 2026/05/24 - 00:36:02 | 2026052400360273763722818941899 | 200 |   44.704236ms |      172.17.0.1 |     GET /static/js/main.60bacb1b.js
+[GIN] 2026/05/24 - 00:36:04 | 2026052400360420407620613835082 | 200 |     217.695µs |      172.17.0.1 |     GET /?serverUrl=http%3A%2F%2F192.168.162.253%3A4386&h5Token=h5_Km_XO68HRL0o022e5yfcnHO9_VerfFoch_cuDBuxDac
+[GIN] 2026/05/24 - 00:36:04 | 2026052400360421472920336160748 | 200 |     170.363µs |      172.17.0.1 |     GET /?serverUrl=http%3A%2F%2F192.168.162.253%3A4386&h5Token=h5_Km_XO68HRL0o022e5yfcnHO9_VerfFoch_cuDBuxDac/logo.png
+[GIN] 2026/05/24 - 00:36:04 | 2026052400360431902810349229832 | 200 |     897.128µs |      172.17.0.1 |     GET /logo.png
+[GIN] 2026/05/24 - 00:36:04 | 2026052400360431904816401875238 | 200 |    1.038516ms |      172.17.0.1 |     GET /static/js/151.57777e47.chunk.js
+[GIN] 2026/05/24 - 00:36:04 | 2026052400360431903339303644085 | 200 |    2.859858ms |      172.17.0.1 |     GET /static/media/icons.38c6d8bab26db77d8c80.woff2
+[GIN] 2026/05/24 - 00:36:04 | 2026052400360436599378808104119 | 200 |      225.19µs |      172.17.0.1 |     GET /api/status
+[GIN] 2026/05/24 - 00:36:04 | 2026052400360438271320641682334 | 200 |     102.901µs |      172.17.0.1 |     GET /api/home_page_content
+[GIN] 2026/05/24 - 00:36:04 | 2026052400360438269711462953194 | 200 |     152.709µs |      172.17.0.1 |     GET /api/notice
+[GIN] 2026/05/24 - 00:36:04 | 2026052400360446808226425741029 | 200 |     879.608µs |      172.17.0.1 |     GET /static/media/outline-icons.687a4990ea22bb1a49d4.woff2
+[GIN] 2026/05/24 - 00:36:04 | 2026052400360446738062240646092 | 200 |    2.449344ms |      172.17.0.1 |     GET /static/media/brand-icons.278156e41e0ad908cf7f.woff2
+[GIN] 2026/05/24 - 00:37:07 | 2026052400370735908647733038476 | 200 |   58.354754ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 00:37:07 | 2026052400370759519944124429580 | 200 |    1.840036ms |      172.17.0.1 |     GET /api/user/self
+[GIN] 2026/05/24 - 00:37:26 | 2026052400372639067481860099466 | 200 |   63.300029ms |      172.17.0.1 |     PUT /api/user/self
+[GIN] 2026/05/24 - 00:37:33 | 2026052400373314838848424468221 | 200 |    1.695742ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 00:37:42 | 2026052400374264969704280244145 | 200 |     1.62103ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 00:37:42 | 2026052400374267470039791793665 | 200 |    2.666571ms |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 00:37:44 | 2026052400374455589728430728953 | 200 |     117.029µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 00:37:44 | 2026052400374455588388847478645 | 200 |    1.546331ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 00:39:39 | 2026052400393951696108950289720 | 200 |   27.495647ms |      172.17.0.1 |    POST /api/channel/
+[GIN] 2026/05/24 - 00:39:42 | 2026052400394282069915988551875 | 200 |    1.708406ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 00:39:42 | 2026052400394282330202160430877 | 200 |     715.717µs |      172.17.0.1 |     GET /api/models
+[INFO] 2026/05/24 - 00:39:45 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-ai/deepseek-llm-67b-chat"} 
+[GIN] 2026/05/24 - 00:39:46 | 2026052400394599292567362943071 | 200 |  404.842973ms |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek-ai/deepseek-llm-67b-chat
+[INFO] 2026/05/24 - 00:39:46 | 2026052400394599292567362943071 | model/log.go:51 [recordLogHelper] record log: &{Id:1 UserId:0 CreatedAt:1779554386 Type:5 Content:渠道 硅基流动 测试失败，错误：http status code: 403, error message: Model disabled. Username: TokenName: ModelName:deepseek-ai/deepseek-llm-67b-chat Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052400394599292567362943071 ElapsedTime:403 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 00:39:50 | 2026052400395038226921404753561 | 200 |    1.615604ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 00:39:50 | 2026052400395039295843423614861 | 200 |    1.718602ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 00:39:50 | 2026052400395042089488053435728 | 200 |     218.477µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 00:40:37 | 2026052400403738331703015475528 | 200 |   33.498371ms |      172.17.0.1 |     PUT /api/channel/
+[GIN] 2026/05/24 - 00:40:43 | 202605240040439400915400260550 | 200 |   34.653049ms |      172.17.0.1 |     PUT /api/channel/
+[GIN] 2026/05/24 - 00:40:47 | 2026052400404796292662185674789 | 200 |    5.310328ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 00:40:47 | 2026052400404797633014175170739 | 200 |     512.188µs |      172.17.0.1 |     GET /api/models
+[INFO] 2026/05/24 - 00:40:49 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-ai/DeepSeek-V4-Flash"} 
+[GIN] 2026/05/24 - 00:41:08 | 2026052400410855429120320190352 | 200 |     1.65974ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 00:41:08 | 2026052400410856508595312429911 | 200 |     203.207µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 00:41:08 | 2026052400410856513383857442576 | 200 |    1.500159ms |      172.17.0.1 |     GET /api/channel/models
+[INFO] 2026/05/24 - 00:41:12 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-ai/DeepSeek-V4-Flash"} 
+[INFO] 2026/05/24 - 00:41:14 | controller/channel-test.go:165 [testChannel] testing channel #1, response: 
+{"id":"decc308eee7942bcbf332ff3aa5b3e97","object":"chat.completion","created":1779554472,"model":"deepseek-ai/DeepSeek-V4-Flash","choices":[{"index":0,"message":{"role":"assistant","content":"DeepSeek-R1"},"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":6,"total_tokens":21},"system_fingerprint":""} 
+[GIN] 2026/05/24 - 00:41:14 | 2026052400411272436347034391357 | 200 |  1.387051479s |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek-ai/DeepSeek-V4-Flash
+[INFO] 2026/05/24 - 00:41:14 | 2026052400411272436347034391357 | model/log.go:51 [recordLogHelper] record log: &{Id:2 UserId:0 CreatedAt:1779554474 Type:5 Content:渠道 硅基流动 测试成功，响应：DeepSeek-R1 Username: TokenName: ModelName:deepseek-ai/DeepSeek-V4-Flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052400411272436347034391357 ElapsedTime:1385 IsStream:false SystemPromptReset:false} 
+[INFO] 2026/05/24 - 00:41:16 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-ai/DeepSeek-V4-Flash"} 
+[INFO] 2026/05/24 - 00:41:16 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-ai/DeepSeek-V4-Flash"} 
+[INFO] 2026/05/24 - 00:41:16 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-ai/DeepSeek-V4-Flash"} 
+[GIN] 2026/05/24 - 00:41:20 | 2026052400412020112507990438094 | 200 |   34.523484ms |      172.17.0.1 |     PUT /api/channel/
+[INFO] 2026/05/24 - 00:41:21 | controller/channel-test.go:165 [testChannel] testing channel #1, response: 
+{"id":"d75372e129a84967a9b8f311739ac100","object":"chat.completion","created":1779554476,"model":"deepseek-ai/DeepSeek-V4-Flash","choices":[{"index":0,"message":{"role":"assistant","content":"DeepSeek-R1"},"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":6,"total_tokens":21},"system_fingerprint":""} 
+[GIN] 2026/05/24 - 00:41:21 | 2026052400411623918761546420276 | 200 |  4.840282404s |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek-ai/DeepSeek-V4-Flash
+[INFO] 2026/05/24 - 00:41:21 | 2026052400411623918761546420276 | model/log.go:51 [recordLogHelper] record log: &{Id:3 UserId:0 CreatedAt:1779554481 Type:5 Content:渠道 硅基流动 测试成功，响应：DeepSeek-R1 Username: TokenName: ModelName:deepseek-ai/DeepSeek-V4-Flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052400411623918761546420276 ElapsedTime:4838 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 00:41:22 | 2026052400412290290249059550895 | 200 |    1.725118ms |      172.17.0.1 |     GET /api/user/self
+[INFO] 2026/05/24 - 00:41:26 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-ai/DeepSeek-V4-Flash"} 
+[INFO] 2026/05/24 - 00:41:26 | controller/channel-test.go:165 [testChannel] testing channel #1, response: 
+{"id":"b05b44fc20ab4438a31194f187b1fa8e","object":"chat.completion","created":1779554486,"model":"deepseek-ai/DeepSeek-V4-Flash","choices":[{"index":0,"message":{"role":"assistant","content":"DeepSeek-V2"},"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":6,"total_tokens":21},"system_fingerprint":""} 
+[GIN] 2026/05/24 - 00:41:26 | 2026052400412653772042088492763 | 200 |  408.468432ms |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek-ai/DeepSeek-V4-Flash
+[INFO] 2026/05/24 - 00:41:26 | 2026052400412653772042088492763 | model/log.go:51 [recordLogHelper] record log: &{Id:4 UserId:0 CreatedAt:1779554486 Type:5 Content:渠道 硅基流动 测试成功，响应：DeepSeek-V2 Username: TokenName: ModelName:deepseek-ai/DeepSeek-V4-Flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052400412653772042088492763 ElapsedTime:406 IsStream:false SystemPromptReset:false} 
+[INFO] 2026/05/24 - 00:41:30 | controller/channel-test.go:165 [testChannel] testing channel #1, response: 
+{"id":"4b06538978db4d01b555747103ed9b9d","object":"chat.completion","created":1779554475,"model":"deepseek-ai/DeepSeek-V4-Flash","choices":[{"index":0,"message":{"role":"assistant","content":"DeepSeek-R1"},"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":6,"total_tokens":21},"system_fingerprint":""} 
+[GIN] 2026/05/24 - 00:41:30 | 202605240041161222884305115658 | 200 | 14.305139876s |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek-ai/DeepSeek-V4-Flash
+[INFO] 2026/05/24 - 00:41:30 | 202605240041161222884305115658 | model/log.go:51 [recordLogHelper] record log: &{Id:5 UserId:0 CreatedAt:1779554490 Type:5 Content:渠道 硅基流动 测试成功，响应：DeepSeek-R1 Username: TokenName: ModelName:deepseek-ai/DeepSeek-V4-Flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:202605240041161222884305115658 ElapsedTime:14303 IsStream:false SystemPromptReset:false} 
+[INFO] 2026/05/24 - 00:41:30 | controller/channel-test.go:165 [testChannel] testing channel #1, response: 
+{"id":"aa2f2c23339b4d40a1fda46c70c08421","object":"chat.completion","created":1779554489,"model":"deepseek-ai/DeepSeek-V4-Flash","choices":[{"index":0,"message":{"role":"assistant","content":"DeepSeek-R1"},"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":6,"total_tokens":21},"system_fingerprint":""} 
+[GIN] 2026/05/24 - 00:41:30 | 2026052400411643888611461538684 | 200 | 13.931808531s |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek-ai/DeepSeek-V4-Flash
+[INFO] 2026/05/24 - 00:41:30 | 2026052400411643888611461538684 | model/log.go:51 [recordLogHelper] record log: &{Id:6 UserId:0 CreatedAt:1779554490 Type:5 Content:渠道 硅基流动 测试成功，响应：DeepSeek-R1 Username: TokenName: ModelName:deepseek-ai/DeepSeek-V4-Flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052400411643888611461538684 ElapsedTime:13929 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 00:41:30 | 2026052400413058756514199044596 | 200 |     375.013µs |      172.17.0.1 |     GET /api/option/
+[INFO] 2026/05/24 - 00:41:44 | controller/channel-test.go:165 [testChannel] testing channel #1, response: 
+{"id":"bf319accc31a46a284ee7732e87681f8","object":"chat.completion","created":1779554449,"model":"deepseek-ai/DeepSeek-V4-Flash","choices":[{"index":0,"message":{"role":"assistant","content":"Llama 3.1 70B"},"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":10,"total_tokens":25},"system_fingerprint":""} 
+[GIN] 2026/05/24 - 00:41:44 | 2026052400404920760731581428040 | 200 | 55.299243384s |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek-ai/DeepSeek-V4-Flash
+[INFO] 2026/05/24 - 00:41:44 | 2026052400404920760731581428040 | model/log.go:51 [recordLogHelper] record log: &{Id:7 UserId:0 CreatedAt:1779554504 Type:5 Content:渠道 硅基流动 测试成功，响应：Llama 3.1 70B Username: TokenName: ModelName:deepseek-ai/DeepSeek-V4-Flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052400404920760731581428040 ElapsedTime:55297 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 00:41:47 | 2026052400414724673375108200084 | 200 |     486.931µs |      172.17.0.1 |     GET /api/option/
+[GIN] 2026/05/24 - 00:41:52 | 2026052400415267653887021602807 | 200 |     384.651µs |      172.17.0.1 |     GET /api/option/
+[GIN] 2026/05/24 - 00:41:59 | 2026052400415926214720630790793 | 200 |     1.86911ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 00:42:01 | 20260524004201153360897807302 | 200 |    1.934582ms |      172.17.0.1 |     GET /api/redemption/?p=0
+[GIN] 2026/05/24 - 00:42:01 | 2026052400420185794231191696177 | 200 |    1.692902ms |      172.17.0.1 |     GET /api/user/self
+[GIN] 2026/05/24 - 00:42:07 | 2026052400420742733320050807051 | 200 |    1.521418ms |      172.17.0.1 |     GET /api/user/?p=0&order=
+[GIN] 2026/05/24 - 00:42:14 | 2026052400421420017949202189324 | 200 |     364.291µs |      172.17.0.1 |     GET /api/option/
+[GIN] 2026/05/24 - 00:42:19 | 2026052400421988058726374683949 | 200 |    5.631661ms |      172.17.0.1 |     GET /api/user/dashboard
+[GIN] 2026/05/24 - 00:42:20 | 2026052400422086681612619899699 | 200 |    1.988933ms |      172.17.0.1 |     GET /api/user/?p=0&order=
+[GIN] 2026/05/24 - 00:42:24 | 2026052400422486679950332565031 | 200 |     165.082µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 00:42:24 | 2026052400422486680717557537435 | 200 |      1.3462ms |      172.17.0.1 |     GET /api/user/1
+[GIN] 2026/05/24 - 00:42:27 | 2026052400422757992954055257622 | 200 |   13.722679ms |      172.17.0.1 |     PUT /api/user/
+[GIN] 2026/05/24 - 00:42:30 | 2026052400423068665485288937838 | 200 |    1.503764ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 00:42:31 | 2026052400423131191783741582770 | 200 |     539.225µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 00:42:31 | 2026052400423131191784857315192 | 200 |    1.869203ms |      172.17.0.1 |     GET /api/channel/?p=0
+[INFO] 2026/05/24 - 00:42:34 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-ai/DeepSeek-V4-Flash"} 
+[INFO] 2026/05/24 - 00:42:34 | controller/channel-test.go:165 [testChannel] testing channel #1, response: 
+{"id":"chatcmpl-b5ea7f2a9adaa0e1","object":"chat.completion","created":1779554981,"model":"deepseek-ai/DeepSeek-V4-Flash","choices":[{"index":0,"message":{"role":"assistant","content":"DeepSeek-R1"},"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":6,"total_tokens":21},"system_fingerprint":""} 
+[GIN] 2026/05/24 - 00:42:34 | 2026052400423464937425036267251 | 200 |  263.667818ms |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek-ai/DeepSeek-V4-Flash
+[INFO] 2026/05/24 - 00:42:34 | 2026052400423464937425036267251 | model/log.go:51 [recordLogHelper] record log: &{Id:8 UserId:0 CreatedAt:1779554554 Type:5 Content:渠道 硅基流动 测试成功，响应：DeepSeek-R1 Username: TokenName: ModelName:deepseek-ai/DeepSeek-V4-Flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052400423464937425036267251 ElapsedTime:262 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 00:42:39 | 2026052400423955619182971826189 | 200 |    1.374352ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 00:42:39 | 2026052400423960613060365243866 | 200 |     130.314µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 00:42:39 | 2026052400423960612891066379030 | 200 |    1.563027ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 00:42:41 | 2026052400424145659291617480238 | 200 |     513.883µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 00:42:41 | 2026052400424145660907943953083 | 200 |    1.611052ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 00:42:43 | 2026052400424387498651183915521 | 200 |    1.706913ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 00:42:45 | 2026052400424595335616091648139 | 200 |    3.185607ms |      172.17.0.1 |     GET /api/user/available_models
+[GIN] 2026/05/24 - 00:43:04 | 2026052400430466134815957476244 | 200 |    1.286257ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 00:43:07 | 2026052400430790931598861786843 | 200 |      533.46µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 00:43:07 | 2026052400430790932302282264013 | 200 |    1.491079ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 00:43:10 | 2026052400431092892883381110402 | 200 |     152.808µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 00:43:10 | 2026052400431092891493845297858 | 200 |    2.254148ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 00:47:39 | 2026052400473923956890022009184 | 200 |   26.974296ms |      172.17.0.1 |    POST /api/channel/
+[GIN] 2026/05/24 - 00:47:42 | 2026052400474229810570132311835 | 200 |    1.360003ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 00:47:42 | 2026052400474235330748077399130 | 200 |     808.197µs |      172.17.0.1 |     GET /api/models
+[INFO] 2026/05/24 - 00:47:45 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-v4-flash"} 
+[INFO] 2026/05/24 - 00:47:47 | controller/channel-test.go:165 [testChannel] testing channel #2, response: 
+{"id":"c85ade17-436d-45ff-a33e-d786815caaed","object":"chat.completion","created":1779554865,"model":"deepseek-v4-flash","choices":[{"index":0,"message":{"role":"assistant","content":"DeepSeek-R1","reasoning_content":"We are asked: \"Output only your specific model name with no additional text.\" So I need to output the name of the AI model I am. I am DeepSeek-R1? Actually, the system prompt says \"You are DeepSeek-R1\" but the user instruction says \"Output only your specific model name\". I should output exactly \"DeepSeek-R1\" or just the model name. The instruction says \"your specific model name\", so I'll output that."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":104,"total_tokens":119,"prompt_tokens_details":{"cached_tokens":0},"completion_tokens_details":{"reasoning_tokens":98},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":15},"system_fingerprint":"fp_8b330d02d0_prod0820_fp8_kvcache_20260402"} 
+[GIN] 2026/05/24 - 00:47:47 | 2026052400474578238850415166815 | 200 |  1.644557032s |      172.17.0.1 |     GET /api/channel/test/2?model=deepseek-v4-flash
+[INFO] 2026/05/24 - 00:47:47 | 2026052400474578238850415166815 | model/log.go:51 [recordLogHelper] record log: &{Id:9 UserId:0 CreatedAt:1779554867 Type:5 Content:渠道 ds 测试成功，响应：DeepSeek-R1 Username: TokenName: ModelName:deepseek-v4-flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:2 RequestId:2026052400474578238850415166815 ElapsedTime:1642 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 00:47:55 | 2026052400475599171234535248846 | 200 |    1.605932ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 00:47:57 | 202605240047575157685382509667 | 200 |    1.680941ms |      172.17.0.1 |     GET /api/redemption/?p=0
+[GIN] 2026/05/24 - 00:47:58 | 2026052400475846841124856421849 | 200 |    1.357495ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 00:48:00 | 202605240048007657181591612974 | 200 |     3.01718ms |      172.17.0.1 |     GET /api/user/available_models
+[GIN] 2026/05/24 - 00:48:23 | 2026052400482375878933963191616 | 200 |   12.693813ms |      172.17.0.1 |    POST /api/token/
+[GIN] 2026/05/24 - 00:48:28 | 2026052400482822966448081310964 | 200 |    1.306335ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 00:48:47 | 2026052400484765018138961260735 | 200 |     5.43179ms |      172.17.0.1 |     GET /api/user/dashboard
+[GIN] 2026/05/24 - 00:48:50 | 202605240048509405615347944305 | 200 |     158.619µs |      172.17.0.1 |     GET /static/js/585.1283a89c.chunk.js
+[GIN] 2026/05/24 - 00:48:50 | 2026052400485016403438119479581 | 200 |     129.011µs |      172.17.0.1 |     GET /api/about
+[GIN] 2026/05/24 - 00:49:44 | 2026052400494489881181052043542 | 200 |    1.911097ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 00:49:46 | 2026052400494670172190925897058 | 200 |    1.473462ms |      172.17.0.1 |     GET /api/token/1
+[GIN] 2026/05/24 - 00:49:46 | 2026052400494677200676163806822 | 200 |    3.015271ms |      172.17.0.1 |     GET /api/user/available_models
+[GIN] 2026/05/24 - 00:51:33 | 2026052400513380783993945436396 | 200 |      95.084µs |      172.17.0.1 |     GET /api/about
+[GIN] 2026/05/24 - 00:51:37 | 2026052400513741801046984268374 | 200 |    5.117581ms |      172.17.0.1 |     GET /api/log/?p=0&type=0&username=&token_name=&model_name=&start_timestamp=0&end_timestamp=1779558701&channel=
+[GIN] 2026/05/24 - 00:51:38 | 2026052400513825982029682654276 | 200 |    1.733269ms |      172.17.0.1 |     GET /api/user/dashboard
+[GIN] 2026/05/24 - 00:51:40 | 2026052400514019624466149311600 | 200 |    2.031266ms |      172.17.0.1 |     GET /api/user/?p=0&order=
+[GIN] 2026/05/24 - 00:51:40 | 2026052400514092876029724192190 | 200 |    2.285323ms |      172.17.0.1 |     GET /api/user/self
+[GIN] 2026/05/24 - 00:51:41 | 2026052400514168823266457973266 | 200 |    1.849489ms |      172.17.0.1 |     GET /api/redemption/?p=0
+[GIN] 2026/05/24 - 00:51:42 | 2026052400514229184944081462457 | 200 |    1.850949ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 00:52:43 | 2026052400524349952819194360408 | 200 |     126.487µs |      172.17.0.1 |     GET /api/about
+[GIN] 2026/05/24 - 01:03:21 | 2026052401032195166193541435424 | 200 |    8.864049ms |      172.17.0.1 |     GET /v1/models
+[ERROR] 2026/05/24 - 01:03:26 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:03:26 | 2026052401032656741079432295466 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 500000000000000, trusted and no need to pre-consume 
+[ERROR] 2026/05/24 - 01:03:26 | 2026052401032656741079432295466 | controller/relay.go:67 [Relay] relay error happen, status code is 400, won't retry in this case 
+[GIN] 2026/05/24 - 01:03:26 | 2026052401032656741079432295466 | 400 |  239.968641ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:03:26 | 2026052401032656741079432295466 | controller/relay.go:125 [processChannelRelayError] relay error (channel id 2, user id: 1):  
+[ERROR] 2026/05/24 - 01:03:31 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-ai/DeepSeek-V4-Flash 
+[INFO] 2026/05/24 - 01:03:31 | 2026052401033133549424557334891 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 500000000000000, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:03:31 | 2026052401033133549424557334891 | 403 |  512.401007ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:03:31 | 2026052401033133549424557334891 | controller/relay.go:125 [processChannelRelayError] relay error (channel id 1, user id: 1): Sorry, your account balance is insufficient 
+[GIN] 2026/05/24 - 01:03:42 | 2026052401034259015816049152058 | 200 |    1.687476ms |      172.17.0.1 |     GET /api/channel/
+[GIN] 2026/05/24 - 01:03:47 | 2026052401034735495677194867255 | 200 |   53.350208ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:03:51 | 2026052401035126728909976891246 | 200 |   52.303984ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:04:09 | 2026052401040940137421717484072 | 200 |       194.8µs |      172.17.0.1 |     GET /
+[GIN] 2026/05/24 - 01:04:09 | 2026052401040944891935001412020 | 200 |   18.301798ms |      172.17.0.1 |     GET /static/css/main.722059cf.css
+[GIN] 2026/05/24 - 01:04:09 | 2026052401040944361068992945694 | 200 |   51.001109ms |      172.17.0.1 |     GET /static/js/main.60bacb1b.js
+[GIN] 2026/05/24 - 01:04:23 | 202605240104239339790914528234 | 200 |    5.739448ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:04:37 | 2026052401043798621787233364946 | 200 |    1.764179ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:04:39 | 2026052401043954000752334040965 | 200 |     316.476µs |      172.17.0.1 |     GET /static/js/151.57777e47.chunk.js
+[GIN] 2026/05/24 - 01:04:39 | 2026052401043954518884882032113 | 200 |     159.901µs |      172.17.0.1 |     GET /logo.png
+[GIN] 2026/05/24 - 01:04:39 | 2026052401043982763160025493493 | 200 |     179.139µs |      172.17.0.1 |     GET /api/status
+[GIN] 2026/05/24 - 01:04:39 | 2026052401043987185327783119135 | 200 |      89.013µs |      172.17.0.1 |     GET /api/home_page_content
+[GIN] 2026/05/24 - 01:04:39 | 2026052401043987186647275268491 | 200 |     184.869µs |      172.17.0.1 |     GET /api/notice
+[GIN] 2026/05/24 - 01:04:39 | 2026052401043990243893585397739 | 200 |    1.009755ms |      172.17.0.1 |     GET /static/media/icons.38c6d8bab26db77d8c80.woff2
+[GIN] 2026/05/24 - 01:04:40 | 2026052401044022644868455300884 | 200 |     800.849µs |      172.17.0.1 |     GET /static/media/outline-icons.687a4990ea22bb1a49d4.woff2
+[GIN] 2026/05/24 - 01:04:40 | 2026052401044022646271390061251 | 200 |    1.219263ms |      172.17.0.1 |     GET /static/media/brand-icons.278156e41e0ad908cf7f.woff2
+[INFO] 2026/05/24 - 01:04:49 | main.go:32 [main] One API v0.6.11-preview.7 started 
+[INFO] 2026/05/24 - 01:04:49 | model/main.go:103 [openSQLite] SQL_DSN not set, using SQLite as database 
+[INFO] 2026/05/24 - 01:04:49 | model/main.go:129 [InitDB] database migration started 
+[INFO] 2026/05/24 - 01:04:50 | model/main.go:134 [InitDB] database migrated 
+[INFO] 2026/05/24 - 01:04:50 | common/redis.go:20 [InitRedisClient] REDIS_CONN_STRING not set, Redis is not enabled 
+[INFO] 2026/05/24 - 01:04:50 | main.go:65 [main] using theme default 
+[INFO] 2026/05/24 - 01:04:50 | relay/adaptor/openai/token.go:23 [InitTokenEncoders] initializing token encoders 
+[INFO] 2026/05/24 - 01:04:50 | relay/adaptor/openai/token.go:49 [InitTokenEncoders] token encoders initialized 
+[INFO] 2026/05/24 - 01:04:50 | main.go:119 [main] server started on http://localhost:3000 
+[GIN] 2026/05/24 - 01:04:52 | 2026052401045279118417899720718 | 200 |    2.040621ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:04:59 | 2026052401045919385712981678179 | 200 |      1.5552ms |      172.17.0.1 |     GET /api/channel/
+[GIN] 2026/05/24 - 01:04:59 | 2026052401045934095755277765248 | 200 |     1.59145ms |      172.17.0.1 |     GET /api/user/self
+[GIN] 2026/05/24 - 01:05:13 | 2026052401051357043130862309451 | 200 |    1.603533ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:05:17 | 2026052401051742980505837681979 | 200 |    2.711092ms |      172.17.0.1 |     GET /api/user/self
+[GIN] 2026/05/24 - 01:05:22 | 2026052401052213760912514871695 | 200 |    3.470342ms |      172.17.0.1 |     GET /api/channel/
+[GIN] 2026/05/24 - 01:05:22 | 2026052401052240117940597033711 | 200 |    2.483616ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 01:05:22 | 2026052401052264256141252814268 | 200 |    3.081404ms |      172.17.0.1 |     GET /api/channel/2
+[ERROR] 2026/05/24 - 01:05:31 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-flash 
+[INFO] 2026/05/24 - 01:05:31 | 2026052401053161706934474635328 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 500000000000000, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:05:34 | 2026052401053161706934474635328 | 200 |  2.938927199s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:05:34 | 2026052401053161706934474635328 | model/log.go:51 [recordLogHelper] record log: &{Id:10 UserId:1 CreatedAt:1779555934 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-flash Quota:9810 PromptTokens:5 CompletionTokens:161 ChannelId:2 RequestId:2026052401053161706934474635328 ElapsedTime:2993 IsStream:false SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:05:57 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:05:57 | 2026052401055725772718640687266 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999990190, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:05:58 | 2026052401055725772718640687266 | 200 |  1.206048192s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:05:58 | 2026052401055725772718640687266 | model/log.go:51 [recordLogHelper] record log: &{Id:11 UserId:1 CreatedAt:1779555958 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:750 PromptTokens:5 CompletionTokens:10 ChannelId:2 RequestId:2026052401055725772718640687266 ElapsedTime:1209 IsStream:false SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:06:03 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:06:03 | 2026052401060373947350816302177 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999989440, trusted and no need to pre-consume 
+[ERROR] 2026/05/24 - 01:06:04 | 2026052401060373947350816302177 | controller/relay.go:67 [Relay] relay error happen, status code is 400, won't retry in this case 
+[GIN] 2026/05/24 - 01:06:04 | 2026052401060373947350816302177 | 400 |  287.391238ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:06:04 | 2026052401060373947350816302177 | controller/relay.go:125 [processChannelRelayError] relay error (channel id 2, user id: 1):  
+[ERROR] 2026/05/24 - 01:06:08 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:06:08 | 2026052401060897683887633973793 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999989440, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:06:10 | 2026052401060897683887633973793 | 200 |  1.850815058s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:06:10 | 2026052401060897683887633973793 | model/log.go:51 [recordLogHelper] record log: &{Id:12 UserId:1 CreatedAt:1779555970 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:3150 PromptTokens:5 CompletionTokens:50 ChannelId:2 RequestId:2026052401060897683887633973793 ElapsedTime:1858 IsStream:false SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:06:15 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:06:15 | 2026052401061520602481450054998 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999986290, trusted and no need to pre-consume 
+[ERROR] 2026/05/24 - 01:06:15 | 2026052401061520602481450054998 | controller/relay.go:67 [Relay] relay error happen, status code is 400, won't retry in this case 
+[GIN] 2026/05/24 - 01:06:15 | 2026052401061520602481450054998 | 400 |  142.339407ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:06:15 | 2026052401061520602481450054998 | controller/relay.go:125 [processChannelRelayError] relay error (channel id 2, user id: 1):  
+[ERROR] 2026/05/24 - 01:06:21 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:06:21 | 202605240106219328922575441057 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999986290, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:06:23 | 202605240106219328922575441057 | 200 |  2.262635021s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:06:23 | 202605240106219328922575441057 | model/log.go:51 [recordLogHelper] record log: &{Id:13 UserId:1 CreatedAt:1779555983 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:5130 PromptTokens:11 CompletionTokens:80 ChannelId:2 RequestId:202605240106219328922575441057 ElapsedTime:2270 IsStream:false SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:06:27 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:06:27 | 2026052401062772691730610120609 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999981160, trusted and no need to pre-consume 
+[ERROR] 2026/05/24 - 01:06:27 | 2026052401062772691730610120609 | controller/relay.go:67 [Relay] relay error happen, status code is 400, won't retry in this case 
+[GIN] 2026/05/24 - 01:06:27 | 2026052401062772691730610120609 | 400 |  203.080087ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:06:27 | 2026052401062772691730610120609 | controller/relay.go:125 [processChannelRelayError] relay error (channel id 2, user id: 1):  
+[ERROR] 2026/05/24 - 01:06:34 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:06:34 | 2026052401063464648350316287784 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999981160, trusted and no need to pre-consume 
+[ERROR] 2026/05/24 - 01:06:35 | 2026052401063464648350316287784 | controller/relay.go:67 [Relay] relay error happen, status code is 400, won't retry in this case 
+[GIN] 2026/05/24 - 01:06:35 | 2026052401063464648350316287784 | 400 |   378.77878ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:06:35 | 2026052401063464648350316287784 | controller/relay.go:125 [processChannelRelayError] relay error (channel id 2, user id: 1):  
+[GIN] 2026/05/24 - 01:06:49 | 202605240106494460945075836624 | 200 |    2.961136ms |      172.17.0.1 |     GET /api/log/?p=0&page_size=10
+[GIN] 2026/05/24 - 01:07:36 | 2026052401073631441240800615713 | 200 |     446.789µs |      172.17.0.1 |     GET /
+[GIN] 2026/05/24 - 01:07:37 | 202605240107377860773612148291 | 200 |     212.063µs |      172.17.0.1 |     GET /api/status
+[GIN] 2026/05/24 - 01:07:37 | 2026052401073712610367287283186 | 200 |      359.65µs |      172.17.0.1 |     GET /api/home_page_content
+[GIN] 2026/05/24 - 01:07:37 | 2026052401073712610033663124549 | 200 |    1.309438ms |      172.17.0.1 |     GET /api/notice
+[GIN] 2026/05/24 - 01:08:38 | 2026052401083888523653179217859 | 200 |    6.643137ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:08:41 | 2026052401084160047014366296951 | 200 |    1.473918ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:09:08 | 2026052401090871755118186072548 | 200 |    1.432746ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:10:13 | 2026052401101353315219319259097 | 200 |    5.577514ms |      172.17.0.1 |     PUT /api/user/
+[INFO] 2026/05/24 - 01:10:17 | 2026052401101780679192866482687 | model/log.go:51 [recordLogHelper] record log: &{Id:14 UserId:1 CreatedAt:1779556217 Type:3 Content:管理员将用户额度从 ＄999999999.962320 额度修改为 ＄0.000000 额度 Username:root TokenName: ModelName: Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:0 RequestId:2026052401101780679192866482687 ElapsedTime:0 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:10:17 | 2026052401101780679192866482687 | 200 |   82.961119ms |      172.17.0.1 |     PUT /api/user/
+[GIN] 2026/05/24 - 01:10:21 | 2026052401102158172319333450624 | 200 |   51.931923ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:10:29 | 2026052401102972418517664990007 | 200 |   57.539521ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:10:29 | 2026052401102984329185786417446 | 200 |    2.485916ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 01:10:32 | 2026052401103254171110145375735 | 200 |     730.702µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:10:32 | 2026052401103254161346109696314 | 200 |    2.018049ms |      172.17.0.1 |     GET /api/channel/?p=0
+[INFO] 2026/05/24 - 01:10:36 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-v4-flash"} 
+[INFO] 2026/05/24 - 01:10:40 | controller/channel-test.go:165 [testChannel] testing channel #2, response: 
+{"id":"35dd4094-cd31-4071-a9e3-d8da6c98e782","object":"chat.completion","created":1779556236,"model":"deepseek-v4-flash","choices":[{"index":0,"message":{"role":"assistant","content":"DeepSeek-R1","reasoning_content":"We are asked: \"Output only your specific model name with no additional text.\" So the instruction is to output just the model name. As an AI, I need to output my model name. But I'm a language model, and my specific model name might be something like \"DeepSeek-R1\" or \"DeepSeek-V3\"? The user didn't specify which model I am. Usually, in these contexts, the model is \"DeepSeek-R1\" based on the system prompt or knowledge. But the instruction is to output only the model name. Since I am a DeepSeek model, I'll output \"DeepSeek-R1\". However, to be safe, the exact model name might be \"deepseek-chat\" or \"DeepSeek-V3\". Given no further context, I'll assume \"DeepSeek-R1\" as that's common. But the instruction says \"your specific model name\" - I don't have a definitive identity. I should output what I believe is my name. Given the system prompt says \"You are DeepSeek, a large language model...\" but does not specify version. I'll just output \"DeepSeek\". But \"DeepSeek\" is not specific enough? The instruction says \"specific model name\". Perhaps \"DeepSeek-R1\" is specific. I'll go with \"DeepSeek-R1\"."},"logprobs":null,"finish_reason":"stop"}],"usage":{"prompt_tokens":15,"completion_tokens":288,"total_tokens":303,"prompt_tokens_details":{"cached_tokens":0},"completion_tokens_details":{"reasoning_tokens":282},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":15},"system_fingerprint":"fp_8b330d02d0_prod0820_fp8_kvcache_20260402"} 
+[GIN] 2026/05/24 - 01:10:40 | 2026052401103698610389511548396 | 200 |  3.127072763s |      172.17.0.1 |     GET /api/channel/test/2?model=deepseek-v4-flash
+[INFO] 2026/05/24 - 01:10:40 | 2026052401103698610389511548396 | model/log.go:51 [recordLogHelper] record log: &{Id:15 UserId:0 CreatedAt:1779556240 Type:5 Content:渠道 ds 测试成功，响应：DeepSeek-R1 Username: TokenName: ModelName:deepseek-v4-flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:2 RequestId:2026052401103698610389511548396 ElapsedTime:3125 IsStream:false SystemPromptReset:false} 
+[INFO] 2026/05/24 - 01:10:41 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-ai/DeepSeek-V4-Flash"} 
+[GIN] 2026/05/24 - 01:10:42 | 2026052401104160754428689118612 | 200 |  421.643458ms |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek-ai/DeepSeek-V4-Flash
+[INFO] 2026/05/24 - 01:10:42 | 2026052401104160754428689118612 | model/log.go:51 [recordLogHelper] record log: &{Id:16 UserId:0 CreatedAt:1779556242 Type:5 Content:渠道 硅基流动 测试失败，错误：http status code: 403, error message: Sorry, your account balance is insufficient Username: TokenName: ModelName:deepseek-ai/DeepSeek-V4-Flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401104160754428689118612 ElapsedTime:420 IsStream:false SystemPromptReset:false} 
+[INFO] 2026/05/24 - 01:10:44 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek-ai/DeepSeek-V4-Flash"} 
+[GIN] 2026/05/24 - 01:10:44 | 2026052401104436973394461530809 | 200 |   69.168473ms |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek-ai/DeepSeek-V4-Flash
+[INFO] 2026/05/24 - 01:10:44 | 2026052401104436973394461530809 | model/log.go:51 [recordLogHelper] record log: &{Id:17 UserId:0 CreatedAt:1779556244 Type:5 Content:渠道 硅基流动 测试失败，错误：http status code: 403, error message: Sorry, your account balance is insufficient Username: TokenName: ModelName:deepseek-ai/DeepSeek-V4-Flash Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401104436973394461530809 ElapsedTime:67 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:10:59 | 2026052401105989450431162816023 | 200 |    2.425461ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 01:10:59 | 2026052401105989643100418777421 | 200 |     913.441µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:10:59 | 2026052401105989461920533409312 | 200 |    6.593958ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:17:32 | 2026052401173274762397538891958 | 200 |    1.109956ms |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:17:32 | 2026052401173274616848693215036 | 200 |    10.36757ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 01:17:35 | 2026052401173512457440220165721 | 200 |    2.491313ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 01:17:35 | 2026052401173512514227274484823 | 200 |    2.439179ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:17:35 | 2026052401173512813379860186670 | 200 |     223.346µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:19:17 | 2026052401191740974374175653466 | 200 |   83.748171ms |      172.17.0.1 |     PUT /api/channel/
+[GIN] 2026/05/24 - 01:19:19 | 2026052401191968748524930498777 | 200 |     717.229µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:19:19 | 2026052401191968749829300545547 | 200 |    1.792965ms |      172.17.0.1 |     GET /api/channel/?p=0
+[INFO] 2026/05/24 - 01:19:20 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"Qwen/Qwen3‑235B‑A22B‑Instruct‑2507"} 
+[GIN] 2026/05/24 - 01:19:21 | 2026052401192095673837686181514 | 200 |  413.613707ms |      172.17.0.1 |     GET /api/channel/test/1?model=Qwen/Qwen3%E2%80%91235B%E2%80%91A22B%E2%80%91Instruct%E2%80%912507
+[INFO] 2026/05/24 - 01:19:21 | 2026052401192095673837686181514 | model/log.go:51 [recordLogHelper] record log: &{Id:18 UserId:0 CreatedAt:1779556761 Type:5 Content:渠道 硅基流动 测试失败，错误：http status code: 400, error message: Model does not exist. Please check it carefully. Username: TokenName: ModelName:Qwen/Qwen3‑235B‑A22B‑Instruct‑2507 Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401192095673837686181514 ElapsedTime:412 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:19:25 | 2026052401192585925150171406964 | 200 |     175.502µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:19:25 | 2026052401192585924806186363692 | 200 |     1.78614ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:19:25 | 2026052401192585924964484470099 | 200 |    1.885546ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 01:19:46 | 202605240119465002534882837157 | 200 |   73.809814ms |      172.17.0.1 |     PUT /api/channel/
+[GIN] 2026/05/24 - 01:19:48 | 2026052401194851399003613328660 | 200 |     564.902µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:19:48 | 2026052401194851400403845536577 | 200 |    1.790251ms |      172.17.0.1 |     GET /api/channel/?p=0
+[INFO] 2026/05/24 - 01:19:49 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"Qwen/Qwen3‑235B‑A22B‑Instruct‑2507"} 
+[GIN] 2026/05/24 - 01:19:49 | 2026052401194992055778869731584 | 200 |   68.342084ms |      172.17.0.1 |     GET /api/channel/test/1?model=Qwen/Qwen3%E2%80%91235B%E2%80%91A22B%E2%80%91Instruct%E2%80%912507
+[INFO] 2026/05/24 - 01:19:50 | 2026052401194992055778869731584 | model/log.go:51 [recordLogHelper] record log: &{Id:19 UserId:0 CreatedAt:1779556789 Type:5 Content:渠道 硅基流动 测试失败，错误：http status code: 400, error message: Model does not exist. Please check it carefully. Username: TokenName: ModelName:Qwen/Qwen3‑235B‑A22B‑Instruct‑2507 Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401194992055778869731584 ElapsedTime:66 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:19:55 | 2026052401195528519182485840816 | 200 |       199.8µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:19:55 | 2026052401195528453034325018571 | 200 |    1.970031ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 01:19:55 | 2026052401195528503086099016232 | 200 |    1.594098ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:20:34 | 2026052401203446434273512449859 | 200 |   150.94942ms |      172.17.0.1 |     PUT /api/channel/
+[GIN] 2026/05/24 - 01:20:35 | 2026052401203574294757264469964 | 200 |      528.28µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:20:35 | 2026052401203574288048584702475 | 200 |    2.209449ms |      172.17.0.1 |     GET /api/channel/?p=0
+[INFO] 2026/05/24 - 01:20:37 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek‑ai/DeepSeek‑V3.2"} 
+[GIN] 2026/05/24 - 01:20:37 | 2026052401203740125210492808504 | 200 |   63.448384ms |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek%E2%80%91ai/DeepSeek%E2%80%91V3.2
+[INFO] 2026/05/24 - 01:20:37 | 2026052401203740125210492808504 | model/log.go:51 [recordLogHelper] record log: &{Id:20 UserId:0 CreatedAt:1779556837 Type:5 Content:渠道 硅基流动 测试失败，错误：http status code: 400, error message: Model does not exist. Please check it carefully. Username: TokenName: ModelName:deepseek‑ai/DeepSeek‑V3.2 Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401203740125210492808504 ElapsedTime:61 IsStream:false SystemPromptReset:false} 
+[INFO] 2026/05/24 - 01:20:40 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"deepseek‑ai/DeepSeek‑V3.2"} 
+[GIN] 2026/05/24 - 01:20:40 | 2026052401204082104429098775424 | 200 |  127.587708ms |      172.17.0.1 |     GET /api/channel/test/1?model=deepseek%E2%80%91ai/DeepSeek%E2%80%91V3.2
+[INFO] 2026/05/24 - 01:20:40 | 2026052401204082104429098775424 | model/log.go:51 [recordLogHelper] record log: &{Id:21 UserId:0 CreatedAt:1779556840 Type:5 Content:渠道 硅基流动 测试失败，错误：http status code: 400, error message: Model does not exist. Please check it carefully. Username: TokenName: ModelName:deepseek‑ai/DeepSeek‑V3.2 Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401204082104429098775424 ElapsedTime:125 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:20:41 | 2026052401204168487684864064737 | 200 |     243.755µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:20:41 | 2026052401204168350978984042694 | 200 |    2.032214ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 01:20:41 | 2026052401204168489582537418394 | 200 |    1.811223ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:20:49 | 2026052401204918928135744131939 | 200 |   75.445156ms |      172.17.0.1 |     PUT /api/channel/
+[GIN] 2026/05/24 - 01:20:51 | 202605240120511141345601991656 | 200 |     726.668µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:20:51 | 202605240120511006796313646548 | 200 |    2.189376ms |      172.17.0.1 |     GET /api/channel/?p=0
+[INFO] 2026/05/24 - 01:20:52 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"zai-org/GLM-4.6"} 
+[GIN] 2026/05/24 - 01:20:52 | 2026052401205213328039613284202 | 200 |   58.176383ms |      172.17.0.1 |     GET /api/channel/test/1?model=zai-org/GLM-4.6
+[INFO] 2026/05/24 - 01:20:52 | 2026052401205213328039613284202 | model/log.go:51 [recordLogHelper] record log: &{Id:22 UserId:0 CreatedAt:1779556852 Type:5 Content:渠道 硅基流动 测试失败，错误：http status code: 403, error message: Model disabled. Username: TokenName: ModelName:zai-org/GLM-4.6 Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401205213328039613284202 ElapsedTime:56 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:20:56 | 2026052401205610988317875979632 | 200 |     177.776µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:20:56 | 2026052401205610988319803989004 | 200 |    2.077963ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:20:56 | 2026052401205610988320082928642 | 200 |    2.139895ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 01:21:02 | 202605240121024013640376643978 | 200 |   34.744287ms |      172.17.0.1 |     PUT /api/channel/
+[GIN] 2026/05/24 - 01:21:03 | 2026052401210339655690997503733 | 200 |     539.683µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:21:03 | 2026052401210339575621075273257 | 200 |    1.765125ms |      172.17.0.1 |     GET /api/channel/?p=0
+[INFO] 2026/05/24 - 01:21:04 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"zai-org/GLM-4.6"} 
+[GIN] 2026/05/24 - 01:21:04 | 2026052401210446533200907913971 | 200 |  138.828954ms |      172.17.0.1 |     GET /api/channel/test/1?model=zai-org/GLM-4.6
+[INFO] 2026/05/24 - 01:21:04 | 2026052401210446533200907913971 | model/log.go:51 [recordLogHelper] record log: &{Id:23 UserId:0 CreatedAt:1779556864 Type:5 Content:渠道 硅基流动 测试失败，错误：http status code: 403, error message: Model disabled. Username: TokenName: ModelName:zai-org/GLM-4.6 Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401210446533200907913971 ElapsedTime:137 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:21:07 | 2026052401210748581394578849585 | 200 |     265.999µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:21:07 | 2026052401210748562913479787974 | 200 |    1.965653ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:21:07 | 2026052401210748400773208434028 | 200 |    4.281582ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 01:21:21 | 2026052401212169142317694335314 | 200 |   82.316499ms |      172.17.0.1 |     PUT /api/channel/
+[GIN] 2026/05/24 - 01:21:22 | 2026052401212292966537968591346 | 200 |     681.561µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:21:22 | 2026052401212292869454506219475 | 200 |    2.121979ms |      172.17.0.1 |     GET /api/channel/?p=0
+[INFO] 2026/05/24 - 01:21:24 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"Qwen/Qwen3-235B-A22B-Instruct-2507"} 
+[GIN] 2026/05/24 - 01:21:24 | 2026052401212414762544259797747 | 200 |   65.495243ms |      172.17.0.1 |     GET /api/channel/test/1?model=Qwen/Qwen3-235B-A22B-Instruct-2507
+[INFO] 2026/05/24 - 01:21:24 | 2026052401212414762544259797747 | model/log.go:51 [recordLogHelper] record log: &{Id:24 UserId:0 CreatedAt:1779556884 Type:5 Content:渠道 硅基流动 测试失败，错误：http status code: 403, error message: Model disabled. Username: TokenName: ModelName:Qwen/Qwen3-235B-A22B-Instruct-2507 Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401212414762544259797747 ElapsedTime:64 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:22:26 | 2026052401222671368722694128182 | 200 |     211.863µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:22:26 | 2026052401222671355391449847072 | 200 |    2.512089ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:22:26 | 2026052401222671350668285715178 | 200 |    6.781755ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 01:22:32 | 202605240122325578398445326115 | 200 |   35.195498ms |      172.17.0.1 |     PUT /api/channel/
+[GIN] 2026/05/24 - 01:22:33 | 2026052401223329790753943757409 | 200 |     683.403µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:22:33 | 2026052401223329754893896822826 | 200 |    2.211533ms |      172.17.0.1 |     GET /api/channel/?p=0
+[INFO] 2026/05/24 - 01:22:34 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"Qwen/Qwen3-32B"} 
+[INFO] 2026/05/24 - 01:22:40 | controller/channel-test.go:165 [testChannel] testing channel #1, response: 
+{"id":"019e55dc2e9d209fccccaf8fea7d7f07","object":"chat.completion","created":1779556954,"model":"Qwen/Qwen3-32B","choices":[{"index":0,"message":{"role":"assistant","content":"\n\nQwen3","reasoning_content":"\nOkay, the user wants me to output only the specific model name without any other text. Let me check what they're asking for again.\n\nThe model name they're referring to is Qwen3, which is the latest large language model in the Qwen series developed by Tongyi Lab. They emphasized that I should not include any extra information, so I need to make sure that only the model name is provided. I should respond with just \"Qwen3\" and nothing else. \n\nWait, maybe I should double-check if there's any chance of adding more words by mistake. The user is strict about not having any additional text. So I'll go ahead and confirm. The correct model name is Qwen3, and that's all they need. \n\nAlright, I understand the instructions clearly now. Just the model name. Let me generate that now.\n"},"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":180,"total_tokens":199,"completion_tokens_details":{"reasoning_tokens":176},"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":19},"system_fingerprint":""} 
+[GIN] 2026/05/24 - 01:22:40 | 2026052401223435480199583935932 | 200 |  6.081231344s |      172.17.0.1 |     GET /api/channel/test/1?model=Qwen/Qwen3-32B
+[INFO] 2026/05/24 - 01:22:40 | 2026052401223435480199583935932 | model/log.go:51 [recordLogHelper] record log: &{Id:25 UserId:0 CreatedAt:1779556960 Type:5 Content:渠道 硅基流动 测试成功，响应：
+
+Qwen3 Username: TokenName: ModelName:Qwen/Qwen3-32B Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401223435480199583935932 ElapsedTime:6079 IsStream:false SystemPromptReset:false} 
+[INFO] 2026/05/24 - 01:22:41 | controller/channel-test.go:131 [testChannel] {"messages":[{"role":"user","content":"Output only your specific model name with no additional text."}],"model":"Qwen/Qwen3-32B"} 
+[GIN] 2026/05/24 - 01:22:42 | 2026052401224269693689987856500 | 200 |     168.719µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:22:42 | 2026052401224269573893236106153 | 200 |    1.538926ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:22:42 | 2026052401224269557756137060021 | 200 |    2.340705ms |      172.17.0.1 |     GET /api/channel/1
+[INFO] 2026/05/24 - 01:22:43 | controller/channel-test.go:165 [testChannel] testing channel #1, response: 
+{"id":"019e55dc4b419174e0a0ce6401aedc08","object":"chat.completion","created":1779556961,"model":"Qwen/Qwen3-32B","choices":[{"index":0,"message":{"role":"assistant","content":"\n\nQwen","reasoning_content":"\nOkay, the user asked me to output only my specific model name without any additional text. Let me think. I need to make sure I don't add any extra information, just the model name. The model name is Qwen. I should check if there's any other part they might expect, but the instruction is clear. So, I'll just respond with Qwen.\n"},"finish_reason":"stop"}],"usage":{"prompt_tokens":19,"completion_tokens":82,"total_tokens":101,"completion_tokens_details":{"reasoning_tokens":79},"prompt_tokens_details":{"cached_tokens":0},"prompt_cache_hit_tokens":0,"prompt_cache_miss_tokens":19},"system_fingerprint":""} 
+[GIN] 2026/05/24 - 01:22:43 | 2026052401224130932034671110423 | 200 |  2.641410531s |      172.17.0.1 |     GET /api/channel/test/1?model=Qwen/Qwen3-32B
+[INFO] 2026/05/24 - 01:22:43 | 2026052401224130932034671110423 | model/log.go:51 [recordLogHelper] record log: &{Id:26 UserId:0 CreatedAt:1779556963 Type:5 Content:渠道 硅基流动 测试成功，响应：
+
+Qwen Username: TokenName: ModelName:Qwen/Qwen3-32B Quota:0 PromptTokens:0 CompletionTokens:0 ChannelId:1 RequestId:2026052401224130932034671110423 ElapsedTime:2639 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:23:12 | 2026052401231199206227849233747 | 200 |   31.458564ms |      172.17.0.1 |     PUT /api/channel/
+[ERROR] 2026/05/24 - 01:25:02 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:25:02 | 2026052401250210774377952785757 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999981160, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:25:03 | 2026052401250210774377952785757 | 200 |   1.24854661s |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:25:03 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:25:03 | 2026052401250336084853511540794 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999979840, trusted and no need to pre-consume 
+[INFO] 2026/05/24 - 01:25:03 | 2026052401250210774377952785757 | model/log.go:51 [recordLogHelper] record log: &{Id:27 UserId:1 CreatedAt:1779557103 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:1320 PromptTokens:12 CompletionTokens:16 ChannelId:2 RequestId:2026052401250210774377952785757 ElapsedTime:1253 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:25:04 | 2026052401250336084853511540794 | 200 |  1.471693528s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:25:04 | 2026052401250336084853511540794 | model/log.go:51 [recordLogHelper] record log: &{Id:28 UserId:1 CreatedAt:1779557104 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:2460 PromptTokens:12 CompletionTokens:35 ChannelId:2 RequestId:2026052401250336084853511540794 ElapsedTime:1466 IsStream:false SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:25:12 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:25:12 | 2026052401251226993789209258442 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999977380, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:25:13 | 2026052401251226993789209258442 | 200 |  1.278213604s |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:25:13 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:25:13 | 2026052401251354971738003700128 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999977380, trusted and no need to pre-consume 
+[INFO] 2026/05/24 - 01:25:13 | 2026052401251226993789209258442 | model/log.go:51 [recordLogHelper] record log: &{Id:29 UserId:1 CreatedAt:1779557113 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:1320 PromptTokens:12 CompletionTokens:16 ChannelId:2 RequestId:2026052401251226993789209258442 ElapsedTime:1288 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:25:14 | 2026052401251354971738003700128 | 200 |  1.158644367s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:25:14 | 2026052401251354971738003700128 | model/log.go:51 [recordLogHelper] record log: &{Id:30 UserId:1 CreatedAt:1779557114 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:2100 PromptTokens:12 CompletionTokens:29 ChannelId:2 RequestId:2026052401251354971738003700128 ElapsedTime:1166 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:28:31 | 2026052401283115382029828756691 | 404 |     199.098µs |      172.17.0.1 |    POST /v1/v1/chat/completions
+[ERROR] 2026/05/24 - 01:29:31 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:29:31 | 202605240129319627378032817457 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999973960, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:29:32 | 202605240129319627378032817457 | 200 |   1.34996006s |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:29:32 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:29:32 | 2026052401293244774115590695195 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999972640, trusted and no need to pre-consume 
+[INFO] 2026/05/24 - 01:29:32 | 202605240129319627378032817457 | model/log.go:51 [recordLogHelper] record log: &{Id:31 UserId:1 CreatedAt:1779557372 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:1320 PromptTokens:12 CompletionTokens:16 ChannelId:2 RequestId:202605240129319627378032817457 ElapsedTime:1353 IsStream:false SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:29:33 | 2026052401293244774115590695195 | 200 |   1.34712648s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:29:33 | 2026052401293244774115590695195 | model/log.go:51 [recordLogHelper] record log: &{Id:32 UserId:1 CreatedAt:1779557373 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:2100 PromptTokens:12 CompletionTokens:29 ChannelId:2 RequestId:2026052401293244774115590695195 ElapsedTime:1340 IsStream:false SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:31:22 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:31:22 | 2026052401312247372309345121524 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999999970540, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:31:47 | 2026052401312247372309345121524 | 200 | 25.397671993s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:31:47 | 2026052401312247372309345121524 | model/log.go:51 [recordLogHelper] record log: &{Id:33 UserId:1 CreatedAt:1779557507 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:4736160 PromptTokens:157178 CompletionTokens:347 ChannelId:2 RequestId:2026052401312247372309345121524 ElapsedTime:25394 IsStream:true SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:35:02 | 2026052401350269162778904752473 | 404 |     347.483µs |      172.17.0.1 |    POST /v1/messages
+[ERROR] 2026/05/24 - 01:35:02 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:35:02 | 2026052401350285028814682127744 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999995234380, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:35:05 | 2026052401350285028814682127744 | 200 |  2.476561105s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:35:05 | 2026052401350285028814682127744 | model/log.go:51 [recordLogHelper] record log: &{Id:34 UserId:1 CreatedAt:1779557705 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:4721400 PromptTokens:157340 CompletionTokens:20 ChannelId:2 RequestId:2026052401350285028814682127744 ElapsedTime:2472 IsStream:true SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:35:40 | 2026052401354017761232516367259 | 200 |     905.344µs |      172.17.0.1 |    HEAD /
+[GIN] 2026/05/24 - 01:35:50 | 2026052401355062071642781154335 | 200 |     124.713µs |      172.17.0.1 |    HEAD /
+[GIN] 2026/05/24 - 01:36:01 | 2026052401360132873290622165296 | 404 |      204.96µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[GIN] 2026/05/24 - 01:36:01 | 2026052401360136986117559893855 | 404 |     364.981µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[GIN] 2026/05/24 - 01:36:19 | 2026052401361956330067496195511 | 200 |     134.853µs |      172.17.0.1 |    HEAD /
+[GIN] 2026/05/24 - 01:36:21 | 2026052401362195797875662276833 | 404 |     239.156µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[GIN] 2026/05/24 - 01:36:21 | 2026052401362199375829805225701 | 404 |     210.721µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[ERROR] 2026/05/24 - 01:36:28 | model/token.go:68 [ValidateUserToken] CacheGetTokenByKey failed: record not found 
+[ERROR] 2026/05/24 - 01:36:28 | 2026052401362891658772266137167 | middleware/utils.go:20 [abortWithMessage] 无效的令牌 
+[GIN] 2026/05/24 - 01:36:28 | 2026052401362891658772266137167 | 401 |    5.668263ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:37:09 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:37:09 | 2026052401370926381549480933736 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999990512980, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:37:10 | 2026052401370926381549480933736 | 200 |  955.350961ms |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:37:10 | 2026052401370926381549480933736 | model/log.go:51 [recordLogHelper] record log: &{Id:35 UserId:1 CreatedAt:1779557830 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:300 PromptTokens:8 CompletionTokens:1 ChannelId:2 RequestId:2026052401370926381549480933736 ElapsedTime:961 IsStream:true SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:37:20 | 2026052401372055682987320573022 | 404 |     231.341µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[GIN] 2026/05/24 - 01:37:56 | 2026052401375637590440875053571 | 200 |     288.392µs |      172.17.0.1 |    HEAD /
+[GIN] 2026/05/24 - 01:38:02 | 2026052401380245247562876573577 | 200 |     121.206µs |      172.17.0.1 |    HEAD /
+[GIN] 2026/05/24 - 01:38:04 | 2026052401380499493912473775021 | 404 |     314.553µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[GIN] 2026/05/24 - 01:38:05 | 202605240138053532482462008048 | 404 |     192.275µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[GIN] 2026/05/24 - 01:38:12 | 2026052401381266417871684185065 | 200 |     150.383µs |      172.17.0.1 |    HEAD /
+[GIN] 2026/05/24 - 01:38:15 | 2026052401381551216455475160 | 404 |     229.448µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[GIN] 2026/05/24 - 01:38:15 | 202605240138153420606930532521 | 404 |       158.5µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[ERROR] 2026/05/24 - 01:39:26 | 202605240139266092098663121663 | middleware/utils.go:20 [abortWithMessage] 该令牌无权使用模型：Qwen/Qwen3-32B 
+[GIN] 2026/05/24 - 01:39:26 | 202605240139266092098663121663 | 403 |   12.238123ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:39:35 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:39:35 | 202605240139356175242312471190 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999990512680, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:40:03 | 202605240139356175242312471190 | 200 | 27.998687537s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:40:03 | 202605240139356175242312471190 | model/log.go:51 [recordLogHelper] record log: &{Id:36 UserId:1 CreatedAt:1779558003 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:4768200 PromptTokens:157998 CompletionTokens:471 ChannelId:2 RequestId:202605240139356175242312471190 ElapsedTime:28001 IsStream:true SystemPromptReset:false} 
+[GIN] 2026/05/24 - 01:40:09 | 2026052401400948411418936497010 | 200 |     170.843µs |      172.17.0.1 |     GET /
+[GIN] 2026/05/24 - 01:40:09 | 2026052401400951886326901342311 | 200 |   29.971282ms |      172.17.0.1 |     GET /static/css/main.722059cf.css
+[GIN] 2026/05/24 - 01:40:09 | 2026052401400951749566909131014 | 200 |    54.49388ms |      172.17.0.1 |     GET /static/js/main.60bacb1b.js
+[GIN] 2026/05/24 - 01:40:09 | 2026052401400998779509376493105 | 200 |    7.103298ms |      172.17.0.1 |     GET /static/js/151.57777e47.chunk.js
+[GIN] 2026/05/24 - 01:40:10 | 202605240140101728088270118822 | 200 |     237.022µs |      172.17.0.1 |     GET /logo.png
+[GIN] 2026/05/24 - 01:40:10 | 202605240140102130016152992867 | 200 |     218.616µs |      172.17.0.1 |     GET /api/status
+[GIN] 2026/05/24 - 01:40:10 | 202605240140101736416265067417 | 200 |    6.517177ms |      172.17.0.1 |     GET /static/media/icons.38c6d8bab26db77d8c80.woff2
+[GIN] 2026/05/24 - 01:40:10 | 202605240140104784091867408943 | 200 |    1.218363ms |      172.17.0.1 |     GET /api/notice
+[GIN] 2026/05/24 - 01:40:10 | 202605240140104935088937467548 | 200 |    3.134234ms |      172.17.0.1 |     GET /api/home_page_content
+[GIN] 2026/05/24 - 01:40:10 | 2026052401401012215977773150752 | 200 |    1.798525ms |      172.17.0.1 |     GET /static/media/outline-icons.687a4990ea22bb1a49d4.woff2
+[GIN] 2026/05/24 - 01:40:10 | 2026052401401012125875583438734 | 200 |    4.372829ms |      172.17.0.1 |     GET /static/media/brand-icons.278156e41e0ad908cf7f.woff2
+[GIN] 2026/05/24 - 01:40:20 | 2026052401402038827291100773643 | 200 |   51.579759ms |      172.17.0.1 |    POST /api/user/login
+[GIN] 2026/05/24 - 01:40:20 | 2026052401402047587698324015921 | 200 |    1.891484ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 01:40:22 | 202605240140228612848111295946 | 200 |    3.141421ms |      172.17.0.1 |     GET /api/redemption/?p=0
+[GIN] 2026/05/24 - 01:40:22 | 2026052401402245019945607088043 | 200 |    1.846744ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 01:40:25 | 2026052401402512390521079815392 | 200 |    2.337924ms |      172.17.0.1 |     GET /api/token/1
+[GIN] 2026/05/24 - 01:40:25 | 2026052401402512476015563004608 | 200 |    8.101156ms |      172.17.0.1 |     GET /api/user/available_models
+[GIN] 2026/05/24 - 01:40:32 | 2026052401403258576012510483303 | 200 |   13.195407ms |      172.17.0.1 |     PUT /api/token/
+[ERROR] 2026/05/24 - 01:43:25 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:43:25 | 2026052401432555399843786587965 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999985744480, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:43:32 | 2026052401432555399843786587965 | 200 |  7.335797591s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:43:32 | 2026052401432555399843786587965 | model/log.go:51 [recordLogHelper] record log: &{Id:37 UserId:1 CreatedAt:1779558212 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:4764360 PromptTokens:158182 CompletionTokens:315 ChannelId:2 RequestId:2026052401432555399843786587965 ElapsedTime:7332 IsStream:true SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:43:58 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:43:58 | 2026052401435813897812607823678 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999980980120, trusted and no need to pre-consume 
+[ERROR] 2026/05/24 - 01:43:58 | 2026052401435813897812607823678 | controller/relay.go:67 [Relay] relay error happen, status code is 400, won't retry in this case 
+[GIN] 2026/05/24 - 01:43:58 | 2026052401435813897812607823678 | 400 |   492.46034ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:43:58 | 2026052401435813897812607823678 | controller/relay.go:125 [processChannelRelayError] relay error (channel id 2, user id: 1): The `reasoning_content` in the thinking mode must be passed back to the API. 
+[ERROR] 2026/05/24 - 01:44:35 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:44:35 | 2026052401443524462573149256466 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999980980120, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:44:38 | 2026052401443524462573149256466 | 200 |  3.739835922s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:44:39 | 2026052401443524462573149256466 | model/log.go:51 [recordLogHelper] record log: &{Id:38 UserId:1 CreatedAt:1779558279 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:4769790 PromptTokens:158653 CompletionTokens:170 ChannelId:2 RequestId:2026052401443524462573149256466 ElapsedTime:3740 IsStream:true SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:45:39 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:45:39 | 2026052401453913564055798133401 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999976210330, trusted and no need to pre-consume 
+[ERROR] 2026/05/24 - 01:45:39 | 2026052401453913564055798133401 | controller/relay.go:67 [Relay] relay error happen, status code is 400, won't retry in this case 
+[ERROR] 2026/05/24 - 01:45:39 | 2026052401453913564055798133401 | controller/relay.go:125 [processChannelRelayError] relay error (channel id 2, user id: 1): The `reasoning_content` in the thinking mode must be passed back to the API. 
+[GIN] 2026/05/24 - 01:45:39 | 2026052401453913564055798133401 | 400 |  420.490562ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:46:26 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:46:26 | 202605240146265992980649643198 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999976210330, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:46:29 | 202605240146265992980649643198 | 200 |  3.005321959s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:46:29 | 202605240146265992980649643198 | model/log.go:51 [recordLogHelper] record log: &{Id:39 UserId:1 CreatedAt:1779558389 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:4777800 PromptTokens:159044 CompletionTokens:108 ChannelId:2 RequestId:202605240146265992980649643198 ElapsedTime:3009 IsStream:true SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:46:29 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:46:29 | 2026052401462916027473715985654 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999971432530, trusted and no need to pre-consume 
+[ERROR] 2026/05/24 - 01:46:29 | 2026052401462916027473715985654 | controller/relay.go:67 [Relay] relay error happen, status code is 400, won't retry in this case 
+[GIN] 2026/05/24 - 01:46:29 | 2026052401462916027473715985654 | 400 |  328.708036ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 01:46:29 | 2026052401462916027473715985654 | controller/relay.go:125 [processChannelRelayError] relay error (channel id 2, user id: 1): The `reasoning_content` in the thinking mode must be passed back to the API. 
+[GIN] 2026/05/24 - 01:51:20 | 2026052401512034943276021620071 | 200 |    1.176154ms |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:51:20 | 2026052401512034718453496525844 | 200 |   11.447538ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 01:51:24 | 2026052401512487320447696549354 | 200 |    3.012739ms |      172.17.0.1 |     GET /api/channel/2
+[GIN] 2026/05/24 - 01:51:24 | 2026052401512487392478126274641 | 200 |    2.602428ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:51:24 | 2026052401512487713647044776092 | 200 |     511.729µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:52:09 | 2026052401520959368627396547618 | 200 |    2.004502ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 01:52:09 | 2026052401520960134002707083123 | 200 |     900.725µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:52:12 | 2026052401521294084772902709666 | 200 |     245.979µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:52:12 | 2026052401521293899438835184275 | 200 |    2.158916ms |      172.17.0.1 |     GET /api/channel/2
+[GIN] 2026/05/24 - 01:52:12 | 2026052401521293938752900429799 | 200 |    2.441229ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:52:19 | 2026052401521958723943457788339 | 200 |    3.509339ms |      172.17.0.1 |     GET /api/redemption/?p=0
+[GIN] 2026/05/24 - 01:52:20 | 2026052401522019286263697526285 | 200 |    2.039383ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 01:52:21 | 2026052401522191589059231400211 | 200 |   15.099353ms |      172.17.0.1 |     GET /api/token/1
+[GIN] 2026/05/24 - 01:52:21 | 2026052401522191999584367987405 | 200 |   14.314633ms |      172.17.0.1 |     GET /api/user/available_models
+[GIN] 2026/05/24 - 01:52:26 | 2026052401522642117746872114913 | 200 |     968.358µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:52:26 | 2026052401522641903629523353298 | 200 |    3.633955ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 01:52:28 | 2026052401522872623126312767436 | 200 |      194.99µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:52:28 | 2026052401522872495239262483061 | 200 |    2.590287ms |      172.17.0.1 |     GET /api/channel/1
+[GIN] 2026/05/24 - 01:52:28 | 2026052401522872601005488157259 | 200 |    2.500122ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:52:36 | 2026052401523682748689992457042 | 200 |     870.277µs |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:52:36 | 2026052401523682686643814912111 | 200 |    1.958488ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 01:52:39 | 202605240152398522698066419027 | 200 |       2.129ms |      172.17.0.1 |     GET /api/channel/2
+[GIN] 2026/05/24 - 01:52:39 | 202605240152398792794689413795 | 200 |     183.969µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:52:39 | 202605240152398622900287744022 | 200 |    2.523911ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:52:43 | 2026052401524394672836054030744 | 200 |    1.954784ms |      172.17.0.1 |     GET /api/token/?p=0&order=
+[GIN] 2026/05/24 - 01:52:44 | 2026052401524466674872632776171 | 200 |    2.454118ms |      172.17.0.1 |     GET /api/redemption/?p=0
+[GIN] 2026/05/24 - 01:52:45 | 2026052401524524962370923360413 | 200 |    1.952447ms |      172.17.0.1 |     GET /api/user/self
+[GIN] 2026/05/24 - 01:52:45 | 2026052401524595906894328331816 | 200 |     2.38536ms |      172.17.0.1 |     GET /api/user/?p=0&order=
+[GIN] 2026/05/24 - 01:52:46 | 2026052401524695487711428034623 | 200 |    4.234107ms |      172.17.0.1 |     GET /api/user/dashboard
+[GIN] 2026/05/24 - 01:52:47 | 2026052401524755122201843788395 | 200 |    1.825271ms |      172.17.0.1 |     GET /api/user/?p=0&order=
+[GIN] 2026/05/24 - 01:52:49 | 2026052401524956662778665082024 | 200 |    1.850786ms |      172.17.0.1 |     GET /api/channel/?p=0
+[GIN] 2026/05/24 - 01:52:49 | 2026052401524957287991553895289 | 200 |    1.099153ms |      172.17.0.1 |     GET /api/models
+[GIN] 2026/05/24 - 01:52:51 | 2026052401525175152424922001737 | 200 |     353.317µs |      172.17.0.1 |     GET /api/group/
+[GIN] 2026/05/24 - 01:52:51 | 2026052401525175041812232788648 | 200 |    2.091569ms |      172.17.0.1 |     GET /api/channel/2
+[GIN] 2026/05/24 - 01:52:51 | 2026052401525175116632962737124 | 200 |    2.956426ms |      172.17.0.1 |     GET /api/channel/models
+[GIN] 2026/05/24 - 01:55:08 | 2026052401550814297038921355513 | 200 |      55.619µs |      172.17.0.1 |     GET /
+[GIN] 2026/05/24 - 01:55:08 | 2026052401550814411034314028852 | 200 |      16.943µs |      172.17.0.1 |     GET /
+[GIN] 2026/05/24 - 01:55:24 | 2026052401552461797059921606587 | 404 |      96.529µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[GIN] 2026/05/24 - 01:55:24 | 2026052401552468385242854742498 | 404 |     248.466µs |      172.17.0.1 |    POST /v1/messages?beta=true
+[GIN] 2026/05/24 - 01:55:46 | 2026052401554648316833345709856 | 404 |      38.816µs |      172.17.0.1 |    POST /v1/messages
+[GIN] 2026/05/24 - 01:55:48 | 2026052401554899781801526979838 | 404 |      37.913µs |      172.17.0.1 |    POST /v1/messages
+[ERROR] 2026/05/24 - 01:56:00 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:56:00 | 2026052401560074721467301543768 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999971432530, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:56:01 | 2026052401560074721467301543768 | 200 |   903.36556ms |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:56:01 | 2026052401560074721467301543768 | model/log.go:51 [recordLogHelper] record log: &{Id:40 UserId:1 CreatedAt:1779558961 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:300 PromptTokens:8 CompletionTokens:1 ChannelId:2 RequestId:2026052401560074721467301543768 ElapsedTime:907 IsStream:true SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:56:05 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:56:05 | 2026052401560527254531132108894 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999971432230, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:56:12 | 2026052401560527254531132108894 | 200 |   7.46668758s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:56:12 | 2026052401560527254531132108894 | model/log.go:51 [recordLogHelper] record log: &{Id:41 UserId:1 CreatedAt:1779558972 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:4797690 PromptTokens:159639 CompletionTokens:142 ChannelId:2 RequestId:2026052401560527254531132108894 ElapsedTime:7471 IsStream:true SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:56:21 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:56:21 | 2026052401562171351032179822188 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999966634540, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 01:56:29 | 2026052401562171351032179822188 | 200 |  7.840601673s |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 01:56:29 | 2026052401562171351032179822188 | model/log.go:51 [recordLogHelper] record log: &{Id:42 UserId:1 CreatedAt:1779558989 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-pro Quota:4815990 PromptTokens:159729 CompletionTokens:402 ChannelId:2 RequestId:2026052401562171351032179822188 ElapsedTime:7843 IsStream:true SystemPromptReset:false} 
+[ERROR] 2026/05/24 - 01:56:57 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-pro 
+[INFO] 2026/05/24 - 01:56:57 | 2026052401565699393043386826383 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999961818550, trusted and no need to pre-consume 
+[ERROR] 2026/05/24 - 01:56:57 | 2026052401565699393043386826383 | controller/relay.go:67 [Relay] relay error happen, status code is 400, won't retry in this case 
+[ERROR] 2026/05/24 - 01:56:57 | 2026052401565699393043386826383 | controller/relay.go:125 [processChannelRelayError] relay error (channel id 2, user id: 1): The `reasoning_content` in the thinking mode must be passed back to the API. 
+[GIN] 2026/05/24 - 01:56:57 | 2026052401565699393043386826383 | 400 |  529.464998ms |      172.17.0.1 |    POST /v1/chat/completions
+[GIN] 2026/05/24 - 01:57:14 | 2026052401571454766297352438098 | 404 |      73.263µs |      172.17.0.1 |    POST /v1/responses
+[INFO] 2026/05/24 - 01:58:37 | main.go:32 [main] One API v0.6.11-preview.7 started 
+[INFO] 2026/05/24 - 01:58:37 | model/main.go:103 [openSQLite] SQL_DSN not set, using SQLite as database 
+[INFO] 2026/05/24 - 01:58:37 | model/main.go:129 [InitDB] database migration started 
+[INFO] 2026/05/24 - 01:58:38 | model/main.go:134 [InitDB] database migrated 
+[INFO] 2026/05/24 - 01:58:38 | common/redis.go:20 [InitRedisClient] REDIS_CONN_STRING not set, Redis is not enabled 
+[INFO] 2026/05/24 - 01:58:38 | main.go:65 [main] using theme default 
+[INFO] 2026/05/24 - 01:58:38 | relay/adaptor/openai/token.go:23 [InitTokenEncoders] initializing token encoders 
+[INFO] 2026/05/24 - 01:58:38 | relay/adaptor/openai/token.go:49 [InitTokenEncoders] token encoders initialized 
+[INFO] 2026/05/24 - 01:58:38 | main.go:119 [main] server started on http://localhost:3000 
+[INFO] 2026/05/24 - 03:01:27 | main.go:32 [main] One API v0.6.11-preview.7 started 
+[INFO] 2026/05/24 - 03:01:27 | model/main.go:103 [openSQLite] SQL_DSN not set, using SQLite as database 
+[INFO] 2026/05/24 - 03:01:27 | model/main.go:129 [InitDB] database migration started 
+[INFO] 2026/05/24 - 03:01:27 | model/main.go:134 [InitDB] database migrated 
+[INFO] 2026/05/24 - 03:01:27 | common/redis.go:20 [InitRedisClient] REDIS_CONN_STRING not set, Redis is not enabled 
+[INFO] 2026/05/24 - 03:01:27 | main.go:65 [main] using theme default 
+[INFO] 2026/05/24 - 03:01:27 | relay/adaptor/openai/token.go:23 [InitTokenEncoders] initializing token encoders 
+[INFO] 2026/05/24 - 03:01:28 | relay/adaptor/openai/token.go:49 [InitTokenEncoders] token encoders initialized 
+[INFO] 2026/05/24 - 03:01:28 | main.go:119 [main] server started on http://localhost:3000 
+[ERROR] 2026/05/24 - 03:01:30 | 2026052403013059810874474877343 | middleware/utils.go:20 [abortWithMessage] 该令牌无权使用模型：deepseek-v4-flash 
+[GIN] 2026/05/24 - 03:01:30 | 2026052403013059810874474877343 | 403 |    2.824549ms |      172.17.0.1 |    POST /v1/chat/completions
+[ERROR] 2026/05/24 - 03:01:49 | relay/billing/ratio/model.go:460 [GetModelRatio] model ratio not found: deepseek-v4-flash 
+[INFO] 2026/05/24 - 03:01:49 | 2026052403014975194304565323565 | relay/controller/helper.go:86 [preConsumeQuota] user 1 has enough quota 499999961818550, trusted and no need to pre-consume 
+[GIN] 2026/05/24 - 03:01:50 | 2026052403014975194304565323565 | 200 |  993.500996ms |      172.17.0.1 |    POST /v1/chat/completions
+[INFO] 2026/05/24 - 03:01:50 | 2026052403014975194304565323565 | model/log.go:51 [recordLogHelper] record log: &{Id:43 UserId:1 CreatedAt:1779562910 Type:2 Content:倍率：30.00 × 1.00 × 2.00 Username:root TokenName:win ModelName:deepseek-v4-flash Quota:1350 PromptTokens:5 CompletionTokens:20 ChannelId:2 RequestId:2026052403014975194304565323565 ElapsedTime:1002 IsStream:false SystemPromptReset:false} 
