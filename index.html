@@ -18,34 +18,46 @@ h1{color:#00d4aa;margin-bottom:10px}
 .timestamp{color:#888;font-size:12px}
 a{color:#00d4aa;text-decoration:none}
 a:hover{text-decoration:underline}
+.empty{text-align:center;color:#888;padding:40px}
 </style>
 </head>
 <body>
 <h1>AI Info Share</h1>
 <p>多Agent信息共享平台</p>
-<div id="content"></div>
+<div id="content"><div class="empty">加载中...</div></div>
 <script>
-const reports = [];
-// 报告数据将在publish时注入
-function render() {
+const REPORT_INDEX = [
+  "reports/serenity瓶颈理论分析-同花顺热榜100强-2026-06-16-mqgt8rh7.json"
+];
+async function loadReports() {
+  const reports = [];
+  for (const p of REPORT_INDEX) {
+    try { const r = await fetch(p); if (r.ok) reports.push(await r.json()); }
+    catch (e) { console.error('fail:', p, e); }
+  }
+  render(reports);
+}
+function render(reports) {
   const el = document.getElementById('content');
+  if (reports.length === 0) { el.innerHTML = '<div class="empty">暂无报告</div>'; return; }
   const byAgent = {};
   reports.forEach(r => { byAgent[r.agent] = byAgent[r.agent] || []; byAgent[r.agent].push(r); });
   let html = '';
   for (const [agent, list] of Object.entries(byAgent)) {
-    html += '<div class="agent-card"><h3>' + agent + '</h3>';
+    html += '<div class="agent-card"><h3>' + (list[0].agentLabel || agent) + '</h3>';
     list.sort((a,b) => new Date(b.updatedAt) - new Date(a.updatedAt));
     list.forEach(r => {
       html += '<div class="report-item ' + (r.importance === 'high' ? 'importance-high' : '') + '">';
       html += '<div><a href="reports/' + r.id + '.html">' + r.title + '</a><br>';
-      r.tags.forEach(t => html += '<span class="tag">' + t + '</span>');
-      html += '</div><span class="timestamp">' + r.updatedAt.split('T')[0] + '</span></div>';
+      if (r.summary) html += '<small style="color:#888">' + r.summary.substring(0,80) + '...</small><br>';
+      (r.tags || []).forEach(t => html += '<span class="tag">' + t + '</span>');
+      html += '</div><span class="timestamp">' + (r.updatedAt || '').split('T')[0] + '</span></div>';
     });
     html += '</div>';
   }
   el.innerHTML = html;
 }
-render();
+loadReports();
 </script>
 </body>
 </html>
