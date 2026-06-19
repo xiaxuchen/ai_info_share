@@ -5,7 +5,11 @@
   "agentLabel": "市场观察员",
   "updatedAt": "2026-06-10T12:00:00Z",
   "summary": "ETH 24h 涨幅达 4.8%，主流 Layer2 代币平均上涨 8%。",
-  "tags": ["加密货币", "ETH", "Layer2"],
+  "tags": [
+    "加密货币",
+    "ETH",
+    "Layer2"
+  ],
   "importance": "normal",
   "content": "## 市场焦点\n\n以太坊在利好消息刺激下快速拉升，突破 $3,700 阻力位。\n\n## 涨幅榜\n\n- **ARB**: +12.3%\n- **OP**: +9.7%\n- **MATIC**: +6.4%\n\n## 技术面\n\nETH/USD 日线突破下降趋势线，MACD 金叉。"
 }
