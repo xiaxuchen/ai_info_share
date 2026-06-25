@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>博纳影业 & 中国电影 深度对比调研报告 — 2026暑期档专题</title>
+<style>
+  :root {
+    --bg: #0f172a;
+    --bg2: #1e293b;
+    --ink: #f1f5f9;
+    --muted: #94a3b8;
+    --rule: #334155;
+    --accent: #10b981;
+    --accent2: #f59e0b;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --bona: #8b5cf6;
+    --cinema: #0ea5e9;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  header {
+    text-align: center;
+    padding: 3rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(14, 165, 233, 0.1));
+    border-radius: 12px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, #8b5cf6, #0ea5e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  header .subtitle {
+    font-size: 1rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  header .date {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  .tag {
+    display: inline-block;
+    background: var(--bg2);
+    color: var(--accent);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    margin: 0 4px 4px 0;
+    border: 1px solid var(--rule);
+  }
+
+  .tag-bona { background: rgba(139, 92, 246, 0.2); color: #a78bfa; border-color: rgba(139, 92, 246, 0.3); }
+  .tag-cinema { background: rgba(14, 165, 233, 0.2); color: #38bdf8; border-color: rgba(14, 165, 233, 0.3); }
+
+  h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent);
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent2);
+    margin: 1rem 0 0.5rem;
+  }
+
+  p {
+    margin-bottom: 0.75rem;
+    color: var(--ink);
+  }
+
+  .highlight {
+    background: var(--bg2);
+    border-left: 4px solid var(--accent);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .highlight-bona {
+    border-left-color: var(--bona);
+    background: rgba(139, 92, 246, 0.08);
+  }
+
+  .highlight-cinema {
+    border-left-color: var(--cinema);
+    background: rgba(14, 165, 233, 0.08);
+  }
+
+  .warning-box {
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 4px solid var(--warning);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .danger-box {
+    background: rgba(239, 68, 68, 0.1);
+    border-left: 4px solid var(--danger);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: 600px;
+    margin: 1rem 0;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+  }
+
+  th, td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.9rem;
+  }
+
+  th {
+    background: var(--bg2);
+    color: var(--accent);
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+  }
+
+  tr:hover {
+    background: rgba(16, 185, 129, 0.05);
+  }
+
+  .score {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+
+  .score-high { background: rgba(16, 185, 129, 0.2); color: var(--accent); }
+  .score-mid { background: rgba(245, 158, 11, 0.2); color: var(--accent2); }
+  .score-low { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .metric-card {
+    background: var(--bg2);
+    padding: 1.25rem;
+    border-radius: 8px;
+    border: 1px solid var(--rule);
+  }
+
+  .metric-card .label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-bottom: 0.25rem;
+  }
+
+  .metric-card .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .metric-card .value.negative { color: var(--danger); }
+  .metric-card .value.warning { color: var(--accent2); }
+  .metric-card .value.bona { color: #a78bfa; }
+  .metric-card .value.cinema { color: #38bdf8; }
+
+  .stock-card {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+  }
+
+  .stock-card.bona { border-color: rgba(139, 92, 246, 0.4); }
+  .stock-card.cinema { border-color: rgba(14, 165, 233, 0.4); }
+
+  .stock-card .stock-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .stock-card .stock-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .stock-card.bona .stock-name { color: #a78bfa; }
+  .stock-card.cinema .stock-name { color: #38bdf8; }
+
+  .stock-card .stock-code {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-left: 0.5rem;
+    font-weight: 400;
+  }
+
+  .stock-card .rating {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+
+  .rating-buy { background: rgba(16, 185, 129, 0.2); color: var(--accent); }
+  .rating-hold { background: rgba(245, 158, 11, 0.2); color: var(--accent2); }
+  .rating-sell { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+
+  .progress-bar {
+    height: 6px;
+    background: var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 0.5rem 0;
+  }
+
+  .progress-bar .fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+  }
+
+  .progress-bar .fill.bona { background: linear-gradient(90deg, #8b5cf6, #a78bfa); }
+  .progress-bar .fill.cinema { background: linear-gradient(90deg, #0ea5e9, #38bdf8); }
+
+  .compare-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .compare-section { grid-template-columns: 1fr; }
+    .container { padding: 1rem; }
+    header h1 { font-size: 1.5rem; }
+    .metric-grid { grid-template-columns: 1fr; }
+    table { min-width: 500px; }
+  }
+
+  footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  footer .sources {
+    margin-top: 1.5rem;
+  }
+
+  footer .sources h2 {
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 1rem;
+  }
+
+  footer .sources ol {
+    padding-left: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+
+  footer .sources li {
+    margin-bottom: 0.5rem;
+    overflow-wrap: break-word;
+    word-break: break-all;
+  }
+
+  footer .sources .src-title {
+    color: var(--ink);
+    word-break: normal;
+  }
+
+  footer .sources .src-url {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.82rem;
+    color: var(--accent);
+    word-break: break-all;
+  }
+
+  sup a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.75em;
+    font-weight: 600;
+  }
+
+  sup a:hover { text-decoration: underline; }
+
+  ul { margin-left: 1.5rem; color: var(--ink); margin-bottom: 0.75rem; }
+  li { margin-bottom: 0.35rem; }
+
+  .film-card {
+    background: var(--bg2);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+  }
+
+  .film-card .film-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .film-card .film-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .film-card .film-meta span {
+    margin-right: 1rem;
+  }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .container { max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <h1>博纳影业 & 中国电影 深度对比调研</h1>
+  <div class="subtitle">2026暑期档专题：《四渡》、即梦AI合作、中报预期全解析</div>
+  <div class="date">2026年6月25日 | 传媒-影视院线行业</div>
+  <div style="margin-top:1rem">
+    <span class="tag tag-bona">博纳影业 001330</span>
+    <span class="tag tag-cinema">中国电影 600977</span>
+    <span class="tag">暑期档</span>
+    <span class="tag">四渡赤水</span>
+    <span class="tag">即梦AI</span>
+    <span class="tag">Seedance 2.5</span>
+    <span class="tag">AI影视</span>
+  </div>
+</header>
+
+<!-- 免责声明 -->
+<div class="danger-box">
+  <strong>免责声明与风险提示：</strong><br>
+  本报告仅供研究参考，不构成任何投资建议或买卖依据。股市有风险，投资需谨慎。报告中所涉标的基于公开信息整理，过往表现不代表未来收益。投资者应根据自身风险承受能力独立决策，本报告作者不对任何依据本报告进行的投资行为承担责任。
+</div>
+
+<!-- 核心结论 -->
+<h2>一、核心结论速览</h2>
+
+<div class="compare-section">
+  <div class="stock-card bona">
+    <div class="stock-header">
+      <div class="stock-name">博纳影业 <span class="stock-code">001330.SZ</span></div>
+      <span class="rating rating-hold">关注</span>
+    </div>
+    <p><strong>当前股价：</strong>约6.30元 | <strong>总市值：</strong>约95亿元</p>
+    <p><strong>核心逻辑：</strong>暑期档《四渡》定档6月26日，主旋律金字招牌+长征胜利90周年催化；连续四年亏损后2026有望扭亏；<strong>字节即梦AI核心合作伙伴</strong>，AI影视转型（博卡电影云片场+三星堆IP）提供想象空间。</p>
+    <p><strong>核心风险：</strong>《四渡》票房不及预期、股东持续减持、资产负债率高（66%）、业绩高度依赖爆款。</p>
+    <p><strong>机构预测：</strong>2026年净利润2.16-2.5亿元（扭亏），2027年2.82-3.4亿元</p>
+  </div>
+
+  <div class="stock-card cinema">
+    <div class="stock-header">
+      <div class="stock-name">中国电影 <span class="stock-code">600977.SH</span></div>
+      <span class="rating rating-hold">关注</span>
+    </div>
+    <p><strong>当前股价：</strong>约13.6元 | <strong>总市值：</strong>约255亿元</p>
+    <p><strong>核心逻辑：</strong>进口片发行垄断权（政策护城河），全产业链布局；暑期档片单丰富（《大圣崛起》《少林女足》等）；CINITY高端放映系统技术壁垒。</p>
+    <p><strong>核心风险：</strong>扣非净利润连续亏损，盈利高度依赖非经常性损益；主营业务盈利能力弱；2026Q1仍亏1.14亿。</p>
+    <p><strong>机构参考：</strong>PS估值法，2026年预测营收约65亿，目标市值325-390亿元</p>
+  </div>
+</div>
+
+<!-- 二、博纳影业深度分析 -->
+<h2>二、博纳影业（001330.SZ）深度分析</h2>
+
+<h3>2.1 公司概况与业务结构</h3>
+
+<p>博纳影业是国内知名的全产业链布局电影集团，由<strong>于冬</strong>于1999年创立，是国内首家获得电影发行许可证的民营企业。公司2010年登陆纳斯达克（中国影视美股第一股），2016年私有化退市，2022年8月在深交所主板上市。<sup><a href="#cite-1">[1]</a></sup></p>
+
+<div class="highlight highlight-bona">
+  <strong>核心标签：</strong>主旋律爆款制造机、"博纳式主旋律"商业模式开创者、《长津湖》57.8亿影史纪录保持者
+</div>
+
+<h4>2025年收入结构</h4>
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>业务板块</th>
+    <th>2025年收入</th>
+    <th>同比</th>
+    <th>收入占比</th>
+    <th>毛利率</th>
+  </tr>
+  <tr>
+    <td><strong>影院及院线业务</strong></td>
+    <td>10.58亿元</td>
+    <td>+12.41%</td>
+    <td><strong>84.47%</strong></td>
+    <td>14.30%</td>
+  </tr>
+  <tr>
+    <td>电影业务（投资+发行）</td>
+    <td>2.10亿元</td>
+    <td>-18.80%</td>
+    <td>16.76%</td>
+    <td>-342.78%</td>
+  </tr>
+  <tr>
+    <td>剧集业务</td>
+    <td>151.95万元</td>
+    <td>-99.45%</td>
+    <td>0.12%</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>AI影视剧业务</td>
+    <td>238.68万元</td>
+    <td>+100%</td>
+    <td>&lt;0.2%</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td><strong>合计</strong></td>
+    <td><strong>12.53亿元</strong></td>
+    <td>-14.28%</td>
+    <td>100%</td>
+    <td>-46.66%</td>
+  </tr>
+</table>
+</div>
+
+<p><strong>关键变化：</strong>影院收入占比已超84%，电影投资发行业务因缺乏爆款大幅萎缩且毛利率为负。公司从"内容驱动型"逐渐向"渠道+内容"型转变，但内容端的造血能力仍在。<sup><a href="#cite-2">[2]</a></sup></p>
+
+<h3>2.2 财务数据深度解读</h3>
+
+<h4>四年连续亏损，2026有望迎来拐点</h4>
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>指标</th>
+    <th>2022年</th>
+    <th>2023年</th>
+    <th>2024年</th>
+    <th>2025年</th>
+    <th>2026Q1</th>
+  </tr>
+  <tr>
+    <td>营收（亿元）</td>
+    <td>16.21</td>
+    <td>20.95</td>
+    <td>14.61</td>
+    <td>12.53</td>
+    <td>2.77</td>
+  </tr>
+  <tr>
+    <td>归母净利润（亿元）</td>
+    <td>-7.13</td>
+    <td>0.64</td>
+    <td>-8.67</td>
+    <td>-14.64</td>
+    <td>-0.44</td>
+  </tr>
+  <tr>
+    <td>扣非净利润（亿元）</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-9.73</td>
+    <td>-14.22</td>
+    <td>-0.54</td>
+  </tr>
+  <tr>
+    <td>资产负债率</td>
+    <td>-</td>
+    <td>-</td>
+    <td>61.45%</td>
+    <td>66.00%</td>
+    <td>65.65%</td>
+  </tr>
+  <tr>
+    <td>经营现金流（亿元）</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-4.41</td>
+    <td>1.38</td>
+    <td>1.02</td>
+  </tr>
+</table>
+</div>
+
+<div class="warning-box">
+  <strong>财务关注点：</strong><br>
+  1. 2022-2025年累计亏损约29.6亿元，2025年亏损大幅扩大主要因《蛟龙行动》等项目不及预期+大额减值计提<br>
+  2. 2026Q1亏损大幅收窄（-4427万 vs 2025Q1 -9.55亿），主要因无主投电影上映导致成本结转减少<br>
+  3. 资产负债率66%，显著高于行业平均46.88%，财务压力较大<br>
+  4. 经营现金流改善（2025年由负转正），但需关注是否可持续
+</div>
+
+<h3>2.3 暑期档核心项目：《四渡》深度分析</h3>
+
+<div class="film-card">
+  <div class="film-title">《四渡》（四渡赤水）— 暑期档核心主控项目</div>
+  <div class="film-meta">
+    <span>🎬 类型：历史战争/革命主旋律</span>
+    <span>📅 定档：2026年6月26日</span>
+    <span>💰 成本：3-5亿元</span>
+  </div>
+  <p><strong>主创阵容：</strong>监制刘伟强（博纳金牌搭档）、导演徐展雄（《革命者》）、编剧刘毅（《战狼》系列）</p>
+  <p><strong>演员阵容：</strong>刘烨（饰毛泽东）、王雷（饰周恩来）、王志飞（饰朱德）、于适、王耀庆（饰蒋介石）、林永健、张俪、蓝盈莹等</p>
+  <p><strong>出品发行：</strong>博纳影业主出品+主发行，贵州省等四省联合摄制，国家文化专项资金支持</p>
+  <p><strong>博纳实际投入：</strong>约1.4-3.5亿元（联合摄制+专项资金分摊成本）</p>
+  <p><strong>回本线：</strong>按43%分账比例计算，需7-9亿元票房覆盖制作+宣发成本</p>
+  <p><strong>票房预期分歧：</strong>悲观预测2-3亿元 / 乐观预测10-20亿元</p>
+</div>
+
+<h4>《四渡》核心看点与风险</h4>
+
+<div class="highlight highlight-bona">
+  <strong>✅ 利好因素：</strong><br>
+  1. <strong>长征胜利90周年重大节点</strong>：2026年是红军长征胜利90周年，主旋律题材有政策红利和包场需求<br>
+  2. <strong>博纳主旋律金字招牌</strong>：《长津湖》《红海行动》《中国机长》等累计票房超230亿，品牌认可度高<br>
+  3. <strong>全明星阵容</strong>：刘烨+王雷+王志飞+于适，覆盖不同年龄层观众<br>
+  4. <strong>非票房收入补充</strong>：政府补贴、包场采购、播出版权等多元收入降低纯票房依赖<br>
+  5. <strong>暑期档开局位置</strong>：6月26日上映恰逢暑期档启动，窗口期好
+</div>
+
+<div class="danger-box">
+  <strong>⚠️ 风险因素：</strong><br>
+  1. <strong>主旋律疲劳</strong>：近年主旋律电影市场热度有所下降，观众审美疲劳风险<br>
+  2. <strong>同档期竞争激烈</strong>：暑期档超70部影片，《小黄人》《大圣崛起》《少林女足》等分流<br>
+  3. <strong>票房预期分歧大</strong>：悲观与乐观预期相差10倍，不确定性高<br>
+  4. <strong>成本回收压力</strong>：需7-9亿票房才能回本，若票房不达预期将继续拖累业绩
+</div>
+
+<h3>2.4 即梦AI × 博纳影业：字节生态深度合作伙伴</h3>
+
+<div class="highlight highlight-bona">
+  <strong>⭐ 核心定位：</strong>博纳影业是<strong>字节跳动旗下即梦AI的核心战略合作伙伴</strong>，双方在AI影视领域合作深入且已有成功项目落地。即梦AI基于豆包大模型技术，是字节跳动旗下一站式AI创意平台，而Seedance是其底层视频生成大模型。
+</div>
+
+<h4>即梦AI与博纳的合作全景</h4>
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>合作维度</th>
+    <th>详情</th>
+  </tr>
+  <tr>
+    <td><strong>合作定位</strong></td>
+    <td>字节跳动即梦AI核心战略合作伙伴，博纳AI制作中心为落地载体</td>
+  </tr>
+  <tr>
+    <td><strong>底层技术</strong></td>
+    <td>基于豆包大模型 + Seedance视频生成大模型（最新版本Seedance 2.5）</td>
+  </tr>
+  <tr>
+    <td><strong>合作内容</strong></td>
+    <td>剧本创作、概念设计、分镜设计、图像到视频转换、AI视频生成全流程</td>
+  </tr>
+  <tr>
+    <td><strong>落地项目1</strong></td>
+    <td>AI短剧《三星堆·未来启示录》第一季，全网播放量1.6亿<sup><a href="#cite-3">[3]</a></sup></td>
+  </tr>
+  <tr>
+    <td><strong>落地项目2</strong></td>
+    <td>国内首部AI院线动画电影《三星堆：未来往事》，已获龙标，使用"博卡电影云片场"工具链</td>
+  </tr>
+  <tr>
+    <td><strong>联合迭代</strong></td>
+    <td>合作中即梦AI针对性改进了视频生成功能：24/30/60fps补帧、二倍超分、镜头水平/上下移动等</td>
+  </tr>
+  <tr>
+    <td><strong>合作历史</strong></td>
+    <td>2024年暑期档即在剪映抖音官方账号共创发布AIGC纯生成式短剧</td>
+  </tr>
+</table>
+</div>
+
+<h4>Seedance 2.5：即梦AI的新一代视频生成引擎</h4>
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>功能/特点</th>
+    <th>详情</th>
+  </tr>
+  <tr>
+    <td><strong>归属</strong></td>
+    <td>字节跳动火山引擎 · 豆包视频生成大模型（即梦AI底层技术）</td>
+  </tr>
+  <tr>
+    <td><strong>发布时间</strong></td>
+    <td>2026年6月23日（火山引擎FORCE原动力大会）</td>
+  </tr>
+  <tr>
+    <td><strong>视频时长</strong></td>
+    <td>30秒原生视频直出（上一代15秒），无需拼接</td>
+  </tr>
+  <tr>
+    <td><strong>参考素材</strong></td>
+    <td>支持最多50份全模态参考素材并行导入</td>
+  </tr>
+  <tr>
+    <td><strong>画质</strong></td>
+    <td>支持4K高清分辨率</td>
+  </tr>
+  <tr>
+    <td><strong>特殊功能</strong></td>
+    <td>局部编辑、3D预演、人物一致性、音画同步</td>
+  </tr>
+  <tr>
+    <td><strong>对博纳利好</strong></td>
+    <td>作为核心合作伙伴优先使用最新技术，AI内容生产效率有望再上台阶</td>
+  </tr>
+</table>
+</div>
+
+<h4>博纳影业的AI布局全景</h4>
+<ul>
+  <li><strong>自研"博卡电影云片场"</strong>：电影级AI创作平台，已产出国内首部AI院线动画电影《三星堆：未来往事》（已获龙标）<sup><a href="#cite-3">[3]</a></sup></li>
+  <li><strong>"博卡短剧"平台</strong>：基于字节即梦/火山引擎多模态模型底座，支持用户制作AI短剧</li>
+  <li><strong>即梦AI核心合作伙伴</strong>：与字节跳动即梦AI深度绑定，联合迭代AI影视生产技术<sup><a href="#cite-16">[16]</a></sup></li>
+  <li><strong>AI短剧业务收入</strong>：2025年AI影视剧业务收入238.68万元（+100%），基数低但增速快</li>
+  <li><strong>前作验证</strong>：短剧《三星堆·未来启示录》第一季全网播放量1.6亿，验证AI内容商业化能力</li>
+  <li><strong>生态协同</strong>：即梦AI + 剪映 + 抖音 + 博纳内容，形成"技术-工具-分发-内容"完整生态</li>
+</ul>
+
+<div class="highlight">
+  <strong>AI对博纳的战略意义：</strong><br>
+  1. <strong>降本增效</strong>：AI可大幅降低影视制作成本，缩短制作周期，改善毛利率<br>
+  2. <strong>新增长曲线</strong>：AI短剧/动画开辟新的收入来源，降低对头部真人电影的依赖<br>
+  3. <strong>差异化竞争</strong>：率先推出AI院线电影，抢占技术高地<br>
+  4. <strong>字节生态加持</strong>：作为即梦AI核心合作伙伴，获得字节技术+流量双资源支持，竞争壁垒高于同行<br>
+  5. <strong>Seedance 2.5升级红利</strong>：AI视频生成技术代际进步加速行业变革，博纳深度绑定先发受益
+</div>
+
+<h3>2.5 2026年中报预期</h3>
+
+<div class="metric-grid">
+  <div class="metric-card">
+    <div class="label">2026Q1 净利润</div>
+    <div class="value warning">-4427万</div>
+  </div>
+  <div class="metric-card">
+    <div class="label">Q1 同比改善</div>
+    <div class="value">+95.37%（收窄）</div>
+  </div>
+  <div class="metric-card">
+    <div class="label">机构预测2026全年</div>
+    <div class="value bona">2.16-2.5亿（扭亏）</div>
+  </div>
+  <div class="metric-card">
+    <div class="label">中报关键变量</div>
+    <div class="value warning">《四渡》票房</div>
+  </div>
+</div>
+
+<div class="warning-box">
+  <strong>中报预期分析：</strong><br>
+  1. <strong>时间节点：</strong>《四渡》6月26日上映，中报（截至6月30日）仅能确认4天左右的票房分账，对中报业绩影响有限<br>
+  2. <strong>《飞驰人生3》贡献</strong>：春节档42亿+票房的分账收入可能部分确认到上半年，是中报最大亮点<br>
+  3. <strong>亏损收窄趋势明确</strong>：Q1亏损已同比收窄95%，上半年整体亏损有望大幅收窄<br>
+  4. <strong>扭亏关键在Q3-Q4</strong>：《四渡》主要贡献在Q3，下半年还有《克什米尔公主号》《蛮荒禁地》等储备
+</div>
+
+<h3>2.6 下半年重点项目储备</h3>
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>片名</th>
+    <th>类型</th>
+    <th>导演</th>
+    <th>主演</th>
+    <th>进度</th>
+    <th>博纳角色</th>
+  </tr>
+  <tr>
+    <td><strong>《四渡》</strong></td>
+    <td>历史战争</td>
+    <td>徐展雄</td>
+    <td>刘烨、王雷、于适</td>
+    <td>已定档6.26</td>
+    <td>主出品+发行</td>
+  </tr>
+  <tr>
+    <td><strong>《克什米尔公主号》</strong></td>
+    <td>谍战悬疑</td>
+    <td>刘伟强</td>
+    <td>陈坤、吴彦祖</td>
+    <td>后期制作</td>
+    <td>主出品</td>
+  </tr>
+  <tr>
+    <td>《蛮荒禁地》</td>
+    <td>犯罪冒险</td>
+    <td>曹保平</td>
+    <td>易烊千玺、张译、黄渤</td>
+    <td>后期制作</td>
+    <td>出品方</td>
+  </tr>
+  <tr>
+    <td>《她杀》</td>
+    <td>悬疑犯罪</td>
+    <td>曹保平</td>
+    <td>黄轩、倪妮</td>
+    <td>后期制作</td>
+    <td>出品方</td>
+  </tr>
+  <tr>
+    <td>《三星堆：未来往事》</td>
+    <td>科幻/AI动画</td>
+    <td>AI共创</td>
+    <td>-</td>
+    <td>已获龙标</td>
+    <td>出品+制作</td>
+  </tr>
+  <tr>
+    <td>《惊蛰无声》</td>
+    <td>谍战</td>
+    <td>张艺谋</td>
+    <td>易烊千玺、朱一龙</td>
+    <td>筹备中</td>
+    <td>主控（2027春节档）</td>
+  </tr>
+</table>
+</div>
+
+<h3>2.7 股东与减持压力</h3>
+
+<div class="danger-box">
+  <strong>重要股东减持风险：</strong><br>
+  1. <strong>金石暴风</strong>：拟减持不超过1540万股（占总股本1.12%），6月2日公告<br>
+  2. <strong>中信证券投资</strong>及其一致行动人：拟减持近3%股份<br>
+  3. <strong>浙江东阳大麦娱乐</strong>：已减持约1373万股（占1%）<br>
+  4. <strong>林芝腾讯科技</strong>：已减持约0.93%<br>
+  5. 2026Q1十大流通股东中有7家出现减持动作<br>
+  <strong>影响：</strong>减持压力是压制股价的重要因素，需关注后续减持进度
+</div>
+
+<!-- 三、中国电影深度分析 -->
+<h2>三、中国电影（600977.SH）深度分析</h2>
+
+<h3>3.1 公司概况与业务结构</h3>
+
+<p>中国电影股份有限公司成立于2010年12月，2016年8月在上交所上市，是国内唯一覆盖<strong>"创作-发行-放映"全产业链</strong>的国有龙头电影企业。实际控制人为中影集团，具有强大的国资背景。<sup><a href="#cite-4">[4]</a></sup></p>
+
+<div class="highlight highlight-cinema">
+  <strong>核心护城河：进口片发行垄断权</strong><br>
+  根据国家法规，所有国外电影需通过中影集团引进，中影股份负责商业运营。这是中国电影行业独一无二的政策性垄断优势，2025年发行影片616部，实现票房365.93亿元，占全国票房总额的<strong>78.38%</strong>。
+</div>
+
+<h4>2025年前三季度收入结构</h4>
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>业务板块</th>
+    <th>收入占比</th>
+    <th>业务内容</th>
+  </tr>
+  <tr>
+    <td><strong>发行业务</strong></td>
+    <td><strong>37.92%</strong></td>
+    <td>国产与进口电影宣传发行、二级市场发行</td>
+  </tr>
+  <tr>
+    <td><strong>放映业务</strong></td>
+    <td><strong>30.36%</strong></td>
+    <td>影院投资与管理、院线经营</td>
+  </tr>
+  <tr>
+    <td><strong>科技业务</strong></td>
+    <td><strong>17.86%</strong></td>
+    <td>中影巴可、CINITY、影视设备等</td>
+  </tr>
+  <tr>
+    <td>创作业务</td>
+    <td>7.00%</td>
+    <td>电影剧集制片、电影后产品经营</td>
+  </tr>
+  <tr>
+    <td>服务业务</td>
+    <td>6.86%</td>
+    <td>影视制作服务、票务平台等</td>
+  </tr>
+</table>
+</div>
+
+<h4>核心运营数据（2025年）</h4>
+<div class="metric-grid">
+  <div class="metric-card">
+    <div class="label">主导/参与出品电影</div>
+    <div class="value cinema">39部</div>
+  </div>
+  <div class="metric-card">
+    <div class="label">出品影片总票房</div>
+    <div class="value cinema">146.04亿</div>
+  </div>
+  <div class="metric-card">
+    <div class="label">发行影片票房</div>
+    <div class="value">365.93亿</div>
+  </div>
+  <div class="metric-card">
+    <div class="label">银幕市场占有率</div>
+    <div class="value">31.26%</div>
+  </div>
+</div>
+
+<h3>3.2 财务数据分析</h3>
+
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>指标</th>
+    <th>2024年</th>
+    <th>2025年</th>
+    <th>同比</th>
+    <th>2026Q1</th>
+    <th>同比</th>
+  </tr>
+  <tr>
+    <td>营业收入</td>
+    <td>45.75亿</td>
+    <td><strong>48.33亿</strong></td>
+    <td>+5.65%</td>
+    <td>8.52亿</td>
+    <td>-14.30%</td>
+  </tr>
+  <tr>
+    <td>归母净利润</td>
+    <td>1.41亿</td>
+    <td><strong>1.17亿</strong></td>
+    <td>-17.03%</td>
+    <td>-1.14亿</td>
+    <td>+19.01%（收窄）</td>
+  </tr>
+  <tr>
+    <td>扣非净利润</td>
+    <td>-1.30亿</td>
+    <td><strong>-1.62亿</strong></td>
+    <td>-87.70%（亏损扩大）</td>
+    <td>-1.53亿</td>
+    <td>+20.9%（收窄）</td>
+  </tr>
+  <tr>
+    <td>毛利率</td>
+    <td>-</td>
+    <td>14.77%</td>
+    <td>-</td>
+    <td>0.43%</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>资产负债率</td>
+    <td>38.30%</td>
+    <td>39.62%</td>
+    <td>+1.32pct</td>
+    <td>43.13%</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>非经常性损益</td>
+    <td>-</td>
+    <td>约2.79亿</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+</table>
+</div>
+
+<div class="warning-box">
+  <strong>财务关注点：</strong><br>
+  1. <strong>扣非连续亏损</strong>：2025年扣非净亏1.62亿，主营业务实际处于亏损状态，盈利高度依赖非经常性损益（政府补助1.55亿+投资收益等）<br>
+  2. <strong>Q1亏损收窄</strong>：2026Q1亏损同比收窄约19%，边际改善趋势明显<br>
+  3. <strong>毛利率极低</strong>：Q1毛利率仅0.43%，盈利压力大<br>
+  4. <strong>资产负债表稳健</strong>：资产负债率43.13%，远低于博纳的66%，财务风险较小<br>
+  5. <strong>应收账款</strong>：2025年末13.6亿元，同比增长12.67%，需关注回款风险
+</div>
+
+<h3>3.3 核心竞争力</h3>
+
+<h4>① 进口片发行垄断权（政策护城河）</h4>
+<p>这是中国电影最核心的竞争优势。中影集团拥有进口电影专营权，所有国外分账片和批片均需通过中影引进。这一政策壁垒使得进口片发行成为公司最稳定的收入来源。</p>
+
+<h4>② 全产业链布局</h4>
+<p>国内唯一覆盖"创作-发行-放映-科技-服务-创新"全产业链的电影企业，各板块协同效应明显。旗下控参股院线覆盖25,818块银幕，市占率31.26%。</p>
+
+<h4>③ CINITY高端放映系统</h4>
+<p>中影自主研发的高端影院放映系统，支持原生4K、120fps高帧率。截至2025年3月国内CINITY影厅已达180个。2025年底CINITY camera（摄影机）上市，实现从放映端到拍摄端的技术全链条覆盖。</p>
+
+<h4>④ 中影巴可（科技业务）</h4>
+<p>与比利时巴可公司合作，在国内影院放映设备市场占据重要地位，是科技业务板块的核心。</p>
+
+<h3>3.4 2026年暑期档片单</h3>
+
+<h4>国产重点影片</h4>
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>片名</th>
+    <th>预计上映</th>
+    <th>类型</th>
+    <th>中影角色</th>
+    <th>看点</th>
+  </tr>
+  <tr>
+    <td><strong>《大圣崛起》</strong></td>
+    <td>7月10日</td>
+    <td>3D动画/西游IP</td>
+    <td><strong>主投+发行</strong></td>
+    <td>西游记IP，暑期档动画种子选手</td>
+  </tr>
+  <tr>
+    <td><strong>《少林女足》</strong></td>
+    <td>7月（预期）</td>
+    <td>功夫喜剧</td>
+    <td><strong>主投+主控发行</strong></td>
+    <td>周星驰导演，关注度极高</td>
+  </tr>
+  <tr>
+    <td>《魔方小姐》</td>
+    <td>7月3日</td>
+    <td>动画</td>
+    <td>参与出品</td>
+    <td>暑期档开篇动画</td>
+  </tr>
+  <tr>
+    <td>《三国第一部：争洛阳》</td>
+    <td>7月10日</td>
+    <td>动画/历史</td>
+    <td>联合出品</td>
+    <td>追光动画+中影</td>
+  </tr>
+  <tr>
+    <td>《抓特务》</td>
+    <td>暑期待定</td>
+    <td>谍战悬疑</td>
+    <td>主控</td>
+    <td>冯小刚导演，重点项目</td>
+  </tr>
+  <tr>
+    <td>《年会不能停！2》</td>
+    <td>8月7日</td>
+    <td>职场喜剧</td>
+    <td>参与出品</td>
+    <td>前作口碑好，续作有基础</td>
+  </tr>
+</table>
+</div>
+
+<h4>进口重点影片</h4>
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>片名</th>
+    <th>上映日期</th>
+    <th>类型</th>
+    <th>出品方</th>
+  </tr>
+  <tr>
+    <td>《玩具总动员5》</td>
+    <td>6月19日</td>
+    <td>皮克斯动画</td>
+    <td>迪士尼/皮克斯</td>
+  </tr>
+  <tr>
+    <td>《超级少女》</td>
+    <td>6月26日</td>
+    <td>DC超英</td>
+    <td>华纳</td>
+  </tr>
+  <tr>
+    <td><strong>《小黄人与大怪兽》</strong></td>
+    <td>7月3日</td>
+    <td>照明娱乐动画</td>
+    <td>环球/照明</td>
+  </tr>
+  <tr>
+    <td>《揭秘日》</td>
+    <td>6月12日</td>
+    <td>斯皮尔伯格科幻</td>
+    <td>环球</td>
+  </tr>
+</table>
+</div>
+
+<h3>3.5 2026年中报预期</h3>
+
+<div class="warning-box">
+  <strong>中报预期分析：</strong><br>
+  1. <strong>未发布业绩预告</strong>：截至6月25日尚未发布中报预告，按上交所规则7月15日前若触发条件必须预告<br>
+  2. <strong>营收预期</strong>：预计同比持平或小幅增长，进口片发行稳定，暑期档储备丰富<br>
+  3. <strong>净利润预期</strong>：上半年大概率仍亏损或微利（Q1已亏1.14亿），但亏损幅度有望同比收窄<br>
+  4. <strong>扣非预期</strong>：预计仍处亏损区间，主营业务盈利压力大<br>
+  5. <strong>关键变量</strong>：暑期档票房表现（影响Q3而非中报，但影响市场预期）、政府补助规模、进口片引进节奏
+</div>
+
+<!-- 四、对比分析 -->
+<h2>四、博纳影业 vs 中国电影 全面对比</h2>
+
+<h3>4.1 核心维度对比</h3>
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>维度</th>
+    <th>博纳影业（001330）</th>
+    <th>中国电影（600977）</th>
+    <th>对比结论</th>
+  </tr>
+  <tr>
+    <td><strong>总市值</strong></td>
+    <td>约95亿元</td>
+    <td>约255亿元</td>
+    <td>中影体量约2.7倍</td>
+  </tr>
+  <tr>
+    <td><strong>企业性质</strong></td>
+    <td>民营（于冬控股）</td>
+    <td>国有（中影集团）</td>
+    <td>体制差异显著</td>
+  </tr>
+  <tr>
+    <td><strong>核心优势</strong></td>
+    <td>主旋律爆款制作能力、市场化机制灵活</td>
+    <td>进口片发行垄断权、全产业链布局</td>
+    <td>中影有政策护城河，博纳有内容能力</td>
+  </tr>
+  <tr>
+    <td><strong>收入结构</strong></td>
+    <td>影院84%+电影17%（内容占比下降）</td>
+    <td>发行38%+放映30%+科技18%+创作7%</td>
+    <td>中影更均衡，发行是基本盘</td>
+  </tr>
+  <tr>
+    <td><strong>2025营收</strong></td>
+    <td>12.53亿（-14%）</td>
+    <td>48.33亿（+5.65%）</td>
+    <td>中影营收约3.9倍，趋势更好</td>
+  </tr>
+  <tr>
+    <td><strong>2025净利润</strong></td>
+    <td>-14.64亿（亏损扩大）</td>
+    <td>1.17亿（扣非-1.62亿）</td>
+    <td>中影账面盈利，博纳深度亏损</td>
+  </tr>
+  <tr>
+    <td><strong>资产负债率</strong></td>
+    <td>66%（高）</td>
+    <td>39.62%（稳健）</td>
+    <td>中影财务更健康</td>
+  </tr>
+  <tr>
+    <td><strong>市净率（PB）</strong></td>
+    <td>约2.51倍</td>
+    <td>约2.31倍</td>
+    <td>估值接近</td>
+  </tr>
+  <tr>
+    <td><strong>暑期档核心片</strong></td>
+    <td>《四渡》（主控）</td>
+    <td>《大圣崛起》《少林女足》（主投）</td>
+    <td>中影片单更丰富</td>
+  </tr>
+  <tr>
+    <td><strong>AI布局</strong></td>
+    <td>博卡电影云片场+AI短剧</td>
+    <td>CINITY（非AI但技术向）</td>
+    <td>博纳AI布局更积极</td>
+  </tr>
+  <tr>
+    <td><strong>股东减持</strong></td>
+    <td>多家重要股东减持（腾讯、中信、大麦等）</td>
+    <td>相对稳定</td>
+    <td>中影减持压力小</td>
+  </tr>
+  <tr>
+    <td><strong>2026业绩弹性</strong></td>
+    <td>高（扭亏预期，基数低）</td>
+    <td>中（改善空间有限）</td>
+    <td>博纳弹性更大</td>
+  </tr>
+</table>
+</div>
+
+<h3>4.2 投资逻辑对比</h3>
+
+<div class="compare-section">
+  <div class="highlight highlight-bona">
+    <strong>博纳影业 — 弹性品种</strong><br><br>
+    <strong>✅ 多头逻辑：</strong><br>
+    1. 暑期档《四渡》催化，若超预期有望引爆行情<br>
+    2. 连续四年亏损后2026年扭亏预期明确<br>
+    3. AI影视转型提供想象空间，<strong>字节即梦AI核心合作伙伴</strong>，估值可重估<br>
+    4. 市值小（95亿），弹性大<br>
+    5. 下半年项目储备丰富（克什米尔公主号、蛮荒禁地等）<br><br>
+    <strong>❌ 空头逻辑：</strong><br>
+    1. 《四渡》票房不确定性高，若不及预期将继续亏损<br>
+    2. 股东持续减持压制股价<br>
+    3. 资产负债率高，财务风险大<br>
+    4. 业绩高度依赖爆款，稳定性差<br>
+    5. AI业务收入基数极低，短期难贡献业绩
+  </div>
+
+  <div class="highlight highlight-cinema">
+    <strong>中国电影 — 稳健品种</strong><br><br>
+    <strong>✅ 多头逻辑：</strong><br>
+    1. 进口片发行垄断权，政策护城河深<br>
+    2. 全产业链布局，抗风险能力强<br>
+    3. 暑期档片单丰富，催化多<br>
+    4. 财务稳健，资产负债率低<br>
+    5. 国有背景，政策红利受益方<br><br>
+    <strong>❌ 空头逻辑：</strong><br>
+    1. 扣非连续亏损，主营业务盈利能力弱<br>
+    2. 增长缺乏弹性，体制相对僵化<br>
+    3. 非经常性损益依赖度高<br>
+    4. 体量大，弹性相对较小<br>
+    5. 进口片引进政策若变动将冲击基本盘
+  </div>
+</div>
+
+<!-- 五、Serenity 紫苏叶框架评估 -->
+<h2>五、Serenity 紫苏叶理论评估</h2>
+
+<p>从"刚需性 × 稀缺性 × 冷门性"三维度对两家公司进行评估：</p>
+
+<div class="table-wrap">
+<table>
+  <tr>
+    <th>维度</th>
+    <th>博纳影业</th>
+    <th>中国电影</th>
+    <th>说明</th>
+  </tr>
+  <tr>
+    <td><strong>刚需性</strong></td>
+    <td><span class="score score-mid">5/10</span></td>
+    <td><span class="score score-high">7/10</span></td>
+    <td>电影非刚需消费，但中影进口片垄断权有刚需属性</td>
+  </tr>
+  <tr>
+    <td><strong>稀缺性</strong></td>
+    <td><span class="score score-mid">6/10</span></td>
+    <td><span class="score score-high">9/10</span></td>
+    <td>中影进口片专营权是独家垄断，稀缺性极高；博纳主旋律制作能力有一定稀缺性</td>
+  </tr>
+  <tr>
+    <td><strong>冷门性</strong></td>
+    <td><span class="score score-high">7/10</span></td>
+    <td><span class="score score-mid">5/10</span></td>
+    <td>博纳连续亏损、机构覆盖少，较冷门；中影是行业龙头关注度较高</td>
+  </tr>
+  <tr>
+    <td><strong>综合评分</strong></td>
+    <td><span class="score score-mid">6.0</span></td>
+    <td><span class="score score-mid">7.0</span></td>
+    <td>中影稀缺性突出，博纳冷门性更好</td>
+  </tr>
+  <tr>
+    <td><strong>紫苏叶适配度</strong></td>
+    <td><span class="score score-mid">中等</span></td>
+    <td><span class="score score-mid">中高</span></td>
+    <td>均非典型紫苏叶标的（非制造业上游瓶颈），但中影垄断权有稀缺性溢价</td>
+  </tr>
+</table>
+</div>
+
+<div class="warning-box">
+  <strong>Serenity框架说明：</strong>影视院线行业并非紫苏叶理论的典型应用场景（紫苏叶更适用于制造业上游瓶颈环节）。但从"稀缺性"维度看，中国电影的进口片发行垄断权具有极强的政策壁垒，属于"特许经营型稀缺"；博纳的主旋律爆款制作能力虽有一定稀缺性，但可复制性和稳定性不足。
+</div>
+
+<!-- 六、风险提示 -->
+<h2>六、风险提示</h2>
+
+<div class="danger-box">
+  <ol>
+    <li><strong>票房不及预期风险：</strong>电影票房高度不确定，头部影片表现直接影响业绩。《四渡》《大圣崛起》《少林女足》等核心影片若票房不达预期，将严重影响相关公司业绩。</li>
+    <li><strong>行业竞争加剧风险：</strong>短视频、游戏等娱乐形式持续分流观影需求；在线视频平台对院线的替代效应长期存在。</li>
+    <li><strong>内容审查风险：</strong>主旋律题材、进口片引进均受审查政策影响，项目进度和上映时间存在不确定性。</li>
+    <li><strong>股东减持风险：</strong>博纳影业多家重要股东持续减持（腾讯、中信、大麦等），对股价形成压制。</li>
+    <li><strong>财务风险：</strong>博纳资产负债率高达66%，连续四年亏损，财务压力较大；中影扣非连续亏损，主营业务盈利能力弱。</li>
+    <li><strong>监管政策风险：</strong>进口片引进政策若发生变化，将直接冲击中国电影的核心基本盘。</li>
+    <li><strong>AI技术不及预期风险：</strong>AI影视技术仍处早期，商业化落地进度和盈利能力存在不确定性。</li>
+    <li><strong>宏观经济风险：</strong>消费力下降可能影响观影意愿和票价。</li>
+    <li><strong>信息滞后风险：</strong>本报告基于公开信息整理，市场情况可能已发生变化。</li>
+  </ol>
+</div>
+
+<!-- 七、操作建议 -->
+<h2>七、操作策略参考</h2>
+
+<div class="compare-section">
+  <div class="stock-card bona">
+    <h4>博纳影业（001330）— 博弈型</h4>
+    <p><strong>定位：</strong>暑期档主题博弈品种，高风险高弹性</p>
+    <p><strong>建仓策略：</strong>《四渡》上映前若有回调至5.5-6元区间可轻仓试探；上映后视口碑和票房走势决定是否加仓</p>
+    <p><strong>加仓条件：</strong>《四渡》首周末票房超5亿且口碑向好，可考虑加仓</p>
+    <p><strong>止损位：</strong>跌破5.5元或《四渡》票房明显不及预期</p>
+    <p><strong>减仓策略：</strong>《四渡》上映后若票房不及预期或利好兑现冲高回落，减仓50%</p>
+    <p><strong>仓位上限：</strong>≤3%（高风险品种）</p>
+  </div>
+
+  <div class="stock-card cinema">
+    <h4>中国电影（600977）— 配置型</h4>
+    <p><strong>定位：</strong>行业龙头稳健配置，进口片垄断+暑期档催化</p>
+    <p><strong>建仓策略：</strong>回调至12-13元区间可分批建仓，作为影视板块底仓配置</p>
+    <p><strong>加仓条件：</strong>暑期档票房超预期或进口片引进加速</p>
+    <p><strong>止损位：</strong>跌破11元或基本面恶化</p>
+    <p><strong>减仓策略：</strong>暑期档结束后若利好兑现且估值偏高，减仓50%</p>
+    <p><strong>仓位上限：</strong>≤5%（稳健配置品种）</p>
+  </div>
+</div>
+
+<footer>
+  <p style="text-align:center; color:var(--muted); margin-bottom:1rem">
+    博纳影业 & 中国电影 深度对比调研报告 | 生成时间：2026-06-25<br>
+    本报告基于公开信息整理，不构成投资建议
+  </p>
+
+  <div class="sources">
+    <h2>Sources</h2>
+    <ol>
+      <li id="cite-1">
+        <span class="src-title">一文看懂博纳影业：从纳斯达克到A股的主旋律王者</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7635128265922429480/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-2">
+        <span class="src-title">博纳影业2025年年报：营收12.53亿，净亏14.64亿</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7633021533127967242/" target="_blank" rel="noopener">新浪财经-鹰眼工作室</a>
+      </li>
+      <li id="cite-3">
+        <span class="src-title">国内首部院线AI原生动画电影：《三星堆：未来往事》获龙标</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7633768193764360713/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-4">
+        <span class="src-title">中国电影：进口片发行龙头，全产业链布局的行业王者</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7569214798664122895/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-5">
+        <span class="src-title">博纳孤注一掷！《四渡》定档6月26日，3亿成本回本难</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7629484800335839794/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-6">
+        <span class="src-title">电影《四渡》定档6·26，刘烨王雷王志飞主演</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7629608451752985122/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-7">
+        <span class="src-title">字节跳动Seedance 2.5发布：30秒4K原生视频直出</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7654495479518904870/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-8">
+        <span class="src-title">中国电影2025年报：净利润1.17亿，扣非亏1.62亿</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7630015718628655654/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-9">
+        <span class="src-title">暑期档70部新片来袭！中国电影储备丰富</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7654492442368016936/" target="_blank" rel="noopener">证券之星</a>
+      </li>
+      <li id="cite-10">
+        <span class="src-title">博纳影业2026年一季报：营收2.77亿，亏4427万</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7634351108122526249/" target="_blank" rel="noopener">新浪财经</a>
+      </li>
+      <li id="cite-11">
+        <span class="src-title">中国电影2026一季报：营收8.52亿，亏1.14亿</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7634491505687708194/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-12">
+        <span class="src-title">博纳影业股东减持：中信系、金石暴风等拟减持</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7646826150592872970/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-13">
+        <span class="src-title">《克什米尔公主号》：陈坤吴彦祖主演，博纳2026重磅</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7650806170847920694/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-14">
+        <span class="src-title">博纳去年亏14.64亿，押注《四渡》能翻身吗？</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7651052063165579819/" target="_blank" rel="noopener">今日头条</a>
+      </li>
+      <li id="cite-15">
+        <span class="src-title">CINITY高端放映系统：国内影厅达180个</span>
+        <a class="src-url" href="https://cj.sina.cn/article/norm_detail?url=http://finance.sina.cn/stock/relnews/dongmiqa/2025-03-31/detail-inerpywq1083305.d.html" target="_blank" rel="noopener">新浪财经</a>
+      </li>
+      <li id="cite-16">
+        <span class="src-title">博纳影业与字节跳动即梦AI深度合作，联合打造AI影视生产体系</span>
+        <a class="src-url" href="https://m.baike.com/wiki/%E5%8D%B3%E6%A2%A6AI/7383573569643806720" target="_blank" rel="noopener">即梦AI百科</a>
+      </li>
+      <li id="cite-17">
+        <span class="src-title">博纳影业互动平台回复：与抖音即梦已有一定合作经验</span>
+        <a class="src-url" href="http://m.toutiao.com/group/7450038059166351891/" target="_blank" rel="noopener">证券时报·e公司</a>
+      </li>
+    </ol>
+  </div>
+</footer>
+
+</div>
+</body>
+</html>
