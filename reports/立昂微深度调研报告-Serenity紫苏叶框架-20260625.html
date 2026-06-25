@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>立昂微深度调研报告 - Serenity 紫苏叶投研框架 | 2026年6月</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: #f5f7fa;
+    color: #2c3e50;
+    line-height: 1.7;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px;
+  }
+  .header {
+    background: linear-gradient(135deg, #1a5276 0%, #2874a6 50%, #3498db 100%);
+    color: white;
+    padding: 50px 40px;
+    border-radius: 16px;
+    margin-bottom: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .header h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+  }
+  .header .subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+  .header .meta {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    opacity: 0.85;
+    position: relative;
+    z-index: 1;
+  }
+  .header .meta span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    font-size: 13px;
+    margin-right: 8px;
+    margin-bottom: 4px;
+  }
+  .section {
+    background: white;
+    border-radius: 12px;
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .section h2 {
+    font-size: 22px;
+    color: #1a5276;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e8f4fc;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section h2::before {
+    content: '';
+    width: 4px;
+    height: 22px;
+    background: linear-gradient(to bottom, #2874a6, #3498db);
+    border-radius: 2px;
+  }
+  .section h3 {
+    font-size: 17px;
+    color: #2c3e50;
+    margin: 20px 0 12px;
+    padding-left: 12px;
+    border-left: 3px solid #3498db;
+  }
+  .section h4 {
+    font-size: 15px;
+    color: #34495e;
+    margin: 16px 0 10px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #eef2f7;
+  }
+  th {
+    background: #f8fafc;
+    font-weight: 600;
+    color: #1a5276;
+    white-space: nowrap;
+  }
+  tr:hover {
+    background: #f8fafc;
+  }
+  .highlight {
+    padding: 18px 22px;
+    border-radius: 10px;
+    margin: 16px 0;
+    font-size: 14.5px;
+    line-height: 1.8;
+  }
+  .highlight-primary {
+    background: linear-gradient(135deg, #eaf4fc 0%, #d6eaf8 100%);
+    border-left: 4px solid #2874a6;
+  }
+  .highlight-warn {
+    background: linear-gradient(135deg, #fef9e7 0%, #fdebd0 100%);
+    border-left: 4px solid #f39c12;
+  }
+  .highlight-danger {
+    background: linear-gradient(135deg, #fdedec 0%, #fadbd8 100%);
+    border-left: 4px solid #e74c3c;
+  }
+  .highlight-success {
+    background: linear-gradient(135deg, #eafaf1 0%, #d5f5e3 100%);
+    border-left: 4px solid #27ae60;
+  }
+  .metric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .metric-card {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 18px;
+    text-align: center;
+    border: 1px solid #eef2f7;
+  }
+  .metric-card .value {
+    font-size: 26px;
+    font-weight: 700;
+    color: #1a5276;
+    margin-bottom: 4px;
+  }
+  .metric-card .value.up { color: #e74c3c; }
+  .metric-card .value.down { color: #27ae60; }
+  .metric-card .label {
+    font-size: 13px;
+    color: #7f8c8d;
+  }
+  .serenity-score {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin: 24px 0;
+    padding: 24px;
+    background: linear-gradient(135deg, #f0f7ff 0%, #e8f4fc 100%);
+    border-radius: 12px;
+  }
+  .score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: conic-gradient(#2874a6 0% 68%, #dfe6e9 68% 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .score-circle::before {
+    content: '';
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: white;
+  }
+  .score-circle .score-text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .score-circle .score-num {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a5276;
+  }
+  .score-circle .score-label {
+    font-size: 11px;
+    color: #7f8c8d;
+  }
+  .score-detail {
+    flex: 1;
+  }
+  .score-item {
+    margin-bottom: 10px;
+  }
+  .score-item:last-child { margin-bottom: 0; }
+  .score-item .label-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+  .score-item .bar {
+    height: 8px;
+    background: #dfe6e9;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .score-item .bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #2874a6, #3498db);
+  }
+  .score-item:nth-child(2) .bar-fill { background: linear-gradient(90deg, #27ae60, #2ecc71); }
+  .score-item:nth-child(3) .bar-fill { background: linear-gradient(90deg, #f39c12, #f1c40f); }
+  ul, ol {
+    margin: 12px 0;
+    padding-left: 24px;
+  }
+  li {
+    margin-bottom: 6px;
+    font-size: 14.5px;
+  }
+  p {
+    margin: 10px 0;
+    font-size: 14.5px;
+  }
+  .citation {
+    font-size: 12px;
+    color: #95a5a6;
+    vertical-align: super;
+  }
+  .footnote {
+    font-size: 12px;
+    color: #7f8c8d;
+    margin-top: 8px;
+  }
+  .disclaimer {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 24px;
+    font-size: 13px;
+    color: #6c757d;
+    line-height: 1.8;
+  }
+  .disclaimer strong {
+    color: #dc3545;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  @media (max-width: 768px) {
+    .two-col { grid-template-columns: 1fr; }
+    .header h1 { font-size: 24px; }
+    .section { padding: 20px; }
+    .serenity-score { flex-direction: column; gap: 20px; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+    margin: 16px 0;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 4px;
+    bottom: 4px;
+    width: 2px;
+    background: #d6eaf8;
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 14px;
+    font-size: 14px;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -22px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2874a6;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px #2874a6;
+  }
+  .timeline-item .date {
+    font-weight: 600;
+    color: #1a5276;
+    margin-right: 8px;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>立昂微（605358.SH）深度调研报告</h1>
+  <div class="subtitle">Serenity 紫苏叶投研框架 · 12英寸重掺硅片龙头 · AI算力+新能源双赛道</div>
+  <div style="margin-bottom: 16px;">
+    <span class="tag">半导体硅片</span>
+    <span class="tag">功率半导体</span>
+    <span class="tag">VCSEL射频</span>
+    <span class="tag">AI算力</span>
+    <span class="tag">国产替代</span>
+    <span class="tag">Serenity评估</span>
+  </div>
+  <div class="meta">
+    <span>📅 报告日期：2026年6月25日</span>
+    <span>💰 当前市值：约544亿元</span>
+    <span>📈 收盘价：70.50元</span>
+    <span>🏭 Agent：Serenity 紫苏叶投研员</span>
+  </div>
+</div>
+
+<!-- 核心结论 -->
+<div class="section">
+  <h2>一、核心结论速览</h2>
+  
+  <div class="highlight highlight-primary">
+    <strong>⭐ 核心定位：</strong>立昂微是国内稀缺的"<strong>半导体硅片+功率半导体+化合物射频/光电芯片</strong>"垂直一体化平台型企业。12英寸重掺低阻硅片国内市占率超50%，是AI算力爆发的核心上游材料受益标的。2026Q1扭亏为盈，订单饱满+价格上调+产能扩张三重增长通道形成。
+  </div>
+
+  <div class="metric-grid">
+    <div class="metric-card">
+      <div class="value up">70.50元</div>
+      <div class="label">最新收盘价</div>
+    </div>
+    <div class="metric-card">
+      <div class="value up">544亿</div>
+      <div class="label">总市值</div>
+    </div>
+    <div class="metric-card">
+      <div class="value up">+111.96%</div>
+      <div class="label">近3月涨幅</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">2026Q1扭亏</div>
+      <div class="label">盈利拐点</div>
+    </div>
+    <div class="metric-card">
+      <div class="value">>50%</div>
+      <div class="label">12寸重掺硅片市占</div>
+    </div>
+    <div class="metric-card">
+      <div class="value up">+561%</div>
+      <div class="label">VCSEL Q1增速</div>
+    </div>
+  </div>
+
+  <h3>看多逻辑</h3>
+  <ul>
+    <li><strong>AI算力爆发+重掺硅片缺货</strong>：AI服务器耗硅量是通用服务器的3.8倍，12英寸重掺硅片已出现交货延期，价格累计涨幅15%-22%</li>
+    <li><strong>国产替代空间巨大</strong>：硅片国产化率不足25%，12英寸重掺外延片国产市占率超50%，细分赛道绝对龙头</li>
+    <li><strong>三重增长通道</strong>：订单饱满（排至2027年）+ 价格上调（硅片/功率芯片各涨10-15%）+ 产能扩张（12寸产能2026年底翻倍）</li>
+    <li><strong>第二成长曲线</strong>：VCSEL芯片Q1同比增长561%，绑定禾赛科技，车载激光雷达+卫星通信打开空间</li>
+    <li><strong>盈利拐点确认</strong>：2026Q1扭亏为盈，毛利率持续提升，规模效应逐步显现</li>
+  </ul>
+
+  <h3>主要风险</h3>
+  <ul>
+    <li><strong>估值偏高</strong>：2026年预测PE约186倍，已提前透支未来增长预期</li>
+    <li><strong>行业周期</strong>：半导体行业周期性明显，若下游需求不及预期可能导致价格回落</li>
+    <li><strong>涨幅已大</strong>：近3个月涨幅超110%，短期获利盘较多，调整压力存在</li>
+    <li><strong>资产负债率高</strong>：57.63%的资产负债率高于行业平均，财务费用压力较大</li>
+  </ul>
+</div>
+
+<!-- Serenity 紫苏叶框架评估 -->
+<div class="section">
+  <h2>二、Serenity 紫苏叶框架评估</h2>
+
+  <div class="serenity-score">
+    <div class="score-circle">
+      <div class="score-text">
+        <div class="score-num">68</div>
+        <div class="score-label">综合评分</div>
+      </div>
+    </div>
+    <div class="score-detail">
+      <div class="score-item">
+        <div class="label-row">
+          <span>刚需性（下游爆发 + 不可替代）</span>
+          <span><strong>85/100</strong></span>
+        </div>
+        <div class="bar"><div class="bar-fill" style="width: 85%"></div></div>
+      </div>
+      <div class="score-item">
+        <div class="label-row">
+          <span>稀缺性（寡头格局 + 扩产周期长）</span>
+          <span><strong>80/100</strong></span>
+        </div>
+        <div class="bar"><div class="bar-fill" style="width: 80%"></div></div>
+      </div>
+      <div class="score-item">
+        <div class="label-row">
+          <span>冷门性（市值小 + 机构少 + 无抱团）</span>
+          <span><strong>40/100</strong></span>
+        </div>
+        <div class="bar"><div class="bar-fill" style="width: 40%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight highlight-warn">
+    <strong>📊 评估结果：中等瓶颈标的（68分）</strong><br>
+    立昂微在刚需性和稀缺性维度表现优秀（80+），但冷门性严重不足——544亿市值、机构密集调研、近3月翻倍涨幅，已被市场充分定价。属于"好公司但非好价格"的典型，短期更适合趋势跟踪而非逆向布局。
+  </div>
+
+  <h3>2.1 刚需性评估：85分 — AI算力爆发的核心上游</h3>
+  
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>评估维度</th>
+      <th>评分</th>
+      <th>说明</th>
+    </tr>
+    <tr>
+      <td><strong>下游需求增长</strong></td>
+      <td>90分</td>
+      <td>AI服务器耗硅量是通用服务器3.8倍，HBM存储拉动硅片需求激增</td>
+    </tr>
+    <tr>
+      <td><strong>不可替代性</strong></td>
+      <td>85分</td>
+      <td>硅片是晶圆制造的基础材料，无替代方案；重掺低阻硅片技术壁垒高</td>
+    </tr>
+    <tr>
+      <td><strong>订单验证</strong></td>
+      <td>80分</td>
+      <td>12英寸重掺硅片已出现交货延期，订单排至2027年，产能利用率100%</td>
+    </tr>
+  </table>
+  </div>
+
+  <p><strong>核心论据：</strong></p>
+  <ul>
+    <li>AI/HPC专用重掺硅片累计涨幅达15%-22%，供需紧张程度超过行业平均</li>
+    <li>长鑫存储2026年供货量同比+200%，中芯国际供货量同比+120%</li>
+    <li>全球硅片大厂集体涨价，行业上行周期确认</li>
+    <li>大硅片结构性缺货预计持续至2028年</li>
+  </ul>
+
+  <h3>2.2 稀缺性评估：80分 — 重掺硅片细分龙头</h3>
+
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>评估维度</th>
+      <th>评分</th>
+      <th>说明</th>
+    </tr>
+    <tr>
+      <td><strong>全球合格供应商</strong></td>
+      <td>75分</td>
+      <td>全球5大硅片厂（信越、SUMCO、环球晶圆、Siltronic、SKSiltron）+ 国内3家（沪硅、立昂、奕斯伟）</td>
+    </tr>
+    <tr>
+      <td><strong>扩产周期</strong></td>
+      <td>80分</td>
+      <td>12英寸硅片从建厂到量产约18-24个月，客户验证周期6-12个月</td>
+    </tr>
+    <tr>
+      <td><strong>技术壁垒</strong></td>
+      <td>85分</td>
+      <td>重掺低阻单晶技术、外延缺陷消除技术壁垒高，国内仅少数企业掌握</td>
+    </tr>
+  </table>
+  </div>
+
+  <p><strong>核心论据：</strong></p>
+  <ul>
+    <li>12英寸重掺硅外延片国内市占率超50%，细分赛道绝对龙头</li>
+    <li>8英寸国产重掺硅片采购占比约40%，12英寸约50%+</li>
+    <li>重掺与轻掺是完全独立的技术路线，技术壁垒高</li>
+    <li>12英寸轻掺硅片已实现28nm制程突破</li>
+  </ul>
+
+  <h3>2.3 冷门性评估：40分 — 市场已充分关注</h3>
+
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>评估维度</th>
+      <th>评分</th>
+      <th>说明</th>
+    </tr>
+    <tr>
+      <td><strong>市值规模</strong></td>
+      <td>30分</td>
+      <td>544亿总市值，已属于中大盘股，远超Serenity偏好的100亿以下区间</td>
+    </tr>
+    <tr>
+      <td><strong>机构覆盖度</strong></td>
+      <td>35分</td>
+      <td>6月机构密集调研（平安养老、中信证券、兴全基金等），多家券商发布研报</td>
+    </tr>
+    <tr>
+      <td><strong>资金关注度</strong></td>
+      <td>50分</td>
+      <td>近3月涨幅112%，换手率维持高位，资金关注度高但尚未形成极致抱团</td>
+    </tr>
+  </table>
+  </div>
+
+  <p><strong>关键问题：</strong>立昂微的冷门性是最大短板。544亿市值 + 机构密集覆盖 + 短期翻倍涨幅，意味着市场已price in大部分利好。Serenity框架下，更适合在冷门阶段（如2025年行业低谷期）布局，当前位置属于趋势性机会而非逆向机会。</p>
+</div>
+
+<!-- 公司基本情况 -->
+<div class="section">
+  <h2>三、公司概况与业务结构</h2>
+
+  <h3>3.1 公司简介</h3>
+  <p><strong>杭州立昂微电子股份有限公司</strong>成立于2002年3月，2020年9月在上交所主板上市。由阙端麟院士创立，法定代表人王敏文。公司定位为国内领先的半导体IDM企业，是国内稀缺的"半导体硅片+功率半导体+化合物射频/光电芯片"垂直一体化平台型企业。</p>
+
+  <h3>3.2 三大业务板块</h3>
+
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>业务板块</th>
+      <th>2025年营收</th>
+      <th>同比</th>
+      <th>营收占比</th>
+      <th>核心产品</th>
+      <th>应用领域</th>
+    </tr>
+    <tr>
+      <td><strong>半导体硅片</strong></td>
+      <td>26.79亿元</td>
+      <td style="color:#e74c3c">+19.66%</td>
+      <td>~74.6%</td>
+      <td>6/8/12英寸抛光片、外延片（重掺砷/磷超低阻）</td>
+      <td>逻辑芯片、存储芯片、AI服务器电源、功率晶圆</td>
+    </tr>
+    <tr>
+      <td><strong>功率半导体</strong></td>
+      <td>8.39亿元</td>
+      <td>微降</td>
+      <td>~23.4%</td>
+      <td>SBD、FRD、MOSFET、TVS、IGBT芯片</td>
+      <td>新能源汽车、光伏逆变器、储能、工控</td>
+    </tr>
+    <tr>
+      <td><strong>化合物射频/光电</strong></td>
+      <td>3.27亿元</td>
+      <td>-</td>
+      <td>~9.1%</td>
+      <td>GaAs射频芯片、VCSEL芯片、GaN-on-SiC</td>
+      <td>5G通信、卫星通信、激光雷达、3D传感</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="footnote">注：三大板块合计约38.45亿元（硅片含内部销售），公司合并营收35.91亿元</div>
+
+  <h3>3.3 半导体硅片业务详解</h3>
+  
+  <p><strong>产品矩阵：</strong></p>
+  <ul>
+    <li><strong>核心优势产品</strong>：重掺砷、重掺磷超低阻硅片（国内领先）</li>
+    <li><strong>轻掺硅片</strong>：12英寸已突破28nm制程</li>
+    <li><strong>CIS外延产品</strong>：安防、医疗等高端市场快速上量</li>
+  </ul>
+
+  <p><strong>产能情况：</strong></p>
+  <ul>
+    <li>8英寸硅片：市占率约18%，国内领先</li>
+    <li>12英寸硅片：嘉兴基地产能爬坡中，当前月产能约10万片（满负荷）</li>
+    <li>12英寸硅片2025年销量178.57万片（折合6英寸714.29万片），同比+61.90%</li>
+    <li>在建产能：海宁基地二期、嘉兴南湖96万片/年外延片项目、衢州180万片/年外延片项目</li>
+    <li>预计2026年底12英寸硅片产能翻倍</li>
+  </ul>
+
+  <p><strong>客户情况：</strong></p>
+  <ul>
+    <li>国内头部晶圆厂：中芯国际、华虹半导体、士兰微等</li>
+    <li>存储厂商：长鑫存储（送样验证阶段）</li>
+    <li>功率器件厂商：比亚迪、华润微等</li>
+    <li>海外出口占比约10%，外销仍有提升空间</li>
+  </ul>
+
+  <h3>3.4 功率半导体业务详解</h3>
+
+  <ul>
+    <li><strong>产品结构</strong>：SBD、FRD（快恢复二极管，2025年+96.18%）、MOSFET（含车规级超级MOS）、TVS、IGBT</li>
+    <li><strong>车规级布局</strong>：通过AEC-Q100认证，进入博世、大陆集团等顶级Tier1供应链</li>
+    <li><strong>客户</strong>：比亚迪、宁德时代、阳光电源等新能源龙头</li>
+    <li><strong>车规级收入占比</strong>：约45%-55%</li>
+    <li><strong>战略调整</strong>：主动收缩光伏低毛利产品，向车规FRD、超级MOS等高毛利器件倾斜</li>
+    <li><strong>价格调整</strong>：6月15日起功率芯片全系产品价格调涨10%-15%</li>
+  </ul>
+
+  <h3>3.5 化合物半导体（射频/光电）业务详解</h3>
+
+  <div class="highlight highlight-success">
+    <strong>🚀 VCSEL芯片：第二成长曲线</strong><br>
+    子公司立昂东芯VCSEL芯片业务爆发式增长——2025年收入同比+723%，2026Q1同比+561%。二维可寻址大功率VCSEL技术全球领先（全球仅两家、国内唯一量产），是禾赛科技VCSEL芯片独家代工厂，配套比亚迪智能驾驶系统。
+  </div>
+
+  <ul>
+    <li><strong>VCSEL芯片</strong>：全球第一梯队，禾赛科技独家代工，车载激光雷达+3D传感</li>
+    <li><strong>GaAs射频芯片</strong>：国产射频芯片核心企业，5G基站、低轨卫星通信</li>
+    <li><strong>GaN-on-SiC</strong>：碳化硅基氮化镓工艺，高频高功率应用</li>
+    <li><strong>低轨卫星</strong>：通信芯片已大批量出货，切入华为"鸿鹄星座"</li>
+    <li><strong>产能规划</strong>：合计36万片/年（GaAs 18万 + VCSEL 12万 + GaN 6万）</li>
+    <li><strong>2026年预期</strong>：VCSEL芯片营收突破4亿元，同比增速超150%</li>
+  </ul>
+</div>
+
+<!-- 财务分析 -->
+<div class="section">
+  <h2>四、财务深度分析</h2>
+
+  <h3>4.1 核心财务指标</h3>
+
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>指标</th>
+      <th>2025年</th>
+      <th>2024年</th>
+      <th>同比变化</th>
+      <th>2026Q1</th>
+      <th>2025Q1</th>
+      <th>同比变化</th>
+    </tr>
+    <tr>
+      <td><strong>营业收入</strong></td>
+      <td>35.91亿元</td>
+      <td>30.92亿元</td>
+      <td style="color:#e74c3c">+16.12%</td>
+      <td>9.99亿元</td>
+      <td>8.20亿元</td>
+      <td style="color:#e74c3c">+21.81%</td>
+    </tr>
+    <tr>
+      <td><strong>归母净利润</strong></td>
+      <td>-1.42亿元</td>
+      <td>-2.66亿元</td>
+      <td style="color:#27ae60">减亏46.40%</td>
+      <td>722万元</td>
+      <td>-7,942万元</td>
+      <td style="color:#27ae60">扭亏+108.92%</td>
+    </tr>
+    <tr>
+      <td><strong>扣非净利润</strong></td>
+      <td>-1.83亿元</td>
+      <td>-2.66亿元</td>
+      <td style="color:#27ae60">减亏31.27%</td>
+      <td>1,170万元</td>
+      <td>-</td>
+      <td style="color:#27ae60">扭亏+114.4%</td>
+    </tr>
+    <tr>
+      <td><strong>毛利率</strong></td>
+      <td>9.86%</td>
+      <td>8.74%</td>
+      <td>+1.12pct</td>
+      <td>15.56%</td>
+      <td>-</td>
+      <td>大幅提升</td>
+    </tr>
+    <tr>
+      <td><strong>EBITDA</strong></td>
+      <td>11.20亿元</td>
+      <td>-</td>
+      <td style="color:#e74c3c">+75.86%</td>
+      <td>-</td>
+      <td>-</td>
+      <td style="color:#e74c3c">+94.37%</td>
+    </tr>
+    <tr>
+      <td><strong>经营现金流</strong></td>
+      <td>8.39亿元</td>
+      <td>8.11亿元</td>
+      <td>+3.41%</td>
+      <td>2,008万元</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>资产负债率</strong></td>
+      <td>57.63%</td>
+      <td>56.87%</td>
+      <td>+0.76pct</td>
+      <td>57.16%</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>研发投入占比</strong></td>
+      <td>7.13%</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </table>
+  </div>
+
+  <h3>4.2 各业务板块亮点</h3>
+
+  <div class="two-col">
+    <div>
+      <h4>半导体硅片</h4>
+      <ul>
+        <li>12英寸硅片收入8.59亿元，<strong style="color:#e74c3c">+65.63%</strong></li>
+        <li>12英寸硅片毛利率从-77.60%收窄至-33.16%</li>
+        <li>2026Q1 12寸硅片收入3.03亿元，<strong style="color:#e74c3c">+88.12%</strong></li>
+        <li>2026Q1 12寸外延片收入<strong style="color:#e74c3c">+160.42%</strong></li>
+        <li>12英寸外延片收入占比从47.69%提升至66.03%</li>
+      </ul>
+    </div>
+    <div>
+      <h4>功率半导体 + 化合物</h4>
+      <ul>
+        <li>FRD芯片收入1.78亿元，<strong style="color:#e74c3c">+96.18%</strong></li>
+        <li>VCSEL芯片收入4,635万元，<strong style="color:#e74c3c">+723.30%</strong></li>
+        <li>2026Q1 VCSEL营收1,775万元，<strong style="color:#e74c3c">+561.04%</strong></li>
+        <li>功率芯片6月15日起全系涨价10-15%</li>
+        <li>产品结构优化，高毛利占比提升</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>4.3 财务健康度评估</h3>
+
+  <div class="highlight highlight-warn">
+    <strong>⚠️ 财务关注点：</strong>
+    <ul style="margin-top: 8px; margin-bottom: 0;">
+      <li><strong>资产负债率偏高</strong>：57.63%，高于行业平均31.93%，财务费用压力较大（2026Q1财务费用6,898万元）</li>
+      <li><strong>盈利质量待提升</strong>：刚扭亏，净利率仍低，需关注毛利率持续提升的可持续性</li>
+      <li><strong>现金流尚可</strong>：经营现金流为正且稳定，EBITDA改善明显</li>
+      <li><strong>转债已赎回</strong>：立昂转债6月17日摘牌，消除转股摊薄压力</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 行业对比 -->
+<div class="section">
+  <h2>五、行业地位与竞争格局</h2>
+
+  <h3>5.1 半导体硅片行业对比</h3>
+
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>公司</th>
+      <th>2025年营收</th>
+      <th>归母净利润</th>
+      <th>销售净利率</th>
+      <th>总市值（约）</th>
+      <th>核心优势</th>
+    </tr>
+    <tr>
+      <td>沪硅产业(688126)</td>
+      <td>37.16亿元</td>
+      <td>-15.08亿元</td>
+      <td>-40.58%</td>
+      <td>~700亿</td>
+      <td>12英寸规模最大，客户超100家</td>
+    </tr>
+    <tr style="background: #eaf4fc;">
+      <td><strong>立昂微(605358)</strong></td>
+      <td><strong>35.91亿元</strong></td>
+      <td><strong>-1.42亿元</strong></td>
+      <td><strong>-3.95%</strong></td>
+      <td><strong>~544亿</strong></td>
+      <td><strong>重掺低阻硅片龙头，垂直一体化</strong></td>
+    </tr>
+    <tr>
+      <td>TCL中环(002129)</td>
+      <td>290.50亿元</td>
+      <td>-92.64亿元</td>
+      <td>-31.88%</td>
+      <td>~900亿</td>
+      <td>光伏硅片龙头，半导体硅片出货大</td>
+    </tr>
+    <tr>
+      <td>有研硅(688438)</td>
+      <td>10.05亿元</td>
+      <td>2.09亿元</td>
+      <td>20.80%</td>
+      <td>~150亿</td>
+      <td>8英寸高利用率，利基市场龙头</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="highlight highlight-primary">
+    <strong>💡 立昂微的差异化优势：</strong>
+    <ol style="margin-top: 8px; margin-bottom: 0;">
+      <li><strong>亏损最少、盈利拐点最早</strong>：2025年四家硅片龙头全部亏损，但立昂微亏损额最小，且2026Q1率先单季盈利</li>
+      <li><strong>重掺技术路线领先</strong>：避开轻掺硅片的红海竞争，在AI服务器拉动的重掺低阻硅片赛道领先</li>
+      <li><strong>垂直一体化</strong>：硅片+功率芯片+射频芯片全产业链，抗周期能力更强</li>
+      <li><strong>产品结构优化</strong>：高毛利外延片占比持续提升，毛利率改善速度快于同行</li>
+    </ol>
+  </div>
+
+  <h3>5.2 国内硅片行业格局</h3>
+  <ul>
+    <li><strong>12英寸硅片第一梯队</strong>：西安奕材（奕斯伟）、沪硅产业、立昂微、中欣晶圆</li>
+    <li><strong>按出货量（硅片面积）</strong>：奕斯伟 > 沪硅产业 > TCL中环</li>
+    <li><strong>按硅片销售收入（不含光伏）</strong>：沪硅产业 > 奕斯伟 > TCL中环 > 立昂微</li>
+    <li><strong>重掺低阻硅片</strong>：立昂微国内龙头地位稳固</li>
+  </ul>
+</div>
+
+<!-- 技术面分析 -->
+<div class="section">
+  <h2>六、技术面分析</h2>
+
+  <h3>6.1 近期走势概览</h3>
+
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>时间区间</th>
+      <th>涨跌幅</th>
+      <th>关键数据</th>
+    </tr>
+    <tr>
+      <td><strong>近3个月（截至6月18日）</strong></td>
+      <td style="color:#e74c3c; font-weight:600">+111.96%</td>
+      <td>6月18日收报70.2元，总市值突破519亿元</td>
+    </tr>
+    <tr>
+      <td><strong>近1年（截至6月18日）</strong></td>
+      <td style="color:#e74c3c; font-weight:600">+214.66%</td>
+      <td>股价实现翻倍以上涨幅</td>
+    </tr>
+    <tr>
+      <td><strong>4月30日至今</strong></td>
+      <td style="color:#e74c3c; font-weight:600">+71.7%</td>
+      <td>从41.06元涨到70.50元，不到两个月</td>
+    </tr>
+  </table>
+  </div>
+
+  <h3>6.2 近期关键交易日</h3>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <span class="date">6月3-5日</span>
+      连续3个交易日涨幅偏离值累计超20%，发布股票交易异常波动公告
+    </div>
+    <div class="timeline-item">
+      <span class="date">6月9日</span>
+      <strong style="color:#e74c3c">涨停（+10.00%）</strong>，收71.17元，换手率9.95%，成交额45.49亿元，主力资金净流入5.45亿元
+    </div>
+    <div class="timeline-item">
+      <span class="date">6月11-23日</span>
+      进入调整期，从71元左右回调至65-66元区间，调整幅度约7-8%
+    </div>
+    <div class="timeline-item">
+      <span class="date">6月22日</span>
+      披露终止信用评级公告，当日下跌2.12%，成交额66.16亿元
+    </div>
+    <div class="timeline-item">
+      <span class="date">6月25日</span>
+      <strong style="color:#e74c3c">放量上涨4.91%</strong>，收70.50元，成交额70.76亿元，换手率13.33%，结束调整再启升势
+    </div>
+  </div>
+
+  <h3>6.3 均线与量价分析</h3>
+  <ul>
+    <li><strong>均线系统</strong>：5/10/20/60日均线多头排列，股价沿5日线运行，趋势强势</li>
+    <li><strong>成交量</strong>：调整期间成交量未明显萎缩，维持在40-70亿元高位，承接力较强</li>
+    <li><strong>6月25日量价</strong>：放量上涨4.91%，成交额70.76亿元创近期新高，有结束调整再启升势的迹象</li>
+  </ul>
+
+  <h3>6.4 关键价位</h3>
+
+  <div class="two-col">
+    <div>
+      <h4>压力位</h4>
+      <ul>
+        <li><strong>短期压力</strong>：71-72元（6月9日高点71.17元、6月22日高点）</li>
+        <li><strong>中期压力</strong>：80元附近（历史重要心理关口）</li>
+      </ul>
+    </div>
+    <div>
+      <h4>支撑位</h4>
+      <ul>
+        <li><strong>短期支撑</strong>：65元附近（6月22日低点64.94元）</li>
+        <li><strong>中期支撑</strong>：60元附近（20日均线+整数关口）</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- 催化剂与展望 -->
+<div class="section">
+  <h2>七、核心催化剂与未来展望</h2>
+
+  <h3>7.1 短期催化（1-3个月）</h3>
+  <ul>
+    <li><strong>二季度业绩验证</strong>：硅片涨价+产能释放+产品结构优化，Q2业绩有望超预期</li>
+    <li><strong>中报预告</strong>：预计7月中旬发布，上半年有望实现整体盈利</li>
+    <li><strong>全球硅片涨价潮</strong>：海外大厂持续提价，国内硅片企业跟随涨价预期</li>
+    <li><strong>存储芯片板块行情</strong>：长鑫存储等存储厂扩产拉动硅片需求</li>
+  </ul>
+
+  <h3>7.2 中期催化（3-12个月）</h3>
+  <ul>
+    <li><strong>12英寸产能释放</strong>：海宁二期、嘉兴项目2026年下半年逐步投产，年底产能翻倍</li>
+    <li><strong>长鑫存储验证通过</strong>：进入存储大厂供应链，打开更大成长空间</li>
+    <li><strong>VCSEL持续爆发</strong>：车载激光雷达渗透率提升，2026年VCSEL收入预期突破4亿元</li>
+    <li><strong>毛利率持续改善</strong>：规模效应+产品结构优化，12英寸硅片毛利率有望转正</li>
+  </ul>
+
+  <h3>7.3 长期逻辑（1-3年）</h3>
+  <ul>
+    <li><strong>国产替代深化</strong>：硅片国产化率从不足25%提升至50%+，空间巨大</li>
+    <li><strong>AI算力长周期</strong>：AI服务器持续迭代升级，重掺硅片需求长景气</li>
+    <li><strong>车规半导体全链供应商</strong>：硅片+功率器件+VCSEL，深度绑定新能源汽车产业链</li>
+    <li><strong>卫星互联网</strong>：低轨卫星通信芯片+VCSEL激光通信，新蓝海市场</li>
+  </ul>
+
+  <h3>7.4 机构盈利预测</h3>
+
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>年度</th>
+      <th>预测归母净利润</th>
+      <th>预测EPS</th>
+      <th>对应当前股价前瞻PE</th>
+      <th>同比增速</th>
+    </tr>
+    <tr>
+      <td><strong>2026年</strong></td>
+      <td>约2.39亿元</td>
+      <td>约0.36元</td>
+      <td>约186倍</td>
+      <td>扭亏</td>
+    </tr>
+    <tr>
+      <td><strong>2027年</strong></td>
+      <td>约4.99亿元</td>
+      <td>约0.74元</td>
+      <td>约91倍</td>
+      <td>+109%</td>
+    </tr>
+    <tr>
+      <td><strong>2028年</strong></td>
+      <td>约7.16亿元</td>
+      <td>约1.07元</td>
+      <td>约63倍</td>
+      <td>+43%</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="footnote">数据来源：近6个月机构盈利预测均值</div>
+
+  <h3>7.5 机构目标价</h3>
+  <ul>
+    <li><strong>中信证券</strong>：77元（买入评级）</li>
+    <li><strong>西部证券</strong>：125元（增持评级，2025年10月）</li>
+    <li><strong>目标价均值</strong>：约77元</li>
+  </ul>
+</div>
+
+<!-- 操作策略参考 -->
+<div class="section">
+  <h2>八、操作策略参考</h2>
+
+  <div class="highlight highlight-danger">
+    <strong>⚠️ 风险提示：</strong>以下内容仅为基于Serenity框架的策略参考，不构成任何投资建议。股市有风险，入市需谨慎。
+  </div>
+
+  <h3>8.1 Serenity框架下的策略定位</h3>
+  
+  <p>立昂微综合评分68分，属于<strong>"中等瓶颈 + 非冷门"</strong>标的。按照Serenity紫苏叶理论，这类标的的最佳布局窗口是<strong>行业低谷期+市场忽视期</strong>（如2025年行业周期底部），当前位置已过最佳逆向布局点。</p>
+
+  <p>但考虑到：</p>
+  <ul>
+    <li>行业景气度仍在上行通道（AI算力+存储复苏+国产替代）</li>
+    <li>公司基本面持续改善（扭亏+涨价+扩产）</li>
+    <li>技术面趋势完好（多头排列+放量突破）</li>
+  </ul>
+
+  <p>可作为<strong>趋势跟踪型标的</strong>对待，而非逆向布局标的。</p>
+
+  <h3>8.2 不同风格投资者参考</h3>
+
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>投资风格</th>
+      <th>策略建议</th>
+      <th>关注价位</th>
+      <th>止损参考</th>
+    </tr>
+    <tr>
+      <td><strong>趋势投资者</strong></td>
+      <td>沿5日线持有，跌破10日线减仓，跌破20日线清仓</td>
+      <td>突破72元加仓看80元</td>
+      <td>跌破63元（20日线）</td>
+    </tr>
+    <tr>
+      <td><strong>波段投资者</strong></td>
+      <td>回调至60-65元区间低吸，75-80元区间高抛</td>
+      <td>60-65元（建仓区）</td>
+      <td>跌破55元</td>
+    </tr>
+    <tr>
+      <td><strong>长线价值投资者</strong></td>
+      <td>当前估值偏高，建议等待回调或业绩消化估值后再布局</td>
+      <td>2027年PE 50倍以下（约37元）</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td><strong>Serenity逆向投资者</strong></td>
+      <td>冷门性不足，不满足逆向布局条件，观察等待下一轮周期底部</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </table>
+  </div>
+
+  <h3>8.3 关键观察指标</h3>
+  <ul>
+    <li><strong>月度营收数据</strong>：验证硅片涨价和产能释放的实际效果</li>
+    <li><strong>毛利率变化</strong>：12英寸硅片毛利率能否在2026年内转正</li>
+    <li><strong>长鑫存储验证进展</strong>：进入存储大厂供应链是重要里程碑</li>
+    <li><strong>VCSEL收入增速</strong>：第二成长曲线的验证指标</li>
+    <li><strong>行业价格走势</strong>：硅片价格能否维持上涨趋势</li>
+  </ul>
+</div>
+
+<!-- 风险因素 -->
+<div class="section">
+  <h2>九、风险因素</h2>
+
+  <div class="highlight highlight-danger">
+    <strong>🚨 核心风险：估值过高 + 涨幅过大</strong><br>
+    544亿市值对应2026年预测PE约186倍，估值已提前透支未来2-3年增长。近3个月涨幅超110%，短期获利盘丰厚，一旦业绩不及预期或行业景气度拐头，可能出现大幅回调。
+  </div>
+
+  <h3>9.1 行业周期风险</h3>
+  <ul>
+    <li>半导体行业具有明显的周期性特征，历史上每2-3年一轮周期</li>
+    <li>若下游AI服务器、消费电子需求不及预期，行业景气度可能下行</li>
+    <li>硅片价格可能随行业周期波动，当前涨价趋势能否持续存疑</li>
+  </ul>
+
+  <h3>9.2 竞争加剧风险</h3>
+  <ul>
+    <li>国内多家硅片企业同时扩产（沪硅产业、西安奕斯伟、中欣晶圆等），中低端产能竞争加剧</li>
+    <li>功率半导体行业产能过剩，通用功率器件价格战可能压制毛利率</li>
+    <li>海外大厂（信越、SUMCO）在高端市场仍占主导地位</li>
+  </ul>
+
+  <h3>9.3 产能释放不及预期风险</h3>
+  <ul>
+    <li>12英寸硅片扩产受设备采购、工程建设、客户验证等多重因素影响</li>
+    <li>良率提升缓慢可能导致业绩兑现延后</li>
+    <li>关键设备进口受限风险</li>
+  </ul>
+
+  <h3>9.4 财务风险</h3>
+  <ul>
+    <li>资产负债率57.63%，高于行业平均水平，财务费用压力较大</li>
+    <li>重资产模式下折旧摊销压力大，产能利用率不足会显著影响盈利</li>
+    <li>终止信用评级可能影响后续融资渠道</li>
+  </ul>
+
+  <h3>9.5 其他风险</h3>
+  <ul>
+    <li>技术迭代风险：第三代半导体技术路线快速变化</li>
+    <li>客户集中度风险：核心业务客户相对集中</li>
+    <li>解禁压力：首发限售股已解禁，但需关注后续定增股份解禁</li>
+  </ul>
+</div>
+
+<!-- 免责声明 -->
+<div class="disclaimer">
+  <strong>免责声明与风险提示</strong><br><br>
+  本报告由 Serenity 紫苏叶投研员基于公开信息整理生成，仅供参考学习，不构成任何投资建议。报告中的信息和观点仅代表报告生成时的分析判断，可能因后续信息变化而调整。<br><br>
+  <strong>股市有风险，投资需谨慎。</strong>投资者应根据自身风险承受能力和投资目标独立做出投资决策，并自行承担投资风险。报告作者不对因使用本报告内容而引发的任何直接或间接损失承担任何责任。<br><br>
+  数据来源：公司公告、证券时报、东方财富、同花顺、券商研报等公开渠道。报告生成时间：2026年6月25日。
+</div>
+
+</div>
+</body>
+</html>
