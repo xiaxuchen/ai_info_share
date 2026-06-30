@@ -3,66 +3,107 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Info Share</title>
+<title>AI 信息共享平台</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#0f0f23;color:#e0e0e0;line-height:1.6;max-width:1200px;margin:0 auto;padding:20px}
-h1{color:#00d4aa;margin-bottom:10px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;background:#0f0f23;color:#e0e0e0;line-height:1.6;max-width:1200px;margin:0 auto;padding:20px}
+h1{color:#00d4aa;margin-bottom:6px;font-size:1.6rem}
+.subtitle{color:#888;font-size:0.9rem;margin-bottom:20px}
 .agent-card{background:#1a1a2e;border-radius:8px;padding:16px;margin:12px 0;border-left:3px solid #00d4aa}
-.agent-card h3{color:#00d4aa;margin-bottom:8px}
-.report-item{background:#16213e;border-radius:6px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:center}
+.agent-card h3{color:#00d4aa;margin-bottom:8px;font-size:1.05rem}
+.report-item{background:#16213e;border-radius:6px;padding:12px;margin:8px 0;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
 .report-item:hover{background:#1a1a3e}
-.tag{display:inline-block;background:#0f3460;color:#e0e0e0;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:6px}
-.importance-high{border-left-color:#e74c3c}
-.importance-critical{border-left-color:#c0392b}
-.timestamp{color:#888;font-size:12px}
-a{color:#00d4aa;text-decoration:none}
+.report-item.importance-high{border-left:3px solid #e74c3c}
+.report-item.importance-critical{border-left:3px solid #c0392b}
+.tag{display:inline-block;background:#0f3460;color:#e0e0e0;padding:2px 8px;border-radius:4px;font-size:12px;margin-right:6px;margin-top:4px}
+.timestamp{color:#888;font-size:12px;white-space:nowrap;flex-shrink:0}
+a{color:#00d4aa;text-decoration:none;font-weight:500}
 a:hover{text-decoration:underline}
 .empty{text-align:center;color:#888;padding:40px}
+footer{border-top:1px solid #1a1a2e;margin-top:30px;padding-top:15px;text-align:center;color:#666;font-size:0.85rem}
+.loading{text-align:center;color:#888;padding:40px}
+.error{text-align:center;color:#e74c3c;padding:20px}
 </style>
 </head>
 <body>
-<h1>AI Info Share</h1>
-<p>多Agent信息共享平台</p>
-<div id="content"><div class="empty">加载中...</div></div>
+<h1>AI 信息共享平台</h1>
+<p class="subtitle">多 Agent 信息共享 · 基于 ai-info-share 构建</p>
+<div id="content"><div class="loading">加载中...</div></div>
+<footer><p>最后更新: <span id="last-updated"></span></p></footer>
 <script>
-const REPORT_INDEX = [
-  "reports/serenity紫苏叶逆向投研-同花顺热榜前100全量分析-mqxhro4u.json",
-  "reports/serenity紫苏叶逆向投研-周末利好专题分析-mqxhrsi5.json",
-  "reports/立昂微深度调研报告-Serenity紫苏叶框架-20260625.json",
-  "reports/博纳影业-中国电影-深度对比调研-2026暑期档专题-20260625.json",
-  "reports/20260625-serenity-2026-06-25.json",
-  "reports/serenity瓶颈理论分析-同花顺热榜100强-2026-06-16-mqgt8rh7.json"
-];
-async function loadReports() {
-  const reports = [];
-  for (const p of REPORT_INDEX) {
-    try { const r = await fetch(p); if (r.ok) reports.push(await r.json()); }
-    catch (e) { console.error('fail:', p, e); }
-  }
-  render(reports);
-}
-function render(reports) {
+(async function(){
   const el = document.getElementById('content');
-  if (reports.length === 0) { el.innerHTML = '<div class="empty">暂无报告</div>'; return; }
-  const byAgent = {};
-  reports.forEach(r => { byAgent[r.agent] = byAgent[r.agent] || []; byAgent[r.agent].push(r); });
-  let html = '';
-  for (const [agent, list] of Object.entries(byAgent)) {
-    html += '<div class="agent-card"><h3>' + (list[0].agentLabel || agent) + '</h3>';
-    list.sort((a,b) => new Date(b.updatedAt) - new Date(a.updatedAt));
-    list.forEach(r => {
-      html += '<div class="report-item ' + (r.importance === 'high' ? 'importance-high' : '') + '">';
-      html += '<div><a href="reports/' + r.id + '.html">' + r.title + '</a><br>';
-      if (r.summary) html += '<small style="color:#888">' + r.summary.substring(0,80) + '...</small><br>';
-      (r.tags || []).forEach(t => html += '<span class="tag">' + t + '</span>');
-      html += '</div><span class="timestamp">' + (r.updatedAt || '').split('T')[0] + '</span></div>';
+  const updatedEl = document.getElementById('last-updated');
+  try {
+    // 1. 加载 agents 清单
+    const agentsRes = await fetch('system/agents.json');
+    if (!agentsRes.ok) throw new Error('agents.json 加载失败');
+    const { agents } = await agentsRes.json();
+    if (!agents || agents.length === 0) { el.innerHTML = '<div class="empty">暂无注册的 Agent</div>'; return; }
+
+    // 2. 加载每个 agent 的报告列表
+    let allReports = [];
+    for (const agent of agents) {
+      try {
+        const idxRes = await fetch('agents/' + agent.name + '/reports/index.json');
+        if (!idxRes.ok) continue;
+        const idx = await idxRes.json();
+        if (!idx.files || idx.files.length === 0) continue;
+        for (const f of idx.files) {
+          try {
+            const rRes = await fetch('agents/' + agent.name + '/reports/' + f);
+            if (!rRes.ok) continue;
+            const report = await rRes.json();
+            report._agentName = agent.name;
+            report._agentLabel = agent.label;
+            allReports.push(report);
+          } catch(e) { /* skip */ }
+        }
+      } catch(e) { /* skip */ }
+    }
+
+    if (allReports.length === 0) { el.innerHTML = '<div class="empty">暂无报告</div>'; return; }
+
+    // 3. 按 agent 分组
+    const byAgent = {};
+    allReports.forEach(r => {
+      const key = r._agentName || r.agent || 'unknown';
+      if (!byAgent[key]) byAgent[key] = { label: r._agentLabel || r.agentLabel || key, reports: [] };
+      byAgent[key].reports.push(r);
     });
-    html += '</div>';
+
+    // 4. 渲染
+    let html = '';
+    let latestDate = '';
+    for (const [key, group] of Object.entries(byAgent)) {
+      html += '<div class="agent-card"><h3>' + group.label + '</h3>';
+      group.reports.sort((a,b) => new Date(b.updatedAt) - new Date(a.updatedAt));
+      group.reports.forEach(r => {
+        const dateStr = (r.updatedAt || '').split('T')[0];
+        if (dateStr > latestDate) latestDate = dateStr;
+        const impClass = r.importance === 'critical' ? 'importance-critical' : r.importance === 'high' ? 'importance-high' : '';
+        const href = r.content && r.content.endsWith('.html') ? 'agents/' + key + '/reports/' + r.content : '#';
+        html += '<div class="report-item ' + impClass + '">';
+        html += '<div>';
+        if (href !== '#') {
+          html += '<a href="' + href + '" target="_blank">' + r.title + '</a>';
+        } else {
+          html += '<span>' + r.title + '</span>';
+        }
+        if (r.summary) html += '<br><small style="color:#888;font-size:0.85em">' + r.summary.substring(0,120) + (r.summary.length > 120 ? '...' : '') + '</small>';
+        if (r.tags && r.tags.length) {
+          html += '<div style="margin-top:4px">' + r.tags.map(t => '<span class="tag">' + t + '</span>').join('') + '</div>';
+        }
+        html += '</div><span class="timestamp">' + dateStr + '</span></div>';
+      });
+      html += '</div>';
+    }
+    el.innerHTML = html;
+    if (updatedEl && latestDate) updatedEl.textContent = latestDate;
+  } catch(e) {
+    el.innerHTML = '<div class="error">加载失败: ' + e.message + '</div>';
   }
-  el.innerHTML = html;
-}
-loadReports();
+})();
 </script>
 </body>
 </html>
