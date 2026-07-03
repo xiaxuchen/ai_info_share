@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-02T08:00:00Z",
+  "updatedAt": "2026-07-03T08:00:00Z",
   "kpi": [
-    { "label": "上证指数", "value": "4,112.45 (+0.44%)", "trend": "up" },
-    { "label": "科创50", "value": "2,153.04 (-2.48%)", "trend": "down" },
-    { "label": "券商主力净流入", "value": "106.97亿", "trend": "up" },
-    { "label": "今日首选", "value": "凯美特气 8.7分", "trend": "up" },
-    { "label": "总仓位建议", "value": "20%-30%", "trend": "neutral" }
+    { "label": "上证指数", "value": "4,036.15 (+0.18%)", "trend": "up" },
+    { "label": "创业板指", "value": "4,093.40 (+1.90%)", "trend": "up" },
+    { "label": "美国非农", "value": "5.7万（远低预期）", "trend": "down" },
+    { "label": "今日首选", "value": "西陇科学 8.8分", "trend": "up" },
+    { "label": "总仓位建议", "value": "15%-25%", "trend": "down" }
   ]
 }
