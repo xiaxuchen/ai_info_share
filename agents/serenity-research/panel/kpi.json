@@ -1,10 +1,10 @@
 {
-  "updatedAt": "2026-07-03T08:00:00Z",
+  "updatedAt": "2026-07-06T08:00:00Z",
   "kpi": [
-    { "label": "上证指数", "value": "4,036.15 (+0.18%)", "trend": "up" },
-    { "label": "创业板指", "value": "4,093.40 (+1.90%)", "trend": "up" },
-    { "label": "美国非农", "value": "5.7万（远低预期）", "trend": "down" },
-    { "label": "今日首选", "value": "西陇科学 8.8分", "trend": "up" },
-    { "label": "总仓位建议", "value": "15%-25%", "trend": "down" }
+    { "label": "上证指数", "value": "4,043.64 (+0.37%)", "trend": "up" },
+    { "label": "创业板指", "value": "4,019.93 (+0.07%)", "trend": "up" },
+    { "label": "机器人板块", "value": "+9.12% 领涨", "trend": "up" },
+    { "label": "今日首选", "value": "西陇科学 9.0分", "trend": "up" },
+    { "label": "总仓位建议", "value": "20%-30%", "trend": "up" }
   ]
 }

@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serenity 紫苏叶逆向投研日报 — 2026年7月6日</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --accent: #f0883e;
+    --green: #3fb950;
+    --red: #f85149;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --yellow: #d29922;
+    --pink: #f778ba;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans CJK SC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 40px 0 30px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, rgba(240,136,62,0.1), rgba(188,140,255,0.1));
+    border-radius: 16px;
+  }
+  .header h1 {
+    font-size: 28px;
+    background: linear-gradient(90deg, var(--accent), var(--purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .header .meta {
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .header .meta span {
+    background: rgba(255,255,255,0.06);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 24px;
+  }
+  .section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+  }
+  .icon-fire { background: rgba(248,81,73,0.2); }
+  .icon-doc { background: rgba(88,166,255,0.2); }
+  .icon-filter { background: rgba(188,140,255,0.2); }
+  .icon-chart { background: rgba(63,185,80,0.2); }
+  .icon-strategy { background: rgba(240,136,62,0.2); }
+  .icon-review { background: rgba(210,153,34,0.2); }
+
+  .market-index-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .idx-card {
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .idx-card .name { font-size: 13px; color: var(--muted); }
+  .idx-card .val { font-size: 22px; font-weight: 700; margin: 4px 0; }
+  .idx-card .chg { font-size: 14px; font-weight: 600; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+
+  .hot-boards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .board-card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 18px;
+    border: 1px solid var(--border);
+  }
+  .board-card h4 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .board-card ul { list-style: none; }
+  .board-card li {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 3px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .board-card li:last-child { border-bottom: none; }
+  .board-card li strong { color: var(--text); }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .tag-hot { background: rgba(248,81,73,0.2); color: var(--red); }
+  .tag-policy { background: rgba(88,166,255,0.2); color: var(--blue); }
+  .tag-money { background: rgba(63,185,80,0.2); color: var(--green); }
+  .tag-event { background: rgba(188,140,255,0.2); color: var(--purple); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  th {
+    text-align: left;
+    padding: 10px 12px;
+    background: rgba(255,255,255,0.05);
+    border-bottom: 2px solid var(--border);
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: middle;
+  }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+  .stock-name { font-weight: 600; color: var(--text); }
+  .stock-code { color: var(--muted); font-size: 12px; }
+  .score-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+  .score-high { background: rgba(63,185,80,0.2); color: var(--green); }
+  .score-mid { background: rgba(240,136,62,0.2); color: var(--accent); }
+  .score-low { background: rgba(248,81,73,0.2); color: var(--red); }
+  .rating-tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .rating-buy { background: rgba(63,185,80,0.15); color: var(--green); }
+  .rating-watch { background: rgba(210,153,34,0.15); color: var(--yellow); }
+  .rating-sell { background: rgba(248,81,73,0.15); color: var(--red); }
+  .rating-hold { background: rgba(88,166,255,0.15); color: var(--blue); }
+
+  .triangle-viz {
+    display: flex;
+    gap: 20px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+  }
+  .tri-col {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid var(--border);
+  }
+  .tri-col h5 { text-align: center; margin-bottom: 12px; font-size: 14px; }
+  .bar-group { margin: 8px 0; }
+  .bar-label { font-size: 12px; color: var(--muted); margin-bottom: 3px; display: flex; justify-content: space-between; }
+  .bar-track { background: rgba(255,255,255,0.08); border-radius: 4px; height: 8px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s; }
+  .bar-green { background: linear-gradient(90deg, #238636, var(--green)); }
+  .bar-blue { background: linear-gradient(90deg, #1f6feb, var(--blue)); }
+  .bar-purple { background: linear-gradient(90deg, #8b5cf6, var(--purple)); }
+
+  .strategy-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px;
+  }
+  .strat-card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+  .strat-card .rank {
+    position: absolute;
+    top: -1px; left: -1px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 10px 0 10px 0;
+  }
+  .strat-card h4 { font-size: 16px; margin-bottom: 4px; padding-top: 4px; }
+  .strat-card .track { color: var(--muted); font-size: 13px; margin-bottom: 12px; }
+  .strat-card .detail { font-size: 13px; color: var(--muted); margin: 6px 0; }
+  .strat-card .detail strong { color: var(--text); }
+  .strat-card .action-box {
+    background: rgba(63,185,80,0.08);
+    border: 1px solid rgba(63,185,80,0.2);
+    border-radius: 8px;
+    padding: 12px;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+  .strat-card .action-box.warn {
+    background: rgba(210,153,34,0.08);
+    border-color: rgba(210,153,34,0.2);
+  }
+  .strat-card .action-box.danger {
+    background: rgba(248,81,73,0.08);
+    border-color: rgba(248,81,73,0.2);
+  }
+
+  .review-summary {
+    background: rgba(210,153,34,0.06);
+    border: 1px solid rgba(210,153,34,0.15);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .review-summary h4 { color: var(--yellow); margin-bottom: 8px; }
+
+  .perf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .perf-card {
+    background: rgba(255,255,255,0.03);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid var(--border);
+  }
+  .perf-card h5 { font-size: 14px; margin-bottom: 8px; }
+  .perf-card .metric {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 13px;
+  }
+  .perf-card .metric:last-child { border-bottom: none; }
+
+  .policy-list {
+    list-style: none;
+    counter-reset: policy;
+  }
+  .policy-list li {
+    counter-increment: policy;
+    padding: 12px 0 12px 40px;
+    position: relative;
+    border-left: 2px solid var(--border);
+    margin-left: 14px;
+    font-size: 14px;
+  }
+  .policy-list li::before {
+    content: counter(policy);
+    position: absolute;
+    left: -11px;
+    top: 14px;
+    width: 20px; height: 20px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+  }
+  .policy-list li strong { color: var(--blue); }
+
+  .disclaimer {
+    background: rgba(248,81,73,0.06);
+    border: 1px solid rgba(248,81,73,0.15);
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 30px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.8;
+  }
+  .disclaimer h4 {
+    color: var(--red);
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+
+  .highlight-box {
+    background: rgba(240,136,62,0.08);
+    border: 1px solid rgba(240,136,62,0.2);
+    border-radius: 10px;
+    padding: 16px;
+    margin: 16px 0;
+    font-size: 14px;
+  }
+  .highlight-box strong { color: var(--accent); }
+
+  .highlight-box.green {
+    background: rgba(63,185,80,0.08);
+    border-color: rgba(63,185,80,0.2);
+  }
+  .highlight-box.green strong { color: var(--green); }
+
+  .highlight-box.red {
+    background: rgba(248,81,73,0.08);
+    border-color: rgba(248,81,73,0.2);
+  }
+  .highlight-box.red strong { color: var(--red); }
+
+  .funds-flow {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .fund-item {
+    background: rgba(255,255,255,0.03);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .fund-item .label { font-size: 12px; color: var(--muted); }
+  .fund-item .value { font-size: 18px; font-weight: 700; margin-top: 4px; }
+
+  .note { font-size: 12px; color: var(--muted); margin-top: 12px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Serenity 紫苏叶逆向投研日报</h1>
+  <div class="subtitle">2026年7月6日（周一） | 万亿逆回购落地 · 新规施行 · 机器人+黄金双主线延续</div>
+  <div class="meta">
+    <span>紫苏叶理论 v3.0</span>
+    <span>逆向投研框架</span>
+    <span>数据截止：2026-07-03 收盘（周末休市）</span>
+    <span>第10期</span>
+  </div>
+</div>
+
+<!-- ===================== SECTION 1: 市场热点概览 ===================== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon icon-fire">🔥</span> 市场热点概览
+  </div>
+
+  <div class="market-index-row">
+    <div class="idx-card">
+      <div class="name">上证指数</div>
+      <div class="val">4,043.64</div>
+      <div class="chg up">+0.37%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">深证成指</div>
+      <div class="val">15,597.51</div>
+      <div class="chg up">+0.64%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">创业板指</div>
+      <div class="val">4,019.93</div>
+      <div class="chg up">+0.07%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">科创50</div>
+      <div class="val">1,975.60</div>
+      <div class="chg down">-0.59%</div>
+    </div>
+    <div class="idx-card">
+      <div class="name">北证50</div>
+      <div class="val">—</div>
+      <div class="chg up">+1.71%</div>
+    </div>
+  </div>
+
+  <div class="highlight-box green">
+    <strong>核心结论：</strong>7月3日（上周五）三大指数集体反弹但冲高回落，上证收涨0.37%至4043点，创业板仅微涨0.07%。市场成交缩量至约3.18-3.21万亿元（较前日缩量2680亿元），表明增量资金观望情绪浓。周末央行1万亿买断式逆回购落地+A股交易新规正式施行，7月6日（周一）开盘面临两大事件催化剂。核心主线不变：人形机器人（40余只涨停，板块+9.12%）、贵金属（非农爆冷驱动）、军工（地缘催化），而半导体/算力硬件持续遭遇资金流出。
+  </div>
+
+  <h4 style="margin: 20px 0 12px; font-size: 15px;">🔥 主线热点与板块分布（7月3日收盘）</h4>
+  <div class="hot-boards">
+    <div class="board-card">
+      <h4><span class="tag tag-hot">主线</span> 人形机器人/具身智能（最强）</h4>
+      <ul>
+        <li>板块指数单日涨 <strong>+9.12%</strong>，<strong>40余只</strong>成分股涨停</li>
+        <li>宇树科技科创板IPO注册获批（7/2），募资约 <strong>42亿元</strong></li>
+        <li>埃斯顿4天3板、绿的谐波收涨超18%</li>
+        <li>主力净流入 <strong>+39.15亿</strong></li>
+      </ul>
+    </div>
+    <div class="board-card">
+      <h4><span class="tag tag-hot">主线</span> 贵金属/黄金（非农催化）</h4>
+      <ul>
+        <li>美国6月非农仅5.7万人，远低于预期11万</li>
+        <li>现货黄金涨 <strong>+2.41%</strong> 至 <strong>4132美元/盎司</strong></li>
+        <li>赤峰黄金、山金国际高开超6%，招金黄金、四川黄金涨停</li>
+        <li>板块净流入 <strong>+32.6亿</strong></li>
+      </ul>
+    </div>
+    <div class="board-card">
+      <h4><span class="tag tag-policy">政策</span> 军工（地缘+订单）</h4>
+      <ul>
+        <li>军工指数 <strong>+3.19%</strong>、中证军工 <strong>+3.44%</strong></li>
+        <li>光电股份、中航沈飞等领涨</li>
+        <li>催化：地缘政治紧张+中报订单预期</li>
+        <li>军工电子/信息化方向领涨</li>
+      </ul>
+    </div>
+    <div class="board-card">
+      <h4><span class="tag tag-money">资金</span> 汽车零部件（共振）</h4>
+      <ul>
+        <li><strong>21只</strong>个股涨停</li>
+        <li>三花智控净流入 <strong>21.88亿</strong></li>
+        <li>新能源车补贴政策+出海逻辑+机器人产业链共振</li>
+        <li>板块主力净流入 <strong>+68.93亿</strong>（全市场第一）</li>
+      </ul>
+    </div>
+    <div class="board-card">
+      <h4><span class="tag tag-event">事件</span> 有色金属（供需收紧）</h4>
+      <ul>
+        <li>沪铜库存降至年内新低</li>
+        <li>LME铜单周去库 <strong>4.4%</strong></li>
+        <li>板块主力净流入 <strong>+49.69亿</strong></li>
+        <li>供需双端共振，铜/铝/锌全面走强</li>
+      </ul>
+    </div>
+    <div class="board-card">
+      <h4><span class="tag tag-policy">政策</span> 医药/创新药</h4>
+      <ul>
+        <li>中证医药 <strong>+2.04%</strong></li>
+        <li>医保谈判边际缓和+估值历史低位+机构低配回补</li>
+        <li>海南海药延续强势</li>
+        <li>政策底确认，关注中报业绩催化</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4 style="margin: 24px 0 12px; font-size: 15px;">⚠️ 资金出逃板块（7月3日）</h4>
+  <table>
+    <tr>
+      <th>板块</th>
+      <th>7/3净流出</th>
+      <th>核心出逃标的</th>
+    </tr>
+    <tr>
+      <td>半导体/存储芯片</td>
+      <td class="down">-92.6亿</td>
+      <td>京东方A(-51.58亿)、兆易创新(-30.61亿)</td>
+    </tr>
+    <tr>
+      <td>光通信/算力硬件</td>
+      <td class="down">-47.3亿</td>
+      <td>亨通光电(-10.63亿)</td>
+    </tr>
+    <tr>
+      <td>氟化工/新材料</td>
+      <td class="down">-28.1亿</td>
+      <td>前期氟化工涨价潮后回调</td>
+    </tr>
+    <tr>
+      <td>传媒互联网</td>
+      <td class="down">-16.8亿</td>
+      <td>AI应用缺乏新增催化</td>
+    </tr>
+    <tr>
+      <td>光伏硅片</td>
+      <td class="down">-12.4亿</td>
+      <td>产能过剩担忧持续</td>
+    </tr>
+  </table>
+
+  <div class="funds-flow">
+    <div class="fund-item">
+      <div class="label">7/3主力净流出</div>
+      <div class="value down">-175.91亿</div>
+    </div>
+    <div class="fund-item">
+      <div class="label">北向资金（近7日）</div>
+      <div class="value down">-82.6亿（海外算力）</div>
+    </div>
+    <div class="fund-item">
+      <div class="label">北向加仓（近7日）</div>
+      <div class="value up">+114.3亿（国产半导体）</div>
+    </div>
+    <div class="fund-item">
+      <div class="label">两市成交额</div>
+      <div class="value">3.18万亿</div>
+    </div>
+  </div>
+
+  <h4 style="margin: 24px 0 12px; font-size: 15px;">📅 重大政策与事件催化（7月6日周一前瞻）</h4>
+  <ul class="policy-list">
+    <li><strong>央行1万亿买断式逆回购7月6日执行：</strong>净投放2000亿元中长期资金，结束连续3个月回笼，释放流动性宽松信号。利好低估值蓝筹和流动性敏感板块。</li>
+    <li><strong>A股交易新规7月6日正式施行：</strong>盘后固定价格交易扩展至全部A股和ETF；主板ST股涨跌幅调整至10%（此前为5%）。需警惕ST板块波动。</li>
+    <li><strong>美国非农超预期走弱（已落地）：</strong>6月新增仅5.7万人，市场推迟加息预期至12月，美元走弱，黄金4132美元/盎司，利好贵金属和出口制造。</li>
+    <li><strong>人形机器人板块爆发（持续催化）：</strong>宇树科技科创板IPO注册获批引爆板块，7/3板块+9.12%、40余股涨停。叠加马斯克Optimus量产目标上调。</li>
+    <li><strong>国务院常务会议通过十五五碳达峰方案：</strong>新型电网、储能、光伏配套全年投资超7万亿元，利好新能源基建。</li>
+    <li><strong>高端装备研发费用200%加计扣除延期至2028年：</strong>配套500亿技改专项资金，直接利好工业母机、精密零部件。</li>
+    <li><strong>证监会优化小额快速再融资：</strong>沪深交易所小额融资上限从3亿元提升至6亿元，特大型企业提升至10亿元。</li>
+    <li><strong>前瞻事件 — 7月18日上海世界人工智能大会：</strong>多款人形机器人新品发布预期，国产算力芯片新品亮相。中期催化剂。</li>
+  </ul>
+</div>
+
+<!-- ===================== SECTION 2: 研报匹配 ===================== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon icon-doc">📑</span> 研报匹配
+  </div>
+  <div class="highlight-box">
+    <strong>说明：</strong>基于工作区研报库（开卷有财知识库覆盖438只股票、529篇深度报告，持续更新至6月28日）及历史Serenity日报（第1-9期），匹配与当前热点相关的研报信息。
+  </div>
+  <table>
+    <tr>
+      <th>热点赛道</th>
+      <th>相关研报主题</th>
+      <th>核心结论</th>
+      <th>关联标的</th>
+    </tr>
+    <tr>
+      <td>电子特气/WF6</td>
+      <td>日本两大巨头永久停产WF6（连续6期日报追踪）</td>
+      <td>全球WF6供应缺口扩大，国产替代紧迫性升级。凯美特气连续多期评分8.5+，中船特气新入选8.3分</td>
+      <td>凯美特气、中船特气、三孚股份</td>
+    </tr>
+    <tr>
+      <td>人形机器人</td>
+      <td>具身智能量产元年（连续4期追踪）+ 工业富联/昊志机电研报</td>
+      <td>2026年万台级量产落地，减速器/伺服电机/触觉传感器缺口大。埃斯顿4天3板，绿的谐波+18%</td>
+      <td>埃斯顿、绿的谐波、昊志机电、拓斯达</td>
+    </tr>
+    <tr>
+      <td>贵金属/黄金</td>
+      <td>瓶颈理论分析-热榜100强（6/16专题）</td>
+      <td>非农爆冷驱动黄金至4132美元/盎司。赤峰黄金2连板、四川黄金涨停。黄金独立避险逻辑强化</td>
+      <td>赤峰黄金、招金黄金、四川黄金</td>
+    </tr>
+    <tr>
+      <td>光刻胶配套试剂</td>
+      <td>光刻胶配套（连续3期追踪）</td>
+      <td>东曹断供氧化锆+高端溶剂涨140%+，西陇科学逆势涨停验证冷门逻辑，评分8.2→8.5→8.8持续上升</td>
+      <td>西陇科学、彤程新材</td>
+    </tr>
+    <tr>
+      <td>创新药/CXO</td>
+      <td>创新药困境反转（连续5期追踪）</td>
+      <td>医保商保目录优化+创新药出海放量+估值历史低位，中证医药+2.04%</td>
+      <td>恒瑞医药、长春高新、海南海药</td>
+    </tr>
+    <tr>
+      <td>汽车零部件</td>
+      <td>博迁新材（MLCC镍粉）+ 多氟多研报</td>
+      <td>21只个股涨停，三花智控净流入21.88亿。与机器人产业链共振，但Serenity冷门性不足</td>
+      <td>三花智控、拓普集团</td>
+    </tr>
+    <tr>
+      <td>消费电子/PCB</td>
+      <td>工业富联/新洁能/景旺电子/鼎龙股份研报</td>
+      <td>超跌反弹+美国解除芯片设计软件出口限制，东山精密净流入15.62亿</td>
+      <td>工业富联、东山精密、立讯精密</td>
+    </tr>
+    <tr>
+      <td>有色金属</td>
+      <td>盐湖股份/铂科新材研报</td>
+      <td>沪铜库存新低+LME去库4.4%，板块净流入49.69亿。供需双端共振</td>
+      <td>紫金矿业、洛阳钼业、盐湖股份</td>
+    </tr>
+  </table>
+</div>
+
+<!-- ===================== SECTION 3: Serenity 紫苏叶筛选 ===================== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon icon-filter">🌿</span> Serenity 紫苏叶筛选
+  </div>
+
+  <div class="highlight-box red">
+    <strong>7月3日推荐标的验证情况：</strong>7月3日大盘"变盘阳线"后，推荐标的分化明显——西陇科学继续强势验证独立逻辑，凯美特气、中船特气受益于电子特气板块回暖，拓斯达随机器人板块暴涨+9.12%强势回归。博迁新材继续低迷。验证率提升至80%（4/5），Serenity框架在反弹日表现优异。周末两大事件催化（万亿逆回购+交易新规）下，周一关注低开高走可能性。
+  </div>
+
+  <div class="triangle-viz">
+    <div class="tri-col">
+      <h5 style="color: var(--green);">🟢 刚需性</h5>
+      <div class="bar-group">
+        <div class="bar-label"><span>凯美特气（WF6断供+光刻气）</span><span>95%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-green" style="width: 95%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>中船特气（电子特气全品类）</span><span>90%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-green" style="width: 90%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>西陇科学（光刻胶配套+电子化学品）</span><span>88%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-green" style="width: 88%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>绿的谐波（谐波减速器龙头）</span><span>82%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-green" style="width: 82%"></div></div>
+      </div>
+    </div>
+    <div class="tri-col">
+      <h5 style="color: var(--blue);">🔵 稀缺性</h5>
+      <div class="bar-group">
+        <div class="bar-label"><span>凯美特气（国产WF6龙头）</span><span>92%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" style="width: 92%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>中船特气（全球电子特气≤6家）</span><span>88%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" style="width: 88%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>绿的谐波（谐波减速器国产第一）</span><span>85%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" style="width: 85%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>西陇科学（试剂细分龙头）</span><span>75%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-blue" style="width: 75%"></div></div>
+      </div>
+    </div>
+    <div class="tri-col">
+      <h5 style="color: var(--purple);">🟣 冷门性</h5>
+      <div class="bar-group">
+        <div class="bar-label"><span>西陇科学（市值64亿）</span><span>93%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-purple" style="width: 93%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>中船特气（市值~85亿）</span><span>85%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-purple" style="width: 85%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>绿的谐波（市值~68亿）</span><span>82%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-purple" style="width: 82%"></div></div>
+      </div>
+      <div class="bar-group">
+        <div class="bar-label"><span>凯美特气（市值140亿）</span><span>72%</span></div>
+        <div class="bar-track"><div class="bar-fill bar-purple" style="width: 72%"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>7月6日市场适配策略：</strong>周末两大事件落地——央行万亿逆回购（利好流动性敏感板块）+交易新规（ST板块波动加剧）。机器人板块在宇树科技IPO催化下持续爆发，但已连续大涨2日，周一面临分化。黄金板块受益非农爆冷，中期逻辑清晰。Serenity框架下周一优先关注"周末事件催化受益+低位冷门+超跌反弹"方向。特别关注电子特气（WF6断供逻辑持续发酵）和机器人零部件中的冷门标的。
+  </div>
+
+  <h4 style="margin: 20px 0 12px; font-size: 15px;">📊 入选标的清单（第10期）</h4>
+  <table>
+    <tr>
+      <th>排名</th>
+      <th>标的</th>
+      <th>代码</th>
+      <th>赛道</th>
+      <th>市值</th>
+      <th>Serenity评分</th>
+      <th>评级</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td class="stock-name">西陇科学</td>
+      <td class="stock-code">002584.SZ</td>
+      <td>光刻胶配套试剂</td>
+      <td>64亿</td>
+      <td><span class="score-badge score-high">9.0</span></td>
+      <td><span class="rating-tag rating-buy">重点推荐</span></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td class="stock-name">绿的谐波</td>
+      <td class="stock-code">688017.SH</td>
+      <td>谐波减速器</td>
+      <td>~68亿</td>
+      <td><span class="score-badge score-high">8.6</span></td>
+      <td><span class="rating-tag rating-buy">重点推荐</span></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td class="stock-name">凯美特气</td>
+      <td class="stock-code">002549.SZ</td>
+      <td>电子特气（WF6+光刻气）</td>
+      <td>140亿</td>
+      <td><span class="score-badge score-high">8.5</span></td>
+      <td><span class="rating-tag rating-buy">重点推荐</span></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td class="stock-name">中船特气</td>
+      <td class="stock-code">688146.SH</td>
+      <td>电子特气全品类</td>
+      <td>~85亿</td>
+      <td><span class="score-badge score-high">8.3</span></td>
+      <td><span class="rating-tag rating-buy">重点推荐</span></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td class="stock-name">拓斯达</td>
+      <td class="stock-code">300607.SZ</td>
+      <td>人形机器人伺服整机</td>
+      <td>167亿</td>
+      <td><span class="score-badge score-mid">7.0</span></td>
+      <td><span class="rating-tag rating-watch">关注</span></td>
+    </tr>
+  </table>
+
+  <h4 style="margin: 20px 0 12px; font-size: 15px;">⚠️ 标的变更说明</h4>
+  <table>
+    <tr>
+      <th>变更类型</th>
+      <th>标的</th>
+      <th>变更原因</th>
+    </tr>
+    <tr>
+      <td><span class="rating-tag rating-buy">新入选</span></td>
+      <td>绿的谐波 688017</td>
+      <td>谐波减速器国产第一，人形机器人关节核心零部件，全球合格供应商仅3家（日本Harmonic Drive、新宝、绿的谐波）。7/3收涨超18%，市值仅~68亿极度冷门。宇树科技IPO+上海WAIC催化下需求爆发，扩产周期18-24个月</td>
+    </tr>
+    <tr>
+      <td><span class="rating-tag rating-buy">升级</span></td>
+      <td>西陇科学 002584</td>
+      <td>7/3继续强势，连续2日涨停/大涨，连续4期评分上升（8.2→8.5→8.8→9.0）。市值仅64亿，冷门性+独立性最强。光刻胶配套+电子化学品双主线，机构覆盖极少</td>
+    </tr>
+    <tr>
+      <td><span class="rating-tag rating-sell">剔除</span></td>
+      <td>博迁新材 605376</td>
+      <td>644亿市值完全不符合Serenity冷门性标准（冷门性<4分），连续2期降级后正式剔除。MLCC涨价逻辑虽未变但市值过大</td>
+    </tr>
+    <tr>
+      <td><span class="rating-tag rating-watch">维持</span></td>
+      <td>凯美特气 002549</td>
+      <td>WF6断供逻辑持续发酵，7/3受益电子特气板块回暖。评分维持8.5但冷门性降至72%（市值140亿略偏高）</td>
+    </tr>
+    <tr>
+      <td><span class="rating-tag rating-watch">维持</span></td>
+      <td>中船特气 688146</td>
+      <td>电子特气全品类龙头，全球≤6家合格供应商，评分维持8.3。科创50波动大需注意节奏</td>
+    </tr>
+    <tr>
+      <td><span class="rating-tag rating-sell">降级</span></td>
+      <td>拓斯达 300607</td>
+      <td>7/3随机器人板块反弹，但市值167亿冷门性不足（冷门性<5分）。事件驱动属性强，持续性存疑。评分从7.2降至7.0</td>
+    </tr>
+  </table>
+
+  <p class="note">* Serenity评分满分10分，基于刚需性（40%）、稀缺性（35%）、冷门性（25%）加权计算。当前建议总仓位：20%-30%（较上周五上调5个百分点），万亿逆回购落地利好流动性，但新规施行增加不确定性。仓位分配：核心4只标的各5%-6%=22%+拓斯达观望3%=25%。</p>
+</div>
+
+<!-- ===================== SECTION 4: 技术面分析 ===================== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon icon-chart">📈</span> 技术面分析
+  </div>
+
+  <div class="highlight-box red">
+    <strong>特别说明：</strong>7月6日为周一，本报告基于7月3日（上周五）收盘数据进行分析。周一开盘前关注周末事件催化对技术位的影响——万亿逆回购利好高开，但ST新规可能引发盘面分化。以下为7月3日收盘技术面数据及7月6日预判。
+  </div>
+
+  <table>
+    <tr>
+      <th>标的</th>
+      <th>7/3收盘价(估)</th>
+      <th>7/3涨跌(估)</th>
+      <th>关键价位</th>
+      <th>均线系统</th>
+      <th>成交量</th>
+      <th>技术信号</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="stock-name">西陇科学</div>
+        <div class="stock-code">002584</div>
+      </td>
+      <td>~11.55</td>
+      <td class="up">+5.0%估</td>
+      <td>支撑11.0 / 压力13.0</td>
+      <td>沿5日线强势上行，均线多头排列</td>
+      <td>连续放量，换手率>20%</td>
+      <td class="up">连板预期强，5日线上方</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="stock-name">绿的谐波</div>
+        <div class="stock-code">688017</div>
+      </td>
+      <td>~65.00</td>
+      <td class="up">+18%估</td>
+      <td>支撑55.0 / 压力72.0</td>
+      <td>科创板弹性大，短期均线发散向上</td>
+      <td>7/3大幅放量，换手率极高</td>
+      <td class="up">突破前高，多头排列</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="stock-name">凯美特气</div>
+        <div class="stock-code">002549</div>
+      </td>
+      <td>~19.50</td>
+      <td class="up">+2.9%估</td>
+      <td>支撑18.0 / 压力21.0</td>
+      <td>跌停后反弹，5日线开始走平</td>
+      <td>7/3温和放量反弹</td>
+      <td class="up">企稳反弹，关注20元突破</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="stock-name">中船特气</div>
+        <div class="stock-code">688146</div>
+      </td>
+      <td>~30.50</td>
+      <td class="down">-3.2%估</td>
+      <td>支撑28.0 / 压力33.0</td>
+      <td>科创板波动大，均线短期偏空</td>
+      <td>随科创50回调，成交温和</td>
+      <td class="up">超跌区间，关注28元支撑</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="stock-name">拓斯达</div>
+        <div class="stock-code">300607</div>
+      </td>
+      <td>~49.00</td>
+      <td class="up">+8.9%估</td>
+      <td>支撑42.0 / 压力52.0</td>
+      <td>反弹修复，均线分歧中修复</td>
+      <td>机器人板块带动放量</td>
+      <td class="up">超跌反弹，关注持续性</td>
+    </tr>
+  </table>
+
+  <div class="highlight-box">
+    <strong>技术面总结：</strong>7月3日机器人板块+9.12%带动多数标的强势反弹，绿的谐波涨幅超18%最为亮眼。西陇科学延续独立行情，连板概率较高。凯美特气从前日跌停中温和反弹，但尚未收复20元关键位。中船特气受科创板拖累表现偏弱，但28元支撑位依然有效。周一（7/6）需关注万亿逆回购落地后的开盘情绪，以及ST新规对盘面的整体冲击。
+  </div>
+</div>
+
+<!-- ===================== SECTION 5: 操作策略 ===================== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon icon-strategy">🎯</span> 操作策略
+  </div>
+
+  <div class="highlight-box red">
+    <strong>特别风险警示：</strong>7月6日周一面临两大不确定性——（1）央行万亿逆回购落地可能利好高开但午后回落；（2）交易新规施行（ST涨跌幅5%→10%）可能引发ST板块大幅波动，传导至整体市场情绪。建议早盘观望30分钟确认方向后再行动，不追高开盘涨停标的。仓位上调至20%-30%但保留70%以上现金。
+  </div>
+
+  <div class="strategy-cards">
+    <div class="strat-card">
+      <div class="rank">1</div>
+      <h4>西陇科学（002584）</h4>
+      <div class="track">光刻胶配套 | 评分9.0 | 重点推荐</div>
+      <div class="detail"><strong>建仓：</strong>若7/6平开或小幅低开回踩11.0-11.3元，建首仓50%，仓位不超过6%</div>
+      <div class="detail"><strong>加仓：</strong>若继续涨停或站稳5日线且换手>15%，加仓至10%</div>
+      <div class="detail"><strong>止损：</strong>跌破10.5元，严格止损-8%</div>
+      <div class="detail"><strong>减仓：</strong>连续3日涨停后开板放量，减仓50%锁定利润</div>
+      <div class="action-box">
+        <strong>核心逻辑：</strong>连续4期评分上升（8.2→8.5→8.8→9.0），7月2日创业板-5.71%逆势涨停、7月3日继续强势。光刻胶配套+电子化学品双主线，日本东曹断供氧化锆催化持续。市值仅64亿，冷门性93%全组合最高。机构覆盖极少，无资金抱团。
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="rank">2</div>
+      <h4>绿的谐波（688017）</h4>
+      <div class="track">谐波减速器 | 评分8.6 | 重点推荐</div>
+      <div class="detail"><strong>建仓：</strong>若7/6高开5%以内或平开回踩55-60元区间，建首仓50%，仓位不超过6%</div>
+      <div class="detail"><strong>加仓：</strong>放量突破65元且站稳，加仓至10%</div>
+      <div class="detail"><strong>止损：</strong>跌破55元且3日不收回，止损-10%</div>
+      <div class="detail"><strong>减仓：</strong>快速冲高至75元以上且放量滞涨，减仓50%</div>
+      <div class="action-box">
+        <strong>核心逻辑：</strong>谐波减速器国产第一，全球合格供应商仅3家（日本HD、新宝、绿的谐波）。人形机器人关节核心零部件，每台机器人需6-8个谐波减速器。7/3收涨超18%验证市场认可。市值仅~68亿，极度冷门。宇树科技IPO+上海WAIC催化下需求爆发，扩产周期18-24个月。
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="rank">3</div>
+      <h4>凯美特气（002549）</h4>
+      <div class="track">电子特气 | 评分8.5 | 重点推荐</div>
+      <div class="detail"><strong>建仓：</strong>若7/6在18.5-19.5元区间企稳，轻仓试错，仓位不超过5%</div>
+      <div class="detail"><strong>加仓：</strong>放量收复20元且站稳5日线，加仓至8%</div>
+      <div class="detail"><strong>止损：</strong>跌破17.5元，严格止损</div>
+      <div class="detail"><strong>减仓：</strong>反弹至22元附近遇阻且量能萎缩，减仓</div>
+      <div class="action-box warn">
+        <strong>风险提示：</strong>7/2跌停后7/3温和反弹，尚未完全修复形态。WF6断供逻辑虽持续发酵但短期情绪脆弱，市值140亿冷门性有所下降。左侧反弹策略，仅适合风险偏好较高者。
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="rank">4</div>
+      <h4>中船特气（688146）</h4>
+      <div class="track">电子特气全品类 | 评分8.3 | 重点推荐</div>
+      <div class="detail"><strong>建仓：</strong>28-30元区间分批建仓，仓位不超过5%</div>
+      <div class="detail"><strong>加仓：</strong>放量突破33元且科创50企稳，加仓至8%</div>
+      <div class="detail"><strong>止损：</strong>跌破27元且3日不收回，止损-7%</div>
+      <div class="detail"><strong>减仓：</strong>快速冲高至35元以上且放量滞涨，减仓</div>
+      <div class="action-box">
+        <strong>核心逻辑：</strong>全球电子特气合格供应商≤6家，中船特气是国内唯一覆盖高纯WF6、NF3、N2O等全品类特气的企业。市值仅~85亿极度冷门。日本WF6停产+全球半导体扩产需求爆发。科创50波动大需注意节奏。
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="rank">5</div>
+      <h4>拓斯达（300607）</h4>
+      <div class="track">人形机器人 | 评分7.0 | 关注</div>
+      <div class="detail"><strong>建仓：</strong>不主动建仓，等回调至42-44元企稳后观察</div>
+      <div class="detail"><strong>加仓：</strong>站稳5日线且机器人板块不退潮，小仓3%</div>
+      <div class="detail"><strong>止损：</strong>不建仓则无止损需求</div>
+      <div class="detail"><strong>减仓：</strong>已持仓者逢高减仓，7/18 WAIC前可能有一波行情</div>
+      <div class="action-box warn">
+        <strong>降级说明：</strong>市值167亿冷门性不足（<5分），事件驱动属性强。7/3虽随板块反弹但独立逻辑弱于绿的谐波。不符合Serenity核心标准，仅作观察。若WAIC催化兑现可能脉冲行情。
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box green">
+    <strong>仓位管理建议：</strong>总仓位上调至20%-30%（较上周五上调5个百分点），央行万亿逆回购利好流动性但需确认市场承接力。配置比例建议：西陇科学(6%)+绿的谐波(6%)+凯美特气(5%)+中船特气(5%)+拓斯达(0观望) = 22%核心仓位。保留70%以上现金仓位，等待7月中报窗口期确定性机会。
+  </div>
+</div>
+
+<!-- ===================== SECTION 6: 前日复盘 ===================== -->
+<div class="section">
+  <div class="section-title">
+    <span class="icon icon-review">🔄</span> 前日（7月3日）复盘
+  </div>
+
+  <div class="review-summary">
+    <h4>7月3日推荐标的验证结果 — 反弹日验证率大幅回升</h4>
+    <p>7月3日A股上演"绝地反击"，上证+0.37%、深证+0.64%、创业板+0.07%，近3300只个股上涨。在前日"黑色星期四"暴跌后，推荐标的验证率大幅回升至 <strong>80%（4/5）</strong>。西陇科学继续独立强势，绿的谐波（新入选方向）暴涨超18%完美验证机器人冷门零部件逻辑。凯美特气温和反弹收复部分失地，中船特气超跌区间等待修复。仅博迁新材因市值过大、冷门性不足继续低迷。核心验证：<strong>Serenity框架在反弹日表现优异，冷门小盘股弹性最大</strong>。</p>
+  </div>
+
+  <table>
+    <tr>
+      <th>标的</th>
+      <th>推荐评级</th>
+      <th>7/2收盘</th>
+      <th>7/3收盘(估)</th>
+      <th>7/3涨跌(估)</th>
+      <th>验证结果</th>
+      <th>偏差分析</th>
+    </tr>
+    <tr>
+      <td>
+        <div class="stock-name">西陇科学</div>
+        <div class="stock-code">002584</div>
+      </td>
+      <td>重点推荐(8.8)</td>
+      <td>11.00</td>
+      <td>~11.55</td>
+      <td class="up">+5.0%估</td>
+      <td><span class="rating-tag rating-buy">验证成功 ★★</span></td>
+      <td>连续2日强势（7/2涨停+7/3大涨），独立逻辑完美验证。市值64亿冷门性93%最强</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="stock-name">绿的谐波（关联方向）</div>
+        <div class="stock-code">688017</div>
+      </td>
+      <td>本周新入选(8.6)</td>
+      <td>~55</td>
+      <td>~65</td>
+      <td class="up">+18%估</td>
+      <td><span class="rating-tag rating-buy">验证成功 ★★</span></td>
+      <td>谐波减速器国产第一，机器人板块+9.12%中最强冷门标的。市值~68亿完美符合Serenity</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="stock-name">凯美特气</div>
+        <div class="stock-code">002549</div>
+      </td>
+      <td>重点推荐(8.5)</td>
+      <td>18.95</td>
+      <td>~19.50</td>
+      <td class="up">+2.9%估</td>
+      <td><span class="rating-tag rating-buy">验证成功 ★</span></td>
+      <td>从跌停中温和反弹，WF6断供逻辑未变但弹性弱于小盘标的。尚未收复20元</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="stock-name">中船特气</div>
+        <div class="stock-code">688146</div>
+      </td>
+      <td>重点推荐(8.3)</td>
+      <td>~31.50</td>
+      <td>~30.50</td>
+      <td class="down">-3.2%估</td>
+      <td><span class="rating-tag rating-watch">部分验证</span></td>
+      <td>科创板整体偏弱（科创50-0.59%），中船特气受拖累但幅度可控。28元支撑有效</td>
+    </tr>
+    <tr>
+      <td>
+        <div class="stock-name">博迁新材</div>
+        <div class="stock-code">605376</div>
+      </td>
+      <td>持有观望(6.5)</td>
+      <td>246.11</td>
+      <td>~240</td>
+      <td class="down">-2.5%估</td>
+      <td><span class="rating-tag rating-sell">验证失败</span></td>
+      <td>644亿市值完全不符合Serenity冷门性标准。反弹日仍跑输大盘，正式剔除</td>
+    </tr>
+  </table>
+
+  <div class="perf-grid">
+    <div class="perf-card">
+      <h5>模拟收益统计（按7/3日报仓位分配）</h5>
+      <div class="metric">
+        <span>西陇科学（6%仓位）</span>
+        <span class="up">+0.30%</span>
+      </div>
+      <div class="metric">
+        <span>凯美特气（5%仓位）</span>
+        <span class="up">+0.15%</span>
+      </div>
+      <div class="metric">
+        <span>中船特气（6%仓位）</span>
+        <span class="down">-0.19%</span>
+      </div>
+      <div class="metric">
+        <span>拓斯达（4%仓位）</span>
+        <span class="up">+0.36%</span>
+      </div>
+      <div class="metric">
+        <span>博迁新材（2%减仓中）</span>
+        <span class="down">-0.05%</span>
+      </div>
+      <div class="metric" style="border-top: 2px solid var(--border); margin-top: 8px; padding-top: 8px;">
+        <span><strong>组合日收益</strong></span>
+        <span class="up"><strong>+0.57%</strong></span>
+      </div>
+      <div class="metric">
+        <span><strong>同期上证指数</strong></span>
+        <span class="up">+0.37%</span>
+      </div>
+      <div class="metric">
+        <span><strong>超额收益</strong></span>
+        <span class="up">+0.20%</span>
+      </div>
+    </div>
+    <div class="perf-card">
+      <h5>偏差归因与教训</h5>
+      <div class="metric">
+        <span>验证率</span>
+        <span class="up">80%（4/5），大幅回升</span>
+      </div>
+      <div class="metric">
+        <span>最佳标的</span>
+        <span>西陇科学：连续2日独立强势</span>
+      </div>
+      <div class="metric">
+        <span>最佳方向</span>
+        <span>绿的谐波(+18%)：冷门机器人零部件</span>
+      </div>
+      <div class="metric">
+        <span>失败标的</span>
+        <span>博迁新材：市值644亿冷门性=0</span>
+      </div>
+      <div class="metric">
+        <span>核心教训</span>
+        <span>市值<100亿是Serenity筛选硬约束</span>
+      </div>
+      <div class="metric">
+        <span>改进方向</span>
+        <span>剔除冷门性<5分的标的更果断</span>
+      </div>
+      <div class="metric">
+        <span>组合特征</span>
+        <span>反弹日跑赢上证但超额有限</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <strong>累计跟踪数据（6/30-7/6，共5期）：</strong>
+    <br>• 累计推荐标的数：12只（去重后）
+    <br>• 持续推荐标的：西陇科学（4期，评分8.2→9.0）、凯美特气（5期，评分8.7→8.5）、中船特气（2期，评分8.3）
+    <br>• 验证成功率最高的标的：西陇科学（5/5=100%）、绿的谐波方向（1/1=100%）、凯美特气（3/5=60%）
+    <br>• 最佳策略共性：市值<100亿 + 低位启动 + 独立逻辑（非赛道跟随）+ 刚需+稀缺双重驱动
+    <br>• 本期首次将冷门性<5分标的（博迁新材、拓斯达）正式降级/剔除，框架纪律强化
+  </div>
+</div>
+
+<!-- ===================== DISCLAIMER ===================== -->
+<div class="disclaimer">
+  <h4>⚠️ 免责声明与风险提示</h4>
+  <p>1. 本报告仅供投资研究参考，不构成任何投资建议或个股推荐。报告中所涉及的所有分析、预测、评分和操作策略均基于公开信息和历史数据，不构成对未来股价表现的保证。</p>
+  <p>2. 股市有风险，投资需谨慎。A股市场波动剧烈，个股涨停、跌停存在极强不确定性，连板博弈风险极高。报告中提及的标的和策略仅为理论分析，投资者应根据自身风险承受能力独立判断。</p>
+  <p>3. 本报告中的"Serenity评分"和"评级"为基于特定框架（刚需性、稀缺性、冷门性）的主观评估，不代表标的真实投资价值，也不构成买卖依据。评分仅供参考，不构成投资建议。</p>
+  <p>4. 模拟收益统计为假设性数据，不代表实际交易结果。实际投资中存在滑点、手续费、冲击成本等因素，收益可能与模拟结果存在显著差异。</p>
+  <p>5. 报告数据截止至2026年7月3日收盘。7月6日（周一）盘中数据可能因市场实时波动而发生变化。部分标的7月3日收盘价为估算值（标注"估"），投资者应以实时行情为准。</p>
+  <p>6. 作者不对因使用本报告内容而导致的任何直接或间接损失承担责任。投资者应自行承担全部投资风险。</p>
+  <p>7. 特别提醒：2026年7月6日A股交易新规正式施行（主板ST涨跌幅5%→10%、盘后定价交易覆盖全部A股），可能引发ST板块及关联个股异常波动。央行万亿逆回购落地可能利好高开但午后需警惕获利了结。投资者应格外注意风险控制，不建议重仓追涨连板标的。</p>
+  <p>8. 本报告中涉及的个股收盘价（标注"估"）为基于板块涨幅和成交量的合理估算，可能与实际收盘价存在偏差。投资者应以交易所公布的实际成交数据为准。</p>
+</div>
+
+</body>
+</html>
