@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-07-10T20:00:00Z",
+  "updatedAt": "2026-07-11T12:00:00Z",
   "kpi": [
-    { "label": "上证指数", "value": "3,509.68 (+0.48%)", "trend": "up" },
-    { "label": "两市成交额", "value": "1.49万亿", "trend": "neutral" },
-    { "label": "涨停/跌停", "value": "68 / 14", "trend": "up" },
-    { "label": "核心主线", "value": "光伏反内卷+碳达峰+新型城镇化", "trend": "up" },
-    { "label": "本期重点推荐", "value": "晨光新材(8.6) / 西陇科学(8.2)", "trend": "up" },
-    { "label": "框架适配度", "value": "高度匹配（周期+政策）", "trend": "up" },
-    { "label": "建议总仓位", "value": "15%-20%", "trend": "up" },
-    { "label": "前日策略准确率", "value": "2/3正确（首药+凯美）", "trend": "up" }
+    { "label": "上证指数", "value": "3,996.16 (-1.00%)", "trend": "down" },
+    { "label": "两市成交额", "value": "3.41万亿（放量）", "trend": "neutral" },
+    { "label": "涨停/跌停", "value": "50+ / 多", "trend": "up" },
+    { "label": "核心主线", "value": "商业航天(28股涨停)+基药目录+中报预增", "trend": "up" },
+    { "label": "本期重点推荐", "value": "贵绳股份(7.8) / 晨光新材(8.2)", "trend": "neutral" },
+    { "label": "框架适配度", "value": "偏低（事件驱动型行情）", "trend": "down" },
+    { "label": "建议总仓位", "value": "12%-15%（下调）", "trend": "down" },
+    { "label": "前日策略准确率", "value": "2/4正确（新城市+凯美）", "trend": "down" }
   ]
 }
