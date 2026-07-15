@@ -32,10 +32,13 @@ footer{border-top:1px solid #1a1a2e;margin-top:30px;padding-top:15px;text-align:
 .modal-box h1,.modal-box h2,.modal-box h3,.modal-box h4{color:#00d4aa;margin:16px 0 8px}
 .modal-box h1:first-child{margin-top:0}
 .modal-box p{margin:8px 0}
-.modal-box table{width:100%;border-collapse:collapse;margin:12px 0;font-size:0.95rem}
-.modal-box th,.modal-box td{border:1px solid #2a2a4e;padding:8px 10px;text-align:left}
-.modal-box th{background:#0f3460;color:#00d4aa}
-.modal-box tr:nth-child(even){background:#16213e}
+.md-table-wrap{overflow-x:auto;margin:16px 0;border-radius:8px;border:1px solid #2a2a4e}
+.modal-box table{width:100%;border-collapse:collapse;font-size:0.9rem}
+.modal-box th,.modal-box td{border:1px solid #2a2a4e;padding:10px 14px;text-align:left;vertical-align:top;word-break:break-word}
+.modal-box th{background:#0f3460;color:#00d4aa;font-weight:600;position:sticky;top:0;white-space:nowrap}
+.modal-box tbody tr:hover{background:#1f2f5e}
+.modal-box tbody tr:nth-child(even){background:#16213e}
+.modal-box tbody tr:nth-child(even):hover{background:#1f2f5e}
 .modal-box blockquote{border-left:3px solid #00d4aa;padding:8px 16px;margin:12px 0;color:#aaa;background:#16213e;border-radius:0 6px 6px 0}
 .modal-box strong{color:#fff}
 .modal-box em{color:#bbb}
@@ -61,41 +64,112 @@ footer{border-top:1px solid #1a1a2e;margin-top:30px;padding-top:15px;text-align:
   </div>
 </div>
 <script>
-// Simple Markdown-to-HTML converter (no dependencies)
+// Markdown-to-HTML converter with GFM table support
 function mdToHtml(md) {
   if (!md) return '';
-  let html = md;
-  // Escape HTML entities first, then restore markdown constructs
-  html = html.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  // Restore block-level markdown
-  // Headers
-  html = html.replace(/^#### (.+)$/gm, '<h4>$1</h4>');
-  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
-  // Horizontal rules
-  html = html.replace(/^---+$/gm, '<hr>');
-  // Bold and italic
-  html = html.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
-  // Inline code
-  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  // Split into lines, process line-by-line for block elements
+  var lines = md.split('\n');
+  var result = [];
+  var i = 0;
+  while (i < lines.length) {
+    var line = lines[i];
+    // GFM Table: detect rows starting with |, preceded/followed by blank lines or start/end
+    if (/^\|(.+)\|$/.test(line.trim()) && i + 1 < lines.length && /^\|[\s\-:|]+\|$/.test(lines[i+1].trim())) {
+      // Parse header row
+      var headers = parseTableRow(line);
+      i += 2; // skip separator
+      var rows = [];
+      while (i < lines.length && /^\|(.+)\|$/.test(lines[i].trim()) && !/^\|[\s\-:|]+\|$/.test(lines[i].trim())) {
+        rows.push(parseTableRow(lines[i]));
+        i++;
+      }
+      var tableHtml = '<div class="md-table-wrap"><table><thead><tr>';
+      for (var h = 0; h < headers.length; h++) {
+        tableHtml += '<th>' + inlineFormat(headers[h]) + '</th>';
+      }
+      tableHtml += '</tr></thead><tbody>';
+      for (var r = 0; r < rows.length; r++) {
+        tableHtml += '<tr>';
+        for (var c = 0; c < rows[r].length; c++) {
+          tableHtml += '<td>' + inlineFormat(rows[r][c]) + '</td>';
+        }
+        tableHtml += '</tr>';
+      }
+      tableHtml += '</tbody></table></div>';
+      result.push(tableHtml);
+      continue;
+    }
+    // Empty line
+    if (line.trim() === '') { i++; continue; }
+    // Headers
+    if (/^#### (.+)$/.test(line)) { result.push('<h4>' + inlineFormat(line.replace(/^#### /, '')) + '</h4>'); i++; continue; }
+    if (/^### (.+)$/.test(line)) { result.push('<h3>' + inlineFormat(line.replace(/^### /, '')) + '</h3>'); i++; continue; }
+    if (/^## (.+)$/.test(line)) { result.push('<h2>' + inlineFormat(line.replace(/^## /, '')) + '</h2>'); i++; continue; }
+    if (/^# (.+)$/.test(line)) { result.push('<h1>' + inlineFormat(line.replace(/^# /, '')) + '</h1>'); i++; continue; }
+    // Horizontal rules
+    if (/^---+$/.test(line.trim())) { result.push('<hr>'); i++; continue; }
+    // Blockquotes (consecutive lines starting with >)
+    if (/^&gt; (.+)$/.test(line) || /^> (.+)$/.test(line)) {
+      var bqLines = [];
+      while (i < lines.length && (/^&gt; (.+)$/.test(lines[i]) || /^> (.+)$/.test(lines[i]))) {
+        bqLines.push(lines[i].replace(/^&gt; ?/, '').replace(/^> ?/, ''));
+        i++;
+      }
+      result.push('<blockquote>' + bqLines.join('<br>') + '</blockquote>');
+      continue;
+    }
+    // Unordered list (consecutive lines starting with -)
+    if (/^- (.+)$/.test(line)) {
+      var ulHtml = '<ul>';
+      while (i < lines.length && /^- (.+)$/.test(lines[i])) {
+        ulHtml += '<li>' + inlineFormat(lines[i].replace(/^- /, '')) + '</li>';
+        i++;
+      }
+      ulHtml += '</ul>';
+      result.push(ulHtml);
+      continue;
+    }
+    // Ordered list (consecutive lines starting with number.)
+    if (/^\d+\. (.+)$/.test(line)) {
+      var olHtml = '<ol>';
+      while (i < lines.length && /^\d+\. (.+)$/.test(lines[i])) {
+        olHtml += '<li>' + inlineFormat(lines[i].replace(/^\d+\. /, '')) + '</li>';
+        i++;
+      }
+      olHtml += '</ol>';
+      result.push(olHtml);
+      continue;
+    }
+    // Default: paragraph
+    result.push('<p>' + inlineFormat(line) + '</p>');
+    i++;
+  }
+  return result.join('\n');
+}
+
+// Parse a single GFM table row into array of cell texts
+function parseTableRow(line) {
+  var cells = line.trim();
+  if (cells.charAt(0) === '|') cells = cells.substring(1);
+  if (cells.charAt(cells.length-1) === '|') cells = cells.substring(0, cells.length-1);
+  return cells.split('|');
+}
+
+// Inline formatting: bold, italic, code, links
+function inlineFormat(text) {
+  // Escape HTML
+  text = text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  // Inline code (must be before bold/italic)
+  text = text.replace(/`([^`]+)`/g, '<code>$1</code>');
+  // Bold+Italic
+  text = text.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
+  // Bold
+  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  // Italic
+  text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
   // Links
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
-  // Blockquotes
-  html = html.replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>');
-  // Unordered list items
-  html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
-  // Ordered list items
-  html = html.replace(/^\d+\. (.+)$/gm, '<li>$1</li>');
-  // Wrap consecutive <li> in <ul>
-  html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
-  // Paragraphs: lines that are not already wrapped in tags
-  html = html.replace(/^(?!<[hbulo]|<hr|<li|<blockquote|<div)(.+)$/gm, '<p>$1</p>');
-  // Clean up empty paragraphs
-  html = html.replace(/<p>\s*<\/p>/g, '');
-  return html;
+  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
+  return text;
 }
 
 function openModal(report) {
