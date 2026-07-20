@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-07-11T12:00:00Z",
+  "updatedAt": "2026-07-20T10:00:00Z",
   "kpi": [
-    { "label": "上证指数", "value": "3,996.16 (-1.00%)", "trend": "down" },
-    { "label": "两市成交额", "value": "3.41万亿（放量）", "trend": "neutral" },
-    { "label": "涨停/跌停", "value": "50+ / 多", "trend": "up" },
-    { "label": "核心主线", "value": "商业航天(28股涨停)+基药目录+中报预增", "trend": "up" },
-    { "label": "本期重点推荐", "value": "贵绳股份(7.8) / 晨光新材(8.2)", "trend": "neutral" },
-    { "label": "框架适配度", "value": "偏低（事件驱动型行情）", "trend": "down" },
-    { "label": "建议总仓位", "value": "12%-15%（下调）", "trend": "down" },
-    { "label": "前日策略准确率", "value": "2/4正确（新城市+凯美）", "trend": "down" }
+    { "label": "上证指数", "value": "3,764.15 (-3.05%)", "trend": "down" },
+    { "label": "科创综指周跌", "value": "-17.46%（历史级）", "trend": "down" },
+    { "label": "跌停/涨停", "value": "212 / 35", "trend": "down" },
+    { "label": "周末维稳", "value": "国家队600亿+1.7万亿解冻", "trend": "up" },
+    { "label": "核心主线", "value": "电池消费税（钠电/固态免税）", "trend": "up" },
+    { "label": "本期重点推荐", "value": "传艺科技(002866) / 信宇人(688573)", "trend": "up" },
+    { "label": "建议总仓位", "value": "15%（上调，适度参与反弹）", "trend": "up" },
+    { "label": "策略准确率", "value": "连续2期完美避开暴跌", "trend": "up" }
   ]
 }
