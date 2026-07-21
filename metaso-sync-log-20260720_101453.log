@@ -1,0 +1,119 @@
+[2026-07-20 10:14:53] ==========================================
+[2026-07-20 10:14:53] 秘塔AI搜索知识库同步流水线
+[2026-07-20 10:14:53] 开始时间: 2026-07-20 10:14:53
+[2026-07-20 10:14:53] ==========================================
+[2026-07-20 10:14:53] 使用命令行传入的Cookie
+[2026-07-20 10:14:53] 检查依赖...
+[2026-07-20 10:14:53]   node: v25.9.0
+[2026-07-20 10:14:53] 警告: 未找到 markitdown，将跳过文件格式转换
+[2026-07-20 10:14:53] 安装: pip3 install 'markitdown[all]' --break-system-packages
+[2026-07-20 10:14:53]   git: git version 2.39.5 (Apple Git-154)
+[2026-07-20 10:14:53] 
+[2026-07-20 10:14:53] ===== 阶段1: 同步拉取 =====
+[2026-07-20T02:14:53.708Z] [fetch] Cookie: tid=4308574b-0946-4833-9385-5d96eb0770f9; __eventn...
+[2026-07-20T02:14:53.710Z] [fetch] 验证认证有效性...
+[2026-07-20T02:14:54.085Z] [fetch] Cookie验证通过: uid=undefined, nickname=N/A
+[2026-07-20T02:14:54.085Z] [fetch] 正在获取知识库列表...
+[2026-07-20T02:14:54.085Z] [fetch] 获取 source=SUBSCRIPTION 的知识库...
+[2026-07-20T02:14:54.239Z] [fetch]   source=SUBSCRIPTION: 1 个知识库 (共 1 个)
+[2026-07-20T02:14:54.742Z] [fetch] 获取 source=CREATE 的知识库...
+[2026-07-20T02:14:54.876Z] [fetch]   source=CREATE: 0 个知识库 (共 0 个)
+[2026-07-20T02:14:55.377Z] [fetch] 获取 source=CHARGEABLE 的知识库...
+[2026-07-20T02:14:55.513Z] [fetch]   source=CHARGEABLE: 0 个知识库 (共 0 个)
+[2026-07-20T02:14:56.014Z] [fetch] 
+共获取 1 个知识库:
+[2026-07-20T02:14:56.015Z] [fetch]   [1] 股票深度分析-专注泛科技类股票解读（持续更新） (1196 条内容, source=SUBSCRIPTION)
+阶段1执行失败: Error: EPERM: operation not permitted, open '/Users/xuchen.xia/.scripts/metaso-sync/data/raw/knowledge-list.json'
+    at Object.writeFileSync (node:fs:2398:20)
+    at main (/Users/xuchen.xia/.scripts/metaso-sync/scripts/01-fetch-topics.js:256:6) {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'open',
+  path: '/Users/xuchen.xia/.scripts/metaso-sync/data/raw/knowledge-list.json'
+}
+[2026-07-20 10:14:56] 阶段1失败，但继续执行后续阶段
+[2026-07-20 10:14:56] 
+[2026-07-20 10:14:56] ===== 阶段2: 转换为Markdown =====
+[2026-07-20T02:14:56.151Z] [convert] [1/1] 转换知识库: 股票深度分析-专注泛科技类股票解读（持续更新）
+node:fs:2398
+    return binding.writeFileUtf8(
+                   ^
+
+Error: EPERM: operation not permitted, open '/Users/xuchen.xia/.scripts/metaso-sync/data/markdown/股票深度分析-专注泛科技类股票解读（持续更新）/专题介绍.md'
+    at Object.writeFileSync (node:fs:2398:20)
+    at main (/Users/xuchen.xia/.scripts/metaso-sync/scripts/02-convert-markdown.js:82:16)
+    at Object.<anonymous> (/Users/xuchen.xia/.scripts/metaso-sync/scripts/02-convert-markdown.js:184:1)
+    at Module._compile (node:internal/modules/cjs/loader:1829:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)
+    at Module.load (node:internal/modules/cjs/loader:1552:32)
+    at Module._load (node:internal/modules/cjs/loader:1354:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'open',
+  path: '/Users/xuchen.xia/.scripts/metaso-sync/data/markdown/股票深度分析-专注泛科技类股票解读（持续更新）/专题介绍.md'
+}
+
+Node.js v25.9.0
+[2026-07-20 10:14:56] 阶段2失败，但继续执行后续阶段
+[2026-07-20 10:14:56] 
+[2026-07-20 10:14:56] ===== 阶段3: 生成分析报告 =====
+[2026-07-20T02:14:56.708Z] [report] 进行词频分析...
+node:fs:2398
+    return binding.writeFileUtf8(
+                   ^
+
+Error: EPERM: operation not permitted, open '/Users/xuchen.xia/.scripts/metaso-sync/data/reports/INDEX.md'
+    at Object.writeFileSync (node:fs:2398:20)
+    at main (/Users/xuchen.xia/.scripts/metaso-sync/scripts/03-generate-report.js:232:6)
+    at Object.<anonymous> (/Users/xuchen.xia/.scripts/metaso-sync/scripts/03-generate-report.js:296:1)
+    at Module._compile (node:internal/modules/cjs/loader:1829:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)
+    at Module.load (node:internal/modules/cjs/loader:1552:32)
+    at Module._load (node:internal/modules/cjs/loader:1354:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+    at node:internal/main/run_main_module:33:47 {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'open',
+  path: '/Users/xuchen.xia/.scripts/metaso-sync/data/reports/INDEX.md'
+}
+
+Node.js v25.9.0
+[2026-07-20 10:14:56] 阶段3失败，但继续执行后续阶段
+[2026-07-20 10:14:56] 
+[2026-07-20 10:14:56] ===== 阶段4: 推送到Gitee =====
+[2026-07-20T02:14:56.971Z] [push] 已复制 0 个Markdown文件
+node:fs:3089
+  binding.copyFile(
+          ^
+
+Error: EPERM: operation not permitted, copyfile '/Users/xuchen.xia/.scripts/metaso-sync/data/reports/INDEX.md' -> '/Users/xuchen.xia/.scripts/metaso-sync/data/repo/reports/INDEX.md'
+    at Object.copyFileSync (node:fs:3089:11)
+    at /Users/xuchen.xia/.scripts/metaso-sync/scripts/04-push-to-gitee.js:84:10
+    at Array.forEach (<anonymous>)
+    at main (/Users/xuchen.xia/.scripts/metaso-sync/scripts/04-push-to-gitee.js:83:17)
+    at Object.<anonymous> (/Users/xuchen.xia/.scripts/metaso-sync/scripts/04-push-to-gitee.js:135:1)
+    at Module._compile (node:internal/modules/cjs/loader:1829:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1969:10)
+    at Module.load (node:internal/modules/cjs/loader:1552:32)
+    at Module._load (node:internal/modules/cjs/loader:1354:12)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19) {
+  errno: -1,
+  code: 'EPERM',
+  syscall: 'copyfile',
+  path: '/Users/xuchen.xia/.scripts/metaso-sync/data/reports/INDEX.md',
+  dest: '/Users/xuchen.xia/.scripts/metaso-sync/data/repo/reports/INDEX.md'
+}
+
+Node.js v25.9.0
+[2026-07-20 10:14:56] 阶段4失败
+[2026-07-20 10:14:56] 
+[2026-07-20 10:14:56] ==========================================
+[2026-07-20 10:14:57] 流水线执行完毕
+[2026-07-20 10:14:57] 结束时间: 2026-07-20 10:14:57
+[2026-07-20 10:14:57] 日志文件: /Users/xuchen.xia/.trae-cn/work/6a5d816cdac89dd39aa80b7d/sync_20260720_101453.log
+[2026-07-20 10:14:57] ==========================================
