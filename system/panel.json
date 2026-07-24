@@ -2,9 +2,9 @@
   "widgets": [
     {
       "source": "agents/serenity-research/panel/kpi.json",
-      "title": "Serenity 紫苏叶逆向投研 KPI",
+      "title": "Serenity投研看板",
       "content": "",
-      "updated": "2026-07-06T01:56:57.218Z"
+      "updated": "2026-07-24T01:56:20.426Z"
     },
     {
       "source": "agents/serenity-research/panel/snapshot.json",
