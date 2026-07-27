@@ -1,13 +1,12 @@
 {
-  "updatedAt": "2026-07-20T10:00:00Z",
+  "updatedAt": "2026-07-27T15:00:00Z",
   "kpi": [
-    { "label": "上证指数", "value": "3,764.15 (-3.05%)", "trend": "down" },
-    { "label": "科创综指周跌", "value": "-17.46%（历史级）", "trend": "down" },
-    { "label": "跌停/涨停", "value": "212 / 35", "trend": "down" },
-    { "label": "周末维稳", "value": "国家队600亿+1.7万亿解冻", "trend": "up" },
-    { "label": "核心主线", "value": "电池消费税（钠电/固态免税）", "trend": "up" },
-    { "label": "本期重点推荐", "value": "传艺科技(002866) / 信宇人(688573)", "trend": "up" },
-    { "label": "建议总仓位", "value": "15%（上调，适度参与反弹）", "trend": "up" },
-    { "label": "策略准确率", "value": "连续2期完美避开暴跌", "trend": "up" }
+    { "label": "上证指数", "value": "3814.20 (-1.61%)", "trend": "down" },
+    { "label": "两市成交额", "value": "1.93万亿 (缩量)", "trend": "down" },
+    { "label": "半导体主力净流入", "value": "+40.99亿", "trend": "up" },
+    { "label": "北向资金", "value": "+28.03亿", "trend": "up" },
+    { "label": "长鑫科技(688825)", "value": "开盘+471% 市值3.31万亿", "trend": "up" },
+    { "label": "核心标的", "value": "中恒电气/长高电新", "trend": "neutral" },
+    { "label": "累计模拟收益", "value": "+0.39% (第20-25期)", "trend": "up" }
   ]
 }
